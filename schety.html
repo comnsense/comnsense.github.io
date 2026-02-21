@@ -2,12 +2,12 @@
 <html lang="bg">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Счетоводен практика | Accounting experience</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Счетоводен опит | Мирела Йосифова</title>
     
     <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/images/favico.svg">
-<link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23306788' stroke-width='2'%3E%3Crect x='2' y='7' width='20' height='14' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'%3E%3C/path%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="images/favico.svg">
+    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23306788' stroke-width='2'%3E%3Crect x='2' y='7' width='20' height='14' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'%3E%3C/path%3E%3C/svg%3E">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,49 +54,65 @@
             --shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        body {
+        html, body {
+            width: 100%;
+            min-height: 100vh;
             background-color: var(--bg-primary);
             color: var(--text-primary);
             font-size: 16px;
             font-weight: 400;
             line-height: 1.6;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Header */
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header - Mobile First */
         .header {
             background-color: var(--bg-secondary);
-            padding: 1rem 2rem;
+            padding: 0.8rem 3%;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 0.8rem;
             align-items: center;
             border-bottom: 2px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: var(--shadow);
+            width: 100%;
         }
 
         .header-logo {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 800;
             color: var(--accent);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.3rem;
+            align-self: flex-start;
         }
 
         .header-logo img {
-            height: 32px;
+            height: 28px;
             width: auto;
+        }
+
+        .nav {
+            width: 100%;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 0.8rem;
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .nav-item a {
@@ -104,24 +120,32 @@
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            padding: 0.3rem 0;
         }
 
         .nav-item a:hover {
             color: var(--accent);
         }
 
-        /* Theme Toggle Switch */
+        .nav-item a i {
+            margin-right: 0.2rem;
+            font-size: 0.8rem;
+        }
+
+        /* Theme Toggle Switch - Mobile optimized */
         .theme-switch-wrapper {
             display: flex;
             align-items: center;
-            margin-left: 1rem;
+            margin-left: 0.2rem;
         }
 
         .theme-switch {
             display: inline-block;
-            height: 34px;
+            height: 28px;
             position: relative;
-            width: 60px;
+            width: 48px;
         }
 
         .theme-switch input {
@@ -142,21 +166,21 @@
 
         .slider:before {
             background-color: var(--accent);
-            bottom: 4px;
+            bottom: 3px;
             content: "";
-            height: 22px;
-            left: 4px;
+            height: 18px;
+            left: 3px;
             position: absolute;
             transition: .4s;
-            width: 22px;
+            width: 18px;
         }
 
         input:checked + .slider:before {
-            transform: translateX(26px);
+            transform: translateX(20px);
         }
 
         .slider.round {
-            border-radius: 34px;
+            border-radius: 28px;
         }
 
         .slider.round:before {
@@ -164,32 +188,36 @@
         }
 
         .theme-icon {
-            margin: 0 0.5rem;
+            margin: 0 0.2rem;
             color: var(--text-primary);
+            font-size: 0.85rem;
         }
 
-        /* Container */
+        /* Container - Mobile First */
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
+            flex: 1;
         }
 
-        /* Page Title */
+        /* Page Title - Mobile optimized */
         .page-title {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .page-title img {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
         }
 
         .page-title h2 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
         }
 
@@ -203,19 +231,21 @@
             font-weight: 700;
             text-decoration: underline;
             transition: all 0.5s ease;
+            word-break: break-word;
         }
 
         .hyperlink:hover {
             color: var(--accent-hover);
         }
 
-        /* Back link */
+        /* Back link - Mobile optimized */
         .back-link {
             display: inline-block;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            padding: 0.5rem 0;
         }
 
         .back-link i {
@@ -227,28 +257,35 @@
             color: var(--accent);
         }
 
-        /* Info Card */
+        /* Info Card - Mobile optimized */
         .info-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(5px);
         }
 
         .card-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
             color: var(--accent);
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
-        /* Company Table */
+        .card-title i {
+            font-size: 1.2rem;
+        }
+
+        /* Company Table - Mobile optimized */
         .table-container {
             overflow-x: auto;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 8px;
         }
 
         .company-table {
@@ -257,127 +294,238 @@
             background-color: var(--bg-secondary);
             border-radius: 8px;
             overflow: hidden;
+            min-width: 600px; /* Ensures table is readable on mobile */
         }
 
         .company-table th {
             background-color: var(--accent);
             color: white;
-            padding: 1rem;
+            padding: 0.8rem;
             text-align: left;
             font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .company-table td {
-            padding: 1rem;
+            padding: 0.8rem;
             border-bottom: 1px solid var(--border-color);
             color: var(--text-primary);
+            font-size: 0.9rem;
         }
 
         .company-table tr:hover {
             background-color: var(--skill-bg);
         }
 
-        .company-table .status {
-            display: inline-block;
-            padding: 0.2rem 0.8rem;
-            background-color: var(--skill-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 0.85rem;
-            color: var(--text-primary);
-        }
-
         .company-notes {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            max-width: 250px;
+            max-width: 200px;
         }
 
-        /* Responsibilities Grid */
+        /* Mobile table hint */
+        .table-hint {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .table-hint i {
+            color: var(--accent);
+        }
+
+        /* Responsibilities Grid - Mobile optimized */
         .responsibilities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
         }
 
         .resp-item {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            padding: 0.8rem;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 0.8rem;
             color: var(--text-primary);
+            font-size: 0.95rem;
         }
 
         .resp-item i {
             color: var(--accent);
             font-size: 1rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
         }
 
-        /* Stats */
+        .resp-item span {
+            line-height: 1.4;
+        }
+
+        /* Stats - Mobile optimized */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin-top: 1.5rem;
         }
 
         .stat-item {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1rem;
+            border-radius: 10px;
+            padding: 1rem 0.5rem;
             text-align: center;
         }
 
         .stat-value {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent);
+            line-height: 1.2;
         }
 
         .stat-label {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* Footer */
+        /* Footer - Mobile First */
         footer {
             background-color: var(--bg-secondary);
-            padding: 2rem;
+            padding: 1.5rem 3%;
             text-align: center;
-            border-top: 1px solid var(--border-color);
-            margin-top: 4rem;
+            border-top: 2px solid var(--border-color);
+            margin-top: 2rem;
+            width: 100%;
         }
 
         .copyright {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .copyright i {
             color: var(--accent);
-            margin-right: 0.25rem;
+            margin-right: 0.2rem;
         }
 
-        @media (max-width: 768px) {
-            .nav-menu {
+        /* Tablet styles (min-width: 768px) */
+        @media (min-width: 768px) {
+            .header {
+                padding: 1rem 5%;
+                flex-direction: row;
                 gap: 1rem;
             }
-            .header {
-                padding: 1rem;
+            
+            .header-logo {
+                font-size: 1.5rem;
+                align-self: center;
             }
+            
+            .header-logo img {
+                height: 32px;
+            }
+            
+            .nav-menu {
+                justify-content: flex-end;
+                gap: 1.5rem;
+            }
+            
+            .nav-item a {
+                font-size: 1rem;
+            }
+            
+            .theme-switch {
+                height: 34px;
+                width: 60px;
+            }
+            
+            .slider:before {
+                height: 22px;
+                width: 22px;
+            }
+            
+            input:checked + .slider:before {
+                transform: translateX(26px);
+            }
+            
+            .container {
+                padding: 2rem;
+            }
+            
+            .page-title h2 {
+                font-size: 2rem;
+            }
+            
+            .info-card {
+                padding: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.5rem;
+            }
+            
+            .responsibilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .company-table {
+                min-width: 100%;
+            }
+            
+            .table-hint {
+                display: none;
+            }
+        }
+
+        /* Desktop styles (min-width: 1024px) */
+        @media (min-width: 1024px) {
+            .responsibilities-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-hover);
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <a href="http://comnsense.github.io/" class="header-logo">
-            <img src="/images/logo.png" alt="Logo">
+        <a href="https://comnsense.github.io/" class="header-logo">
+            <img src="images/logo.png" alt="Logo">
         </a>
         <nav class="nav">
             <ul class="nav-menu">
@@ -401,7 +549,7 @@
     <main class="container">
         
         <!-- Back link -->
-        <a href="/#experience" class="back-link">
+        <a href="https://comnsense.github.io/#experience" class="back-link">
             <i class="fas fa-arrow-left"></i> Назад  
         </a>
 
@@ -417,6 +565,11 @@
                 <i class="fas fa-building"></i>
                 Дружества
             </h3>
+            <!-- Mobile table hint -->
+            <div class="table-hint">
+                <i class="fas fa-arrows-alt-h"></i>
+                <span>Плъзни настрани за повече колони →</span>
+            </div>
             <div class="table-container">
                 <table class="company-table">
                     <thead>
@@ -454,7 +607,7 @@
                 <div class="stat-value">2022-2026</div>
                 <div class="stat-label">Период</div>
             </div>
-        </div>
+                   </div>
 
     </main>
 
@@ -530,7 +683,7 @@
             companies.forEach(company => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${company.name}</td>
+                    <td><strong>${company.name}</strong></td>
                     <td>${company.activity}</td>
                     <td class="company-notes">${company.notes || '-'}</td>
                 `;
