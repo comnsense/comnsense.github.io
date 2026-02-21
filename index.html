@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Мирела Йосифова | CV </title>
+    <title>Мирела Йосифова | CV</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="images/favico.svg">
-    <link rel="alternate icon" href="images/favico.ico">
+  <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23306788'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial'%3E%3C/text%3E%3C/svg%3E">
+    
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +27,6 @@
         }
 
         :root {
-            /* Dark theme (default) - #1D263B */
             --bg-primary: #1D263B;
             --bg-secondary: #2a344d;
             --bg-card: rgba(29, 38, 59, 0.12);
@@ -71,7 +70,7 @@
             flex-direction: column;
         }
 
-        /* Header - опънат на цял екран */
+        /* Header */
         .header {
             background-color: var(--bg-secondary);
             padding: 1rem 5%;
@@ -101,10 +100,6 @@
             width: auto;
         }
 
-        .nav {
-            width: auto;
-        }
-
         .nav-menu {
             display: flex;
             list-style: none;
@@ -131,7 +126,7 @@
             margin-right: 0.3rem;
         }
 
-        /* Theme Toggle Switch */
+        /* Theme Toggle */
         .theme-switch-wrapper {
             display: flex;
             align-items: center;
@@ -190,36 +185,13 @@
             font-size: 1rem;
         }
 
-        /* Main Container - опънат на цял екран */
+        /* Container */
         .container {
             width: 90%;
             max-width: 1400px;
             margin: 0 auto;
             padding: 2rem 0;
             flex: 1;
-        }
-
-        /* Page Title */
-        .page-title {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .page-title img {
-            width: 40px;
-            height: 40px;
-        }
-
-        .page-title h2 {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .green {
-            color: var(--accent);
         }
 
         /* Hyperlink */
@@ -233,12 +205,6 @@
 
         .hyperlink:hover {
             color: var(--accent-hover);
-        }
-
-        /* Section Description */
-        .section-description {
-            margin-bottom: 2rem;
-            color: var(--text-secondary);
         }
 
         /* Profile Section */
@@ -258,6 +224,11 @@
             margin-bottom: 1rem;
             color: var(--accent);
             word-break: break-word;
+        }
+
+        .section-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
         }
 
         .profile-details {
@@ -407,44 +378,6 @@
             font-size: 1.2rem;
         }
 
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .skill-category {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1.2rem;
-        }
-
-        .skill-category h4 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background-color: var(--skill-bg);
-            color: var(--text-primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid var(--border-color);
-        }
-
         /* Projects Grid */
         .projects-grid {
             display: grid;
@@ -498,6 +431,15 @@
             margin-bottom: 1rem;
         }
 
+        .skill-tag {
+            background-color: var(--skill-bg);
+            color: var(--text-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+        }
+
         .project-links {
             display: flex;
             gap: 1.5rem;
@@ -519,58 +461,36 @@
             color: var(--accent);
         }
 
-        /* Social Links */
-        .social-links {
-            display: flex;
-            justify-content: center;
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.5rem;
-            margin: 3rem 0;
-            list-style: none;
-            flex-wrap: wrap;
+            margin-top: 1.5rem;
         }
 
-        .social-link a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
+        .skill-category {
             background-color: var(--bg-secondary);
-            border: 2px solid var(--border-color);
-            border-radius: 50%;
-            color: var(--text-primary);
-            font-size: 1.3rem;
-            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.2rem;
         }
 
-        .social-link a:hover {
-            background-color: var(--accent);
-            color: white;
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        /* Footer - опънат на цял екран */
-        footer {
-            background-color: var(--bg-secondary);
-            padding: 2rem 5%;
-            text-align: center;
-            border-top: 2px solid var(--border-color);
-            margin-top: 4rem;
-            width: 100%;
-        }
-
-        .copyright {
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-
-        .copyright i {
+        .skill-category h4 {
             color: var(--accent);
-            margin-right: 0.3rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
         }
 
-        /* Soft Skills Section */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* Soft Skills */
         .soft-skills-container {
             margin: 2rem 0;
             width: 100%;
@@ -612,41 +532,68 @@
             font-size: 1rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .container {
-                width: 95%;
-            }
-            
-            .profile-section {
-                padding: 2rem;
-            }
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            list-style: none;
+            flex-wrap: wrap;
         }
 
+        .social-link a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+
+        .social-link a:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 2px solid var(--border-color);
+            margin-top: 4rem;
+            width: 100%;
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .copyright i {
+            color: var(--accent);
+            margin-right: 0.3rem;
+        }
+
+        /* Responsive */
         @media (max-width: 992px) {
             .profile-section {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .skills-grid {
-                grid-template-columns: repeat(3, 1fr);
             }
         }
 
         @media (max-width: 768px) {
             .header {
-                padding: 1rem 3%;
                 flex-direction: column;
                 gap: 1rem;
-            }
-            
-            .header-logo {
-                align-self: flex-start;
-            }
-            
-            .nav {
-                width: 100%;
             }
             
             .nav-menu {
@@ -654,32 +601,12 @@
                 gap: 1rem;
             }
             
-            .nav-item a {
-                font-size: 0.9rem;
-            }
-            
             .profile-info h1 {
                 font-size: 2rem;
             }
             
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .soft-skills-items {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .card-title {
-                font-size: 1.5rem;
-            }
-            
-            .info-card {
-                padding: 1.8rem;
+                grid-template-columns: 1fr;
             }
         }
 
@@ -687,19 +614,6 @@
             .container {
                 width: 100%;
                 padding: 1rem;
-            }
-            
-            .nav-menu {
-                flex-wrap: wrap;
-                gap: 0.8rem;
-            }
-            
-            .nav-item a {
-                font-size: 0.85rem;
-            }
-            
-            .theme-switch-wrapper {
-                margin-left: 0;
             }
             
             .profile-info h1 {
@@ -714,18 +628,6 @@
                 padding: 1.5rem;
             }
             
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .soft-skills-items {
-                grid-template-columns: 1fr;
-            }
-            
             .info-card {
                 padding: 1.5rem;
             }
@@ -734,19 +636,9 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
-            .item-date {
-                align-self: flex-start;
-            }
         }
 
-        /* За много дълги думи/линкове */
-        a, p, h1, h2, h3, h4, h5, h6, span, div {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        /* Скролбар */
+        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -760,26 +652,22 @@
             background: var(--accent);
             border-radius: 4px;
         }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-hover);
-        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <a href="http://comnsense.github.io/" class="header-logo">
+        <a href="https://comnsense.github.io/" class="header-logo">
             <img src="images/logo.png" alt="Logo"> 
         </a>
-        <nav class="nav">
+        <nav>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#about">За мен</a></li>
                 <li class="nav-item"><a href="#education">Образование</a></li>
                 <li class="nav-item"><a href="#experience">Опит</a></li>
                 <li class="nav-item"><a href="#projects">Проекти</a></li>
                 <li class="nav-item">
-                     <a href="/CV.pdf" target="_blank">
+                    <a href="/CV.pdf" target="_blank">
                         <i class="fas fa-download"></i> CV
                     </a>
                 </li>
@@ -797,7 +685,6 @@
 
     <!-- Main Container -->
     <main class="container">
-
         <!-- Profile Section -->
         <section id="about" class="profile-section">
             <div class="profile-info">
@@ -837,49 +724,26 @@
                 </div>
 
                 <div class="education-item">      
-                    
-                    <div style="margin-top: 1.5rem;">
-                        <h2 class="card-title" style="font-size: 1.3rem; margin-bottom: 0;">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23306788' stroke-width='2'%3E%3Cpolyline points='16 18 22 12 16 6'%3E%3C/polyline%3E%3Cpolyline points='8 6 2 12 8 18'%3E%3C/polyline%3E%3C/svg%3E" alt="">
-                            <a href="Thesis application.html" class="hyperlink" target="_blank">
-                                Дипломно приложение
-                            </a>
-                        </h2>
-                    </div>
                     <div class="item-header">
                         <span class="item-title">Бакалавър по компютърни науки</span>
                         <span class="item-date">2019 – 2024</span>
                     </div>
-                    <div class="item-subtitle">Варненски свободен университет „Черноризец Храбър“<a href="https://www.vfu.bg" class="hyperlink" target="_blank"></div>
+                    <div class="item-subtitle">Варненски свободен университет „Черноризец Храбър“</div>
                     <div class="item-details">
                         <p>Сфера на обучение: Информатика и компютърни науки</p>
                         <p>Последна придобита степен: Много добър (5.02) | Ниво по ЕКР: Ниво 6</p>
                         <p>Вид учебни кредити: ECTS credits | Брой кредити: 240</p>
-                        <p>Дисертация: <a href="thesis.pdf" class="hyperlink">"Development of an for Mental Health Support"</a></p>
+                        <p>Дисертация: <a href="thesis.pdf" class="hyperlink">"Development of an App for Mental Health Support"</a></p>
            
-                     
-                        <div style="margin-top: 1.5rem;">
+                        <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
                             <a href="Диплома.pdf" class="hyperlink" target="_blank">
                                 <i class="fas fa-file-pdf"></i> Диплома 
                             </a>
-                        </div>
-
-                        <div style="margin-top: 1.5rem;">
-                            <strong>Основни направления и придобити умения:</strong>
-                            <ul>
-                                <li>Програмиране: Python, JavaScript, PHP, SQL</li>
-                                   <li>Техническа подготовка</li> 
-                                <li>Бази данни и управление на информация</li>
-                                <li>Софтуерно инженерство</li>      
-                                <li>Мрежово симулиране и конфигурация: Cisco Packet Tracer</li>                             
-                             
-                                <li>Работа в дигитална среда и дистанционни екипи</li>
-                       
-                             
-                            </ul>
+                            <a href="Thesis application.html" class="hyperlink" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Дипломно приложение
+                            </a>
                         </div>
                     </div>    
-             
                 </div>
             </div>
         </section>
@@ -911,7 +775,7 @@
                         <p>Практика с нестопански организации, включително с делегирани държавни дейности и социални услуги с бюджетно финансиране, при стриктно прилагане на нормативната рамка и счетоводните стандарти.</p>
                         <p>Счетоводен софтуер: BulMar Office (Счетоводство+, ТРЗ), Кредо 2000</p>
                         <p style="margin-top: 1rem;">
-                           <span class="item-title">  <a href="schety.html" class="hyperlink">Виж повече  →</a>  </span>
+                            <a href="schety.html" class="hyperlink">Виж повече →</a>
                         </p>
                     </div>
                 </div>
@@ -944,29 +808,31 @@
                             <li>Начислява работни заплати и осигурителни вноски</li>
                             <li>Подпомагане на месечното, тримесечното и годишно приключване на годината</li>
                         </ul>
-                    </div> <span class="item-title">Компютърен оператор</span>        
-                    <span class="item-date">08/2023 – 12/2024</span>
+                    </div>
+                </div>
 
+                <div class="experience-item">
+                    <div class="item-header">                        
+                        <span class="item-title">Компютърен оператор</span>
+                        <span class="item-date">08/2023 – 12/2024</span>
+                    </div>
+                    <div class="item-details">
                         <ul>
                             <li>Поддържане на актуална информация в CRM платформата</li>
                             <li>Въвеждане на данни от клиентски заявки в специализирана система</li>
                             <li>Управление на входящата и изходящата кореспонденция</li>
                         </ul>
+                    </div>
                 </div>
 
                 <div class="experience-item">
                     <div class="item-header">                        
                         <span class="item-title">Консултант, поддръжка софтуер</span>
                         <span class="item-date">07/2024</span>
-
+                    </div>
                     <div class="item-subtitle">Теза ООД - София, България</div>
                     <div class="item-details">
-                    
                         <p>Уебсайт: <a href="https://www.b2match.com/" class="hyperlink" target="_blank">https://www.b2match.com/</a></p>
-                    </div>
-                </div>
-
-                    <div class="item-details">
                         <ul>
                             <li>Поддръжка на B2B платформа: Актуализиране на съдържание и функционалности в бизнес платформа</li>
                             <li>Потребителска поддръжка: Консултации на крайни потребители, разрешаване на технически казуси и проблеми с достъпа до платформата. Осигуряване на оперативна непрекъснатост</li>
@@ -988,16 +854,18 @@
                 <!-- AppSheet Project -->
                 <div class="project-card">
                     <div class="card-info">
-                        <h3 class="project-title">AppSheet приложение за Българо-китайска камара за индустриално развитие (BCCID)</h3>
+                        <h3 class="project-title">AppSheet приложение за Българо-китайска камара</h3>
                         <div class="project-skills">
                             <span class="skill-tag">AppSheet</span>
                             <span class="skill-tag">No-Code</span>
                             <span class="skill-tag">CRM</span>
                         </div>
-                        <p class="item-details">
-                            <ul> <li> Управление на членове, клиенти и плащания за услуги. </li> 
-                           <li> Оптимизация на процеси чрез визуализация на данни.</li> 
-                        </p></ul>
+                        <div class="item-details">
+                            <ul>
+                                <li>Управление на членове, клиенти и плащания за услуги</li>
+                                <li>Оптимизация на процеси чрез визуализация на данни</li>
+                            </ul>
+                        </div>
                         <div class="project-links">
                             <a href="https://www.appsheet.com/start/5e82fa28-7112-40f0-ab58-2fba90efe623?platform=desktop" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> AppSheet
@@ -1015,31 +883,15 @@
                             <span class="skill-tag">CSS3</span>
                             <span class="skill-tag">JavaScript</span>
                         </div>
-                        <p class="item-details">
-                        CV  с portfolio и responsive дизайн
-                        </p>
+                        <p class="item-details">CV с portfolio и responsive дизайн</p>
                         <div class="project-links">
-                            <a href="http://comnsense.github.io/" target="_blank">
+                            <a href="https://comnsense.github.io/" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> Преглед
                             </a>
                             <a href="https://github.com/comnsense/comnsense.github.io" target="_blank">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
-                        </div><div style="margin-top: 1.5rem;">
-                        <h2 class="card-title" style="font-size: 1.3rem; margin-bottom: 0;">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23306788' stroke-width='2'%3E%3Cpolyline points='16 18 22 12 16 6'%3E%3C/polyline%3E%3Cpolyline points='8 6 2 12 8 18'%3E%3C/polyline%3E%3C/svg%3E" alt="">
-                            <a href="Thesis application.html" class="hyperlink" target="_blank">
-                                Счетоводна практика
-                            </a>
-                        </h2>
-                    </div><div style="margin-top: 1.5rem;">
-                        <h2 class="card-title" style="font-size: 1.3rem; margin-bottom: 0;">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23306788' stroke-width='2'%3E%3Cpolyline points='16 18 22 12 16 6'%3E%3C/polyline%3E%3Cpolyline points='8 6 2 12 8 18'%3E%3C/polyline%3E%3C/svg%3E" alt="">
-                            <a href="Thesis application.html" class="hyperlink" target="_blank">
-                                Дипломно приложение
-                            </a>
-                        </h2>
-                    </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1053,7 +905,6 @@
                             <span class="skill-tag">CSS3</span>
                             <span class="skill-tag">JavaScript</span>
                         </div>
-          
                         <div class="project-links">
                             <a href="https://comnsense.github.io/Tic-Tac-Toe-Game" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> Demo
@@ -1065,9 +916,9 @@
                     </div>
                 </div>
 
-                <!-- Halloween Web Design Project -->
+                <!-- Halloween Project -->
                 <div class="project-card">
-                     <img src="/images/Helloween-Candy-Responsive-App.jpg" alt="Tic Tac Toe Game" class="project-preview-img">
+                    <img src="images/Helloween-Candy-Responsive-App.jpg" alt="Halloween Website" class="project-preview-img">
                     <div class="card-info">
                         <h3 class="project-title">Уебсайт за Хелоуин</h3>
                         <div class="project-skills">
@@ -1075,13 +926,49 @@
                             <span class="skill-tag">CSS3</span>
                             <span class="skill-tag">Responsive</span>
                         </div>
-                        <p class="item-details"> Web-Design проект с тематичен дизайн.</p>
+                        <p class="item-details">Web-Design проект с тематичен дизайн.</p>
                         <div class="project-links">
                             <a href="https://comnsense.github.io/Web-Design-Final/index" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> Demo
                             </a>
                             <a href="https://github.com/comnsense/Web-Design-Final/" target="_blank">
                                 <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Счетоводна практика -->
+                <div class="project-card">
+                    <div class="card-info">
+                        <h3 class="project-title">Счетоводна практика</h3>
+                        <div class="project-skills">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                        </div>
+                        <p class="item-details">Детайлно описание на счетоводния опит</p>
+                        <div class="project-links">
+                            <a href="schety.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Преглед
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Дипломно приложение -->
+                <div class="project-card">
+                    <div class="card-info">
+                        <h3 class="project-title">Дипломно приложение</h3>
+                        <div class="project-skills">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                        </div>
+                        <p class="item-details">Завършени дисциплини и ECTS кредити</p>
+                        <div class="project-links">
+                            <a href="Thesis application.html" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Преглед
                             </a>
                         </div>
                     </div>
@@ -1151,7 +1038,7 @@
             </div>
         </section>
 
-        <!-- Soft Skills Section (без заглавие) -->
+        <!-- Soft Skills -->
         <section class="soft-skills-container">
             <div class="soft-skills-items">
                 <div class="soft-skill-item">
@@ -1211,7 +1098,6 @@
                 </a>
             </li>
         </ul>
-
     </main>
 
     <!-- Footer -->
@@ -1246,8 +1132,4 @@
         toggleSwitch.addEventListener('change', switchTheme, false);
     </script>
 </body>
-
 </html>
-
-
-
