@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дипломно приложение | Мирела Йосифова</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        :root {
+            --bg-primary: #1D263B;
+            --bg-secondary: #2a344d;
+            --bg-card: rgba(29, 38, 59, 0.12);
+            --text-primary: #FFFFFF;
+            --text-secondary: #b0b7cc;
+            --border-color: #306788;
+            --accent: #306788;
+            --accent-hover: #4088b8;
+            --skill-bg: #30678833;
+            --card-bg: #1d263b1f;
+            --shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1D263B;
+            --text-secondary: #4a5568;
+            --border-color: #306788;
+            --accent: #306788;
+            --accent-hover: #4088b8;
+            --skill-bg: #e6f0f9;
+            --card-bg: #ffffff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--bg-secondary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header-logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-item a:hover {
+            color: var(--accent);
+        }
+
+        /* Theme Toggle Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: var(--bg-primary);
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border: 2px solid var(--border-color);
+        }
+
+        .slider:before {
+            background-color: var(--accent);
+            bottom: 4px;
+            content: "";
+            height: 22px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 22px;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        .theme-icon {
+            margin: 0 0.5rem;
+            color: var(--text-primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Page Title */
+        .page-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-title img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .page-title h2 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .green {
+            color: var(--accent);
+        }
+
+        /* Hyperlink */
+        .hyperlink {
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: underline;
+            transition: all 0.5s ease;
+        }
+
+        .hyperlink:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .back-link i {
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Info Card */
+        .info-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        /* Thesis header */
+        .thesis-header {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .thesis-title {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .thesis-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* PDF links container */
+        .pdf-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .pdf-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .pdf-link:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .pdf-link i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Course list */
+        .course-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 1rem;
+        }
+
+        .course-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 1rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .course-item:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .course-num {
+            min-width: 3rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .course-name {
+            flex: 1;
+            color: var(--text-primary);
+        }
+
+        .course-grade {
+            background-color: var(--skill-bg);
+            color: var(--text-primary);
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .course-ects {
+            background-color: var(--skill-bg);
+            color: var(--text-primary);
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            min-width: 3rem;
+            text-align: center;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .copyright i {
+            color: var(--accent);
+            margin-right: 0.25rem;
+        }
+
+        .course-list::-webkit-scrollbar {
+            width: 8px;
+            background: var(--bg-secondary);
+        }
+        .course-list::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+            .header {
+                padding: 1rem;
+            }
+            .course-item {
+                flex-wrap: wrap;
+            }
+            .pdf-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="https://comnsense.github.io/" class="header-logo">
+            <img src="/images/logo.png" alt="Logo">
+        </a>
+        <nav class="nav">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/#about">За мен</a></li>
+                <li class="nav-item"><a href="/#education">Образование</a></li>
+                <li class="nav-item"><a href="/#experience">Опит</a></li>
+                <li class="nav-item"><a href="/#projects">Проекти</a></li>
+                <li class="theme-switch-wrapper">
+                    <i class="fas fa-moon theme-icon"></i>
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <i class="fas fa-sun theme-icon"></i>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        
+        <!-- Back link -->
+        <a href="https://comnsense.github.io/" class="back-link">
+            <i class="fas fa-arrow-left"></i> Назад 
+        </a>
+
+        <!-- Page Title -->
+        <div class="page-title">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23306788' stroke-width='2'%3E%3Cpath d='M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z'%3E%3C/path%3E%3Cpath d='M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z'%3E%3C/path%3E%3C/svg%3E" alt="">
+            <h2>Дипломно <span class="green">приложение</span></h2>
+        </div>
+
+        <!-- Thesis Header with PDF Links -->
+        <div class="thesis-header">
+            <div class="pdf-links">
+                <a href="/Диплома.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Диплома
+                </a>
+                <a href="/thesis.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Дипломна работа
+                </a>
+                <a href="/Qualification Profile.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Квалификационна характеристика
+                </a>
+            </div>
+        </div>
+
+        <!-- Courses -->
+        <div class="info-card">
+            <h3 class="card-title">
+                <i class="fas fa-book"></i>
+                Завършени дисциплини
+            </h3>
+            <div class="course-list" id="courseList">
+                <!-- Filled by JS -->
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-value">43</div>
+                <div class="stat-label">Общо дисциплини</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">240</div>
+                <div class="stat-label">ECTS кредити</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">5.02</div>
+                <div class="stat-label">Среден успех</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <span class="copyright">
+            <i class="fas fa-copyright"></i> Comnsense-2026
+        </span>
+    </footer>
+
+    <script>
+        // Course data - само на български
+        const courses = [
+            "Въведение в предприемачеството",
+            "Въведение в компютърните науки",
+            "Компютърни архитектури",
+            "Линейна алгебра и аналитична геометрия",
+            "Академично писане",
+            "Програмиране",
+            "Операционни системи",
+            "Уеб технологии",
+            "Математически анализ",
+            "ИТ средства за анализ на данни",
+            "Обектно-ориентирано програмиране",
+            "Структури от данни и алгоритми",
+            "Потребителски интерфейси и използваемост",
+            "Компютърни мрежи и комуникации",
+            "Математически основи на информатиката",
+            "Бази данни",
+            "Вероятности и статистика",
+            "Програмиране с PHP",
+            "Техники на програмиране",
+            "3D моделиране и принтиране",
+            "JavaScript технологии",
+            "Въведение в микроконтролерите",
+            "Компютърна графика",
+            "Програмиране с Python",
+            "Криптография",
+            "Въведение в мениджмънта",
+            "Софтуерно инженерство",
+            "Разработка на мобилни приложения",
+            "Психология на интелекта",
+            "Киберсигурност",
+            "Уеб услуги и облачни технологии",
+            "Анимация в уеб",
+            "Функционално програмиране",
+            "Управление на бизнес процеси",
+            "Софтуерни архитектури",
+            "Научноизследователски стаж",
+            "Интелигентни системи",
+            "Електронен бизнес",
+            "Мултимедийни системи – практикум",
+            "Уеб дизайн – практикум",
+            "Операционни системи /практикум/",
+            "Невронауки",
+            "Преддипломна практика/стаж"
+        ];
+
+        const grades = [
+            "5", "6", "3", "4", "6", "6", "4", "6", "6", "5",
+            "6", "5", "6", "5", "3", "3", "4", "5", "5", "5",
+            "6", "6", "6", "6", "4", "4", "6", "6", "5", "5",
+            "6", "6", "4", "6", "3", "6", "4", "4", "6", "5",
+            "4", "6", "4"
+        ];
+
+        const ects = [
+            "B", "A", "E", "C", "A", "A", "C", "A", "A", "B",
+            "A", "B", "A", "B", "E", "E", "C", "B", "B", "B",
+            "A", "A", "A", "A", "C", "C", "A", "A", "B", "B",
+            "A", "A", "C", "A", "E", "A", "D", "D", "A", "B",
+            "C", "A", "C"
+        ];
+
+        // Theme toggle
+        const toggleSwitch = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'light') toggleSwitch.checked = true;
+        }
+
+        toggleSwitch.addEventListener('change', function(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        function renderCourses() {
+            const courseList = document.getElementById('courseList');
+            courseList.innerHTML = '';
+            
+            courses.forEach((course, index) => {
+                const item = document.createElement('div');
+                item.className = 'course-item';
+                item.innerHTML = `
+                    <span class="course-num">${index + 1}.</span>
+                    <span class="course-name">${course}</span>
+                    <span class="course-grade">${grades[index]}</span>
+                    <span class="course-ects">${ects[index]}</span>
+                `;
+                courseList.appendChild(item);
+            });
+        }
+
+        // Initial render
+        renderCourses();
+    </script>
+</body>
+</html>
