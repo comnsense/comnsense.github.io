@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Мирела Йосифова | CV</title>
     
-  <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23306788'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial'%3E%3C/text%3E%3C/svg%3E">
-    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23306788'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial'%3EM%3C/text%3E%3C/svg%3E">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +15,9 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <!-- Material Icons (за fallback) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <style>
         * {
@@ -33,7 +35,7 @@
             --text-primary: #FFFFFF;
             --text-secondary: #b0b7cc;
             --border-color: #77909f;
-            --accent: ##69a7cd;
+            --accent: #69a7cd;
             --accent-hover: #4088b8;
             --skill-bg: #30678833;
             --card-bg: #1d263b1f;
@@ -46,7 +48,7 @@
             --bg-card: #ffffff;
             --text-primary: #1D263B;
             --text-secondary: #4a5568;
-            --border-color: ##69a7cd;
+            --border-color: #69a7cd;
             --accent: #306788;
             --accent-hover: #4088b8;
             --skill-bg: #e6f0f9;
@@ -378,6 +380,58 @@
             font-size: 1.2rem;
         }
 
+        /* БУТОН за дипломно приложение */
+        .thesis-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--accent);
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .thesis-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateX(5px);
+        }
+
+        .thesis-button i {
+            font-size: 1rem;
+        }
+
+        /* БУТОН за счетоводна практика */
+        .accounting-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--accent);
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .accounting-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateX(5px);
+        }
+
+        .accounting-button i {
+            font-size: 1rem;
+        }
+
         /* Projects Grid */
         .projects-grid {
             display: grid;
@@ -459,6 +513,134 @@
 
         .project-links a:hover {
             color: var(--accent);
+        }
+
+        /* БУТОН за всички проекти */
+        .view-all-projects {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .view-all-projects a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 40px;
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .view-all-projects a:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .view-all-projects a i {
+            font-size: 1.2rem;
+        }
+
+        /* Tech Stack Container */
+        .tech-stack-integrated {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .tech-stack-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            margin-bottom: 1rem;
+            user-select: none;
+        }
+
+        .tech-stack-header h3 {
+            font-size: 1.3rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0;
+        }
+
+        .tech-stack-header h3 img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .toggle-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            transition: transform 0.3s;
+        }
+
+        .tech-stack-content {
+            max-height: 2000px;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .tech-stack-content.collapsed {
+            max-height: 0;
+        }
+
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 1rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.2rem;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.7rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+        }
+
+        .skill-item img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .skill-item span {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .skill-item .material-icons {
+            color: var(--accent);
+            font-size: 32px;
+            margin-bottom: 0.3rem;
         }
 
         /* Skills Grid */
@@ -608,6 +790,17 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .tech-stack-grid {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 0.8rem;
+                padding: 1rem;
+            }
+            
+            .view-all-projects a {
+                font-size: 1rem;
+                padding: 0.7rem 1.5rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -636,6 +829,10 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+            
+            .tech-stack-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         /* Scrollbar */
@@ -658,7 +855,7 @@
     <!-- Header -->
     <header class="header">
         <a href="https://comnsense.github.io/" class="header-logo">
-            <img src="/images/logo.png" alt=""> 
+            <img src="images/logo.png" alt="Мирела Йосифова"> 
         </a>
         <nav>
             <ul class="nav-menu">
@@ -667,7 +864,7 @@
                 <li class="nav-item"><a href="#experience">Опит</a></li>
                 <li class="nav-item"><a href="#projects">Проекти</a></li>
                 <li class="nav-item">
-                    <a href="/CV.pdf" target="_blank">
+                    <a href="CV.pdf" target="_blank">
                         <i class="fas fa-download"></i> CV
                     </a>
                 </li>
@@ -739,12 +936,14 @@
                             <a href="Диплома.pdf" class="hyperlink" target="_blank">
                                 <i class="fas fa-file-pdf"></i> Диплома 
                             </a>
-                            <a href="Thesis application.html" class="hyperlink" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Дипломно приложение
-                            </a>
                         </div>
                     </div>    
                 </div>
+                
+                <!-- БУТОН за дипломно приложение (правилно поставен) -->
+                <a href="Thesis application.html" class="thesis-button" target="_blank">
+                    <i class="fas fa-graduation-cap"></i> Дипломно приложение →
+                </a>
             </div>
         </section>
 
@@ -773,10 +972,12 @@
                             <li>производство</li>
                         </ul>
                         <p>Практика с нестопански организации, включително с делегирани държавни дейности и социални услуги с бюджетно финансиране, при стриктно прилагане на нормативната рамка и счетоводните стандарти.</p>
-                        <p>Счетоводен софтуер: BulMar Office (Счетоводство+, ТРЗ), Кредо 2000</p>
-                        <p style="margin-top: 1rem;">
-                            <a href="schety.html" class="hyperlink">Виж повече →</a>
-                        </p>
+                       <br>
+                       <p>Счетоводен софтуер: BulMar Office (Счетоводство+, ТРЗ), Кредо 2000</p>
+                        <!-- БУТОН за счетоводна практика -->
+                        <a href="schety.html" class="accounting-button" target="_blank">
+                            <i class="fas fa-calculator"></i> Виж повече →
+                        </a>
                     </div>
                 </div>
 
@@ -873,47 +1074,21 @@
                     </div>
                 </div>
 
-                <!-- Счетоводна практика -->
+                <!-- Thesis Project -->
                 <div class="project-card">
                     <div class="card-info">
-                        <h3 class="project-title">Счетоводна практика</h3>
-                        <p class="item-details">Детайлно описание на счетоводния опит</p>
-                        <div class="project-links">
-                            <a href="schety.html" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Преглед
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Дипломно приложение -->
-                <div class="project-card">
-                    <div class="card-info">
-                        <h3 class="project-title">Дипломно приложение</h3>                      
-                        <div class="project-links">
-                            <a href="Thesis application.html" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Преглед
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        
-                <!-- CV Project -->
-                <div class="project-card">
-                    <div class="card-info">
-                        <h3 class="project-title">Portfolio / Проекти и разработки </h3>
+                        <h3 class="project-title">Development of an App for Mental Health Support</h3>
                         <div class="project-skills">
-                            <span class="skill-tag">HTML5</span>
-                            <span class="skill-tag">CSS3</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">Responsive</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">NLP</span>
+                            <span class="skill-tag">AI</span>
                         </div>
+                        <p class="item-details">Използване на AI и NLP за анализ на потребителски запитвания и генериране на адаптивни отговори.</p>
                         <div class="project-links">
-                            <a href="/https://comnsense.github.io/portfolio-old" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Преглед
+                            <a href="thesis.pdf" class="hyperlink" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Дисертация
                             </a>
                             <a href="https://github.com/comnsense/comnsense.github.io" target="_blank">
                                 <i class="fab fa-github"></i> GitHub
@@ -922,74 +1097,187 @@
                     </div>
                 </div>
 
-            
-
-
-      
-
-                
-
-        <!-- Skills Summary -->
-        <section style="margin-top: 3rem;">
-            <h2 class="card-title">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23306788' stroke-width='2'%3E%3Cpath d='M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z'%3E%3C/path%3E%3C/svg%3E" alt="">
-                Умения
-            </h2>
-            
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Програмни езици</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">PHP</span>
-                        <span class="skill-tag">SQL</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Уеб технологии</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">Cloud Services</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>CRM & Платформи</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Zendesk</span>
-                        <span class="skill-tag">Salesforce</span>
-                        <span class="skill-tag">B2B системи</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Облачни услуги</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Google Cloud</span>
-                        <span class="skill-tag">AWS</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Операционни системи</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Windows</span>
-                        <span class="skill-tag">Linux/Unix</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Офис софтуер</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MS Office</span>
-                        <span class="skill-tag">Google Workspace</span>
+                <!-- КОМБИНИРАНА КАРТА: Счетоводна практика + Дипломно приложение -->
+                <div class="project-card">
+                    <div class="card-info">
+                        <h3 class="project-title">Счетоводна практика & Дипломно приложение</h3>
+                        <div class="project-skills">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Data Analysis</span>
+                        </div>
+                        <div class="item-details">
+                            <ul>
+                                <li><strong>Счетоводна практика:</strong> Детайлно описание на опита с 16 дружества</li>
+                                <li><strong>Дипломно приложение:</strong> Завършени дисциплини и ECTS кредити</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="schety.html" target="_blank">
+                                <i class="fas fa-calculator"></i> Счетоводна практика
+                            </a>
+                            <a href="Thesis application.html" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> Дипломно приложение
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+
+        
+            <!-- БУТОН за всички проекти -->
+<div class="view-all-projects">
+    <a href="https://comnsense.github.io/portfolio-old" target="_blank">
+        <i class="fas fa-folder-open"></i> ВИЖ ВСИЧКИ ПРОЕКТИ
+        <i class="fas fa-arrow-right"></i>
+    </a>
+</div>
+
+<!-- Skills Summary -->
+<section style="margin-top: 3rem;">
+    <h2 class="card-title">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23306788' stroke-width='2'%3E%3Cpath d='M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z'%3E%3C/path%3E%3C/svg%3E" alt="">
+        Умения
+    </h2>
+
+    <!-- Tech Stack интегриран в Projects -->
+    <div class="tech-stack-integrated">
+        <div class="tech-stack-header" id="techStackHeader">
+            <h3>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23306788' stroke-width='2'%3E%3Crect x='2' y='3' width='20' height='14' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='8' y1='21' x2='16' y2='21'%3E%3C/line%3E%3Cline x1='12' y1='17' x2='12' y2='21'%3E%3C/line%3E%3C/svg%3E" alt="">
+                Tech Stack
+            </h3>
+            <span class="toggle-icon" id="toggleIcon">▼</span>
+        </div>
+        <div class="tech-stack-content" id="techStackContent">
+            <div class="tech-stack-grid">
+                <!-- Frontend -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>code</span>'">
+                    <span>HTML5</span>
+                </div>
+                
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>palette</span>'">
+                    <span>CSS3</span>
+                </div>   
+
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>javascript</span>'">
+                    <span>JavaScript</span>
+                </div>  
+
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>code</span>'">
+                    <span>React</span>
+                </div>
+
+                <!-- Backend -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>settings</span>'">
+                    <span>Node.js</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>bolt</span>'">
+                    <span>Express</span>
+                </div>
+
+                <!-- Tools -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>share</span>'">
+                    <span>Git</span>
+                </div>
+
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>terminal</span>'">
+                    <span>Bash</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="skills-grid">
+        <!-- CMS & Design -->
+        <div class="skill-category">
+            <h4>CMS & Design</h4>
+            <div class="skill-tags">
+                <span class="skill-tag">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" alt="WordPress" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+                    WordPress
+                </span>
+                <span class="skill-tag">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+                    Canva
+                </span>
+                <span class="skill-tag">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" alt="Photoshop" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+                    Photoshop
+                </span>
+            </div>
+        </div>
+
+        <!-- CRM & Business -->
+        <div class="skill-category">
+            <h4>CRM & Business</h4>
+            <div class="skill-tags">
+                <span class="skill-tag">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg" alt="Salesforce" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+                    Salesforce
+                </span>
+                <span class="skill-tag">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+                    Google Cloud
+                </span>
+                <span class="skill-tag">
+                    <i class="fas fa-headset" style="margin-right: 5px;"></i> Zendesk
+                </span>
+            </div>
+        </div>
+
+        <!-- Операционни системи -->
+        <div class="skill-category">
+            <h4>Операционни системи</h4>
+            <div class="skill-tags">
+                <span class="skill-tag">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+                    Windows
+                </span>
+                <span class="skill-tag">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Unix/Linux" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+                    Unix/Linux
+                </span>
+            </div>
+        </div>
+
+        <!-- Офис софтуер (с правилни икони) -->
+        <div class="skill-category">
+            <h4>Офис софтуер</h4>
+            <div class="skill-tags">
+                <span class="skill-tag">
+                    <i class="fab fa-microsoft" style="margin-right: 5px;"></i> MS Office
+                </span>
+                <span class="skill-tag">
+                    <i class="fab fa-google" style="margin-right: 5px;"></i> Google Workspace
+                </span>
+            </div>
+        </div>
+
+        <!-- Счетоводен софтуер -->
+        <div class="skill-category">
+            <h4>Счетоводен софтуер</h4>
+            <div class="skill-tags">
+                <span class="skill-tag">
+                    <i class="fas fa-calculator" style="margin-right: 5px;"></i> BulMar Office
+                </span>
+                <span class="skill-tag">
+                    <i class="fas fa-file-invoice" style="margin-right: 5px;"></i> Кредо 2000
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- Soft Skills -->
         <section class="soft-skills-container">
@@ -1079,15 +1367,16 @@
         }
 
         toggleSwitch.addEventListener('change', switchTheme, false);
+
+        // Tech Stack Toggle
+        const techStackHeader = document.getElementById('techStackHeader');
+        const techStackContent = document.getElementById('techStackContent');
+        const toggleIcon = document.getElementById('toggleIcon');
+
+        techStackHeader.addEventListener('click', function() {
+            techStackContent.classList.toggle('collapsed');
+            toggleIcon.textContent = techStackContent.classList.contains('collapsed') ? '▶' : '▼';
+        });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
