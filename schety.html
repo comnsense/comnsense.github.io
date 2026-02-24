@@ -3,667 +3,612 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Счетоводен опит | Мирела Йосифова</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="images/favico.svg">
-    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23306788' stroke-width='2'%3E%3Crect x='2' y='7' width='20' height='14' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'%3E%3C/path%3E%3C/svg%3E">
+    <title>Счетоводен профил | Мирела Йосифова</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Nunito', sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         :root {
-            --bg-primary: #1D263B;
-            --bg-secondary: #2a344d;
-            --bg-card: rgba(29, 38, 59, 0.12);
-            --text-primary: #FFFFFF;
-            --text-secondary: #b0b7cc;
-            --border-color: #306788;
-            --accent: #306788;
-            --accent-hover: #4088b8;
-            --skill-bg: #30678833;
-            --card-bg: #1d263b1f;
-            --shadow: 0 5px 15px rgba(0,0,0,0.3);
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --accent: #10b981;
+            --accent-soft: #10b98120;
+            --border: #475569;
+            --shadow: 0 20px 25px -5px rgba(0,0,0,0.5);
+            --gradient: linear-gradient(135deg, #10b981, #3b82f6);
+            --border-color: #475569;
         }
 
         [data-theme="light"] {
-            --bg-primary: #f5f7fa;
+            --bg-primary: #f9fafb;
             --bg-secondary: #ffffff;
-            --bg-card: #ffffff;
-            --text-primary: #1D263B;
-            --text-secondary: #4a5568;
-            --border-color: #306788;
-            --accent: #306788;
-            --accent-hover: #4088b8;
-            --skill-bg: #e6f0f9;
-            --card-bg: #ffffff;
-            --shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        html, body {
-            width: 100%;
-            min-height: 100vh;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 1.6;
-            overflow-x: hidden;
+            --bg-card: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent: #059669;
+            --accent-soft: #05966915;
+            --border: #e2e8f0;
+            --shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            --border-color: #e2e8f0;
         }
 
         body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* Header - Mobile First */
+        /* Header */
         .header {
             background-color: var(--bg-secondary);
-            padding: 0.8rem 3%;
+            padding: 1rem 5%;
             display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
             align-items: center;
-            border-bottom: 2px solid var(--border-color);
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background-color: var(--bg-secondary);
         }
 
-        .header-logo {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--accent);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            align-self: flex-start;
-        }
-
-        .header-logo img {
-            height: 28px;
-            width: auto;
-        }
-
-        .nav {
-            width: 100%;
+        .logo {
+           font-size: 1.5em;
+           font-weight: 700;
+           letter-spacing: 0.1em;
+           color: var(--accent);
+           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+           transition: transform 0.3s ease;
         }
 
         .nav-menu {
             display: flex;
-            list-style: none;
-            gap: 0.8rem;
             align-items: center;
-            flex-wrap: wrap;
-            justify-content: center;
+            gap: 2rem;
+            list-style: none;
         }
 
-        .nav-item a {
+        .nav-menu a {
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.3s;
-            font-size: 0.85rem;
-            white-space: nowrap;
-            padding: 0.3rem 0;
         }
 
-        .nav-item a:hover {
+        .nav-menu a:hover {
             color: var(--accent);
         }
 
-        .nav-item a i {
-            margin-right: 0.2rem;
-            font-size: 0.8rem;
-        }
-
-        /* Theme Toggle Switch - Mobile optimized */
-        .theme-switch-wrapper {
+        /* Theme Toggle */
+        .theme-switch {
             display: flex;
             align-items: center;
-            margin-left: 0.2rem;
+            gap: 0.5rem;
         }
 
-        .theme-switch {
-            display: inline-block;
-            height: 28px;
+        .switch {
             position: relative;
-            width: 48px;
+            display: inline-block;
+            width: 52px;
+            height: 26px;
         }
 
-        .theme-switch input {
-            display: none;
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
 
         .slider {
-            background-color: var(--bg-primary);
-            bottom: 0;
-            cursor: pointer;
-            left: 0;
             position: absolute;
-            right: 0;
+            cursor: pointer;
             top: 0;
-            transition: .4s;
-            border: 2px solid var(--border-color);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border);
+            transition: 0.3s;
+            border-radius: 34px;
         }
 
         .slider:before {
-            background-color: var(--accent);
-            bottom: 3px;
+            position: absolute;
             content: "";
             height: 18px;
-            left: 3px;
-            position: absolute;
-            transition: .4s;
             width: 18px;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(20px);
-        }
-
-        .slider.round {
-            border-radius: 28px;
-        }
-
-        .slider.round:before {
+            left: 4px;
+            bottom: 3px;
+            background-color: var(--accent);
+            transition: 0.3s;
             border-radius: 50%;
         }
 
-        .theme-icon {
-            margin: 0 0.2rem;
-            color: var(--text-primary);
-            font-size: 0.85rem;
+        input:checked + .slider:before {
+            transform: translateX(26px);
         }
 
-        /* Container - Mobile First */
+        .theme-icon {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Main Container */
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem;
+            padding: 2rem;
             flex: 1;
         }
 
-        /* Page Title - Mobile optimized */
-        .page-title {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .page-title img {
-            width: 32px;
-            height: 32px;
-        }
-
-        .page-title h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .green {
-            color: var(--accent);
-        }
-
-        /* Hyperlink */
-        .hyperlink {
-            color: var(--accent);
-            font-weight: 700;
-            text-decoration: underline;
-            transition: all 0.5s ease;
-            word-break: break-word;
-        }
-
-        .hyperlink:hover {
-            color: var(--accent-hover);
-        }
-
-        /* Back link - Mobile optimized */
+        /* Back Link */
         .back-link {
-            display: inline-block;
-            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 1rem;
-            padding: 0.5rem 0;
-        }
-
-        .back-link i {
-            margin-right: 0.5rem;
-            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
         }
 
         .back-link:hover {
             color: var(--accent);
         }
 
-        /* Info Card - Mobile optimized */
-        .info-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.2rem;
-            margin-bottom: 1.5rem;
-            backdrop-filter: blur(5px);
+        .back-link i {
+            font-size: 0.8rem;
         }
 
-        .card-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
+        /* Profile Section */
+        .profile {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
-        .card-title i {
-            font-size: 1.2rem;
-        }
-
-        /* Company Table - Mobile optimized */
-        .table-container {
-            overflow-x: auto;
-            margin-bottom: 1rem;
-            -webkit-overflow-scrolling: touch;
-            border-radius: 8px;
-        }
-
-        .company-table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: var(--bg-secondary);
-            border-radius: 8px;
-            overflow: hidden;
-            min-width: 600px; /* Ensures table is readable on mobile */
-        }
-
-        .company-table th {
-            background-color: var(--accent);
+        .profile-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
             color: white;
-            padding: 0.8rem;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.9rem;
-            white-space: nowrap;
         }
 
-        .company-table td {
-            padding: 0.8rem;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-primary);
-            font-size: 0.9rem;
-        }
-
-        .company-table tr:hover {
-            background-color: var(--skill-bg);
-        }
-
-        .company-notes {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            max-width: 200px;
-        }
-
-        /* Mobile table hint */
-        .table-hint {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        .table-hint i {
-            color: var(--accent);
-        }
-
-        /* Responsibilities Grid - Mobile optimized */
-        .responsibilities-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.8rem;
-            margin-top: 0.8rem;
-        }
-
-        .resp-item {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 0.8rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-        }
-
-        .resp-item i {
-            color: var(--accent);
-            font-size: 1rem;
-            margin-top: 0.2rem;
-            flex-shrink: 0;
-        }
-
-        .resp-item span {
-            line-height: 1.4;
-        }
-
-        /* Stats - Mobile optimized */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .stat-item {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1rem 0.5rem;
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
+        .profile-title h1 {
+            font-size: 2.5rem;
             font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .highlight {
             color: var(--accent);
-            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        /* Stats Cards */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
-        /* Footer - Mobile First */
-        footer {
+        /* Section */
+        .section {
             background-color: var(--bg-secondary);
-            padding: 1.5rem 3%;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .section-title i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Companies Table */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 16px;
+            background-color: var(--bg-primary);
+        }
+
+        .companies-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        .companies-table th {
+            text-align: left;
+            padding: 1rem;
+            background-color: var(--accent-soft);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .companies-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .companies-table tr:hover td {
+            background-color: var(--accent-soft);
+        }
+
+        .company-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+
+        .company-notes {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 250px;
+        }
+
+        /* Responsibilities Grid */
+        .responsibilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .resp-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1rem;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .resp-item:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .resp-item i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .resp-item span {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .badge-eu {
+            background: #10b98120;
+            color: #10b981;
+            border: 1px solid #10b981;
+        }
+
+        .badge-delegated {
+            background: #8b5cf620;
+            color: #8b5cf6;
+            border: 1px solid #8b5cf6;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
             text-align: center;
-            border-top: 2px solid var(--border-color);
-            margin-top: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        .footer i {
+            color: var(--accent);
+            margin: 0 0.2rem;
+        }
+
+        .footer-column {
             width: 100%;
         }
 
-        .copyright {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0 1rem 0;
+            list-style: none;
+            flex-wrap: wrap;
         }
 
-        .copyright i {
-            color: var(--accent);
-            margin-right: 0.2rem;
+        .social-link a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            transition: all 0.3s;
         }
 
-        /* Tablet styles (min-width: 768px) */
-        @media (min-width: 768px) {
+        .social-link a:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
             .header {
-                padding: 1rem 5%;
-                flex-direction: row;
-                gap: 1rem;
-            }
-            
-            .header-logo {
-                font-size: 1.5rem;
-                align-self: center;
-            }
-            
-            .header-logo img {
-                height: 32px;
+                padding: 1rem;
             }
             
             .nav-menu {
-                justify-content: flex-end;
-                gap: 1.5rem;
+                gap: 1rem;
             }
             
-            .nav-item a {
-                font-size: 1rem;
-            }
-            
-            .theme-switch {
-                height: 34px;
-                width: 60px;
-            }
-            
-            .slider:before {
-                height: 22px;
-                width: 22px;
-            }
-            
-            input:checked + .slider:before {
-                transform: translateX(26px);
+            .logo {
+                font-size: 1.2rem;
             }
             
             .container {
-                padding: 2rem;
+                padding: 1rem;
             }
             
-            .page-title h2 {
-                font-size: 2rem;
+            .profile-title h1 {
+                font-size: 1.8rem;
             }
             
-            .info-card {
-                padding: 2rem;
-            }
-            
-            .card-title {
-                font-size: 1.5rem;
+            .section {
+                padding: 1.5rem;
             }
             
             .responsibilities-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .company-table {
-                min-width: 100%;
-            }
-            
-            .table-hint {
-                display: none;
+                grid-template-columns: 1fr;
             }
         }
 
-        /* Desktop styles (min-width: 1024px) */
-        @media (min-width: 1024px) {
-            .responsibilities-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .stat-value {
-                font-size: 2rem;
-            }
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 3px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-hover);
-        }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
-    
-        </a>
-        <nav class="nav">
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="/#about">За мен</a></li>
-                <li class="nav-item"><a href="/#education">Образование</a></li>
-                <li class="nav-item"><a href="/#experience">Опит</a></li>
-                <li class="nav-item"><a href="/#projects">Проекти</a></li>
-                <li class="theme-switch-wrapper">
-                    <i class="fas fa-moon theme-icon"></i>
-                    <label class="theme-switch">
-                        <input type="checkbox" id="theme-toggle">
-                        <span class="slider round"></span>
+        <div class="logo">МИРЕЛА ЙОСИФОВА</div>
+        <ul class="nav-menu">
+            <li>
+                <div class="theme-switch">
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="slider"></span>
                     </label>
-                    <i class="fas fa-sun theme-icon"></i>
-                </li>
-            </ul>
-        </nav>
+                </div>
+            </li>
+        </ul>
     </header>
 
-    <!-- Main Container -->
     <main class="container">
         
-        <!-- Back link -->
-        <a href="https://comnsense.github.io/#experience" class="back-link">
+        <a href="https://comnsense.github.io/" class="back-link">
             <i class="fas fa-arrow-left"></i> Назад  
         </a>
 
-        <!-- Page Title -->
-        <div class="page-title">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23306788' stroke-width='2'%3E%3Crect x='2' y='7' width='20' height='14' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'%3E%3C/path%3E%3C/svg%3E" alt="">
-            <h2>Счетоводен <span class="green">опит</span></h2>
+        <div class="profile">
+            <div class="profile-title">
+                <h1>Практически опит</h1>
+            </div>
         </div>
 
-        <!-- Companies Table -->
-        <div class="info-card" id="companiesTable">
-            <h3 class="card-title">
+        <!-- Companies Section -->
+        <div class="section">
+            <div class="section-title">
                 <i class="fas fa-building"></i>
-                Дружества
-            </h3>
-            <!-- Mobile table hint -->
-            <div class="table-hint">
-                <i class="fas fa-arrows-alt-h"></i>
-                <span>Плъзни настрани за повече колони →</span>
+                <h2>Дружества в портфолиото</h2>
             </div>
-            <div class="table-container">
-                <table class="company-table">
+            <div class="table-wrapper">
+                <table class="companies-table" id="companiesTable">
                     <thead>
                         <tr>
-                            <th>Име на фирма</th>
-                            <th>Основна дейност</th>
+                            <th>Дружество</th>
+                            <th>Дейност</th>
                             <th>Бележки</th>
                         </tr>
                     </thead>
-                    <tbody id="companyTableBody">
-                        <!-- Filled by JS -->
+                    <tbody id="companyBody">
+                        <!-- JS will fill this -->
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Responsibilities -->
-        <div class="info-card">
-            <h3 class="card-title">
+        <!-- Responsibilities Section -->
+        <div class="section">
+            <div class="section-title">
                 <i class="fas fa-tasks"></i>
-                Основни задължения
-            </h3>
-            <div class="responsibilities-grid" id="responsibilitiesList">
-                <!-- Filled by JS -->
+                <h2>Основни задължения</h2>
+            </div>
+            <div class="responsibilities-grid" id="responsibilitiesGrid">
+                <!-- JS will fill this -->
             </div>
         </div>
 
-        <!-- Stats -->
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-value">16</div>
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">16</div>
                 <div class="stat-label">Общо дружества</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-value">2022-2026</div>
+
+            <div class="stat-card">
+                <div class="stat-number">2022-2026</div>
                 <div class="stat-label">Период</div>
             </div>
-                   </div>
-
+        </div>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <span class="copyright">
-            <i class="fas fa-copyright"></i> Comnsense-2026
-        </span>
+    <footer class="footer">
+        <p>
+            <i class="fas fa-copyright"></i> 2026 · Счетоводен опит
+        </p> 
+        <div class="footer-column">        
+            <!-- Social Links - премахнат GitHub, добавен имейл -->
+            <ul class="social-links">
+                                 <li class="social-link">
+                    <a href="mailto:comnsense17@gmail.com" aria-label="Email" target="_blank" rel="noopener">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </li>
+                <li class="social-link">
+                    <a href="https://t.me/comnsense88" aria-label="Telegram" target="_blank" rel="noopener">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                </li>
+                <li class="social-link">
+                    <a href="https://comnsense.github.io/" aria-label="Website" target="_blank" rel="noopener">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </li> 
+            </ul>
+        </div>
     </footer>
-
+ 
     <script>
-        // Companies data - само на български
+        // Companies data - с главни букви
         const companies = [
-            { name: "Ди Ти Ес Груп ООД", activity: "Търговия на дребно", notes: "12 обекта, Трудов договор" },
-            { name: "Нова Груп 2023 ЕООД", activity: "Търговия на дребно", notes: "4 обекта, Опит със строителни проекти и инвестиционни дейности" },
-            { name: "МИТОВ МАКС ЕООД", activity: "Инвестиционна дейност в строителството", notes: "Разработване на проекти, покупко-продажба на собствени недвижими имоти" },
-            { name: "Пропърти Венчърс ЕООД", activity: "Консултантска дейност", notes: "" },
-            { name: "ЕРФУРИ и ЕТИ ООД", activity: "Оптика", notes: "2 обекта" },
-            { name: "ДЕЙС-ОПТИК – ДАНИЕЛА ПАНЕКОВА ЕТ", activity: "Оптика", notes: "" },
-            { name: "НАТ – СТРОЙ 92 ЕООД", activity: "Търговия на дребно", notes: "Магазин за домакински потреби и железария" },
-            { name: "ВЕРИНА Ем ЕООД", activity: "Ремонт и поддръжка на мебели", notes: "Граждански договор за счетоводни услуги" },
-            { name: "ЗЕЛЕНОТО КУЧЕ ЕООД", activity: "Продажба на сувенири и услуги", notes: "" },
-            { name: "ЕВРООДИТ И ПАРТНЬОРИ ЕООД", activity: "Консултантска дейност", notes: "" },
-            { name: "АРС ВИВЕНДИ МК ЕООД", activity: "Преводаческа дейност", notes: "Специализиран в македонски език" },
-            { name: "Българо-Китайска Камара за индустриално развитие", activity: "Сътрудничество", notes: "" },
-            { name: "Сдружение „Българска Хънтингтън Асоциация“", activity: "Здравна/подкрепяща дейност", notes: "" },
-            { name: "Сдружение ЕВРОИНТЕГРА", activity: "Евроинтеграция/проекти", notes: "" },
-            { name: "Фондация ЕВРОКОМПАС", activity: "Евроинтеграция/проекти", notes: "" },
-            { name: "* ЕДНОКРАТНА УПОТРЕБА ЕООД", activity: "Производствено дружество", notes: "Осчетоводяване на фактури за продажби и банкови транзакции; Месечно обслужване" }
+            { name: "ДИ ТИ ЕС ГРУП ООД", activity: "Търговия на дребно", notes: "12 обекта" },
+            { name: "НОВА ГРУП 2023 ЕООД", activity: "Търговия на дребно", notes: "4 обекта, строителни проекти" },
+            { name: "АРС ВИВЕНДИ МК ЕООД", activity: "Преводаческа дейност", notes: "Македонски език" },  
+            { name: "ВЕРИНА ЕМ ЕООД", activity: "Ремонт и поддръжка на мебели", notes: "" },
+            { name: "ЕРФУРИ И ЕТИ ООД", activity: "Търговия на дребно", notes: "Оптика - 2 обекта" },
+            { name: "ДЕЙС-ОПТИК – ДАНИЕЛА ПАНЕКОВА ЕТ", activity: "Търговия на дребно", notes: "Оптика" },
+            { name: "НАТ – СТРОЙ 92 ЕООД", activity: "Търговия на дребно", notes: "Железария + Домашни потреби" },
+            { name: "ЗЕЛЕНОТО КУЧЕ ЕООД", activity: "Търговия на дребно", notes: "Сувенири" }, 
+            { name: "ПРОПЪРТИ ВЕНЧЪРС ЕООД", activity: "Консултантски услуги", notes: "Проекти с европейско финансиране" },
+            { name: "ЕВРООДИТ И ПАРТНЬОРИ", activity: "Консултантски услуги", notes: "-" },
+            { name: "БЪЛГАРО-КИТАЙСКА КАМАРА", activity: "Организация на форуми и срещи", notes: "Членски внос" },
+            { name: "ХЪНТИНГТЪН АСОЦИАЦИЯ", activity: "Делегирана държавна дейност", notes: "Проектно счетоводство (ПРЧР, Erasmus+)" },
+            { name: "СДРУЖЕНИЕ ЕВРОИНТЕГРА", activity: "Консултантски услуги", notes: "Проекти с европейско финансиране" },
+            { name: "ФОНДАЦИЯ ЕВРОКОМПАС", activity: "Консултантски услуги", notes: "Дарения/Спонсорства" },   
+            { name: "МИТОВ МАКС ЕООД", activity: "Инвестиции в строителството", notes: "Разработване на проекти, покупко-продажба на имоти" },
+            { name: "ЕДНОКРАТНА УПОТРЕБА", activity: "Производство", notes: "Месечно обслужване - продажби и банкови транзакции отдел София" }
         ];
 
-        // Responsibilities data - само на български
+        // Responsibilities data
         const responsibilities = [
             "Изготвяне и осчетоводяване на първични и вторични документи",
-            "Работа със счетоводен софтуер и вътрешни системи,
-            "Осчетоводяване работни заплати и осигурителни вноски",
-            "Осчетоводяване на банкови и касови операции",            
-            "Проследяване и контрол на разчети",
+            "Осчетоводяване на ведомости за заплати",
+            "Осчетоводяване на банкови и касови операции",  
+            "Водене на складови наличности",    
+            "Анализ и контрол на разчети",  
+            "Поддържане на кореспонденция с клиенти и доставчици",     
+            "Отчитане на строителни инвестиционни проекти и проектно финансиране", 
+            "Изготвяне на ДДС декларации",
             "Участие в изготвяне на ГФО и ГДД",
-            "ДДС отчетност, ВОП и изготвяне на месечни декларации към НАП",        
-          "Отчитане на строителни инвестиционни проекти, делегирана държавна дейност и проектно финансиране",
-  
-
-
+            "Работа със счетоводен софтуер и вътрешни системи",
         ];
 
         // Theme toggle
-        const toggleSwitch = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme');
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme');
 
-        if (currentTheme) {
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            if (currentTheme === 'light') toggleSwitch.checked = true;
+        if (savedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeToggle.checked = true;
         }
 
-        toggleSwitch.addEventListener('change', function(e) {
-            if (e.target.checked) {
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
                 document.documentElement.setAttribute('data-theme', 'light');
                 localStorage.setItem('theme', 'light');
             } else {
@@ -672,38 +617,39 @@
             }
         });
 
-        function renderTable() {
-            const tbody = document.getElementById('companyTableBody');
+        // Render companies
+        function renderCompanies() {
+            const tbody = document.getElementById('companyBody');
             tbody.innerHTML = '';
             
             companies.forEach(company => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><strong>${company.name}</strong></td>
+                    <td class="company-name">${company.name}</td>
                     <td>${company.activity}</td>
-                    <td class="company-notes">${company.notes || '-'}</td>
+                    <td class="company-notes">${company.notes}</td>
                 `;
                 tbody.appendChild(row);
             });
         }
 
+        // Render responsibilities
         function renderResponsibilities() {
-            const respList = document.getElementById('responsibilitiesList');
-            respList.innerHTML = '';
+            const grid = document.getElementById('responsibilitiesGrid');
+            grid.innerHTML = '';
             
             responsibilities.forEach(resp => {
-                const div = document.createElement('div');
-                div.className = 'resp-item';
-                div.innerHTML = `
+                const item = document.createElement('div');
+                item.className = 'resp-item';
+                item.innerHTML = `
                     <i class="fas fa-check-circle"></i>
                     <span>${resp}</span>
                 `;
-                respList.appendChild(div);
+                grid.appendChild(item);
             });
         }
 
-        // Initial render
-        renderTable();
+        renderCompanies();
         renderResponsibilities();
     </script>
 </body>
