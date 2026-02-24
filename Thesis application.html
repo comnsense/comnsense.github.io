@@ -1,58 +1,66 @@
-<!DOCTYPE html>
-<html lang="bg">
-<head>
+<html lang="bg" data-theme="light"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дипломно приложение | Мирела Йосифова</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Fira+Code:wght@400;500;600&amp;display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Nunito', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         :root {
-            --bg-primary: #1D263B;
-            --bg-secondary: #2a344d;
-            --bg-card: rgba(29, 38, 59, 0.12);
-            --text-primary: #FFFFFF;
-            --text-secondary: #b0b7cc;
-            --border-color: #306788;
-            --accent: #306788;
-            --accent-hover: #4088b8;
-            --skill-bg: #30678833;
-            --card-bg: #1d263b1f;
-            --shadow: 0 5px 15px rgba(0,0,0,0.3);
+            --bg-primary: #0a0c14;
+            --bg-secondary: #141a24;
+            --bg-card: #1e2636;
+            --bg-hover: #2a3448;
+            --text-primary: #e2e8f0;
+            --text-secondary: #9aa5b8;
+            --text-muted: #6b7a8f;
+            --border-color: #2d3f54;
+            --accent: #60a5fa;
+            --accent-dark: #3b82f6;
+            --accent-light: #93c5fd;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --skill-bg: #1e2a3a;
+            --card-bg: #1a212e;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+            --header-height: 70px;
         }
 
         [data-theme="light"] {
-            --bg-primary: #f5f7fa;
+            --bg-primary: #f8fafc;
             --bg-secondary: #ffffff;
-            --bg-card: #ffffff;
-            --text-primary: #1D263B;
-            --text-secondary: #4a5568;
-            --border-color: #306788;
-            --accent: #306788;
-            --accent-hover: #4088b8;
-            --skill-bg: #e6f0f9;
+            --bg-card: #f1f5f9;
+            --bg-hover: #e2e8f0;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border-color: #cbd5e1;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --accent-light: #3b82f6;
+            --skill-bg: #e2e8f0;
             --card-bg: #ffffff;
-            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         body {
             background-color: var(--bg-primary);
             color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
             font-size: 16px;
             font-weight: 400;
             line-height: 1.6;
@@ -62,7 +70,8 @@
         /* Header */
         .header {
             background-color: var(--bg-secondary);
-            padding: 1rem 2rem;
+            height: var(--header-height);
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -73,19 +82,20 @@
             box-shadow: var(--shadow);
         }
 
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
         .header-logo {
             font-size: 1.5rem;
             font-weight: 800;
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .header-logo img {
-            height: 32px;
-            width: auto;
+            letter-spacing: -0.5px;
         }
 
         .nav-menu {
@@ -98,19 +108,69 @@
         .nav-item a {
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: color 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-item a:hover::after {
+            width: 100%;
         }
 
         .nav-item a:hover {
             color: var(--accent);
         }
 
-        /* Theme Toggle Switch */
+        /* Header Controls */
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            display: flex;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            padding: 0.2rem;
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Theme Toggle */
         .theme-switch-wrapper {
             display: flex;
             align-items: center;
-            margin-left: 1rem;
+            gap: 0.5rem;
         }
 
         .theme-switch {
@@ -160,49 +220,15 @@
         }
 
         .theme-icon {
-            margin: 0 0.5rem;
-            color: var(--text-primary);
+            color: var(--text-secondary);
+            font-size: 1rem;
         }
 
         /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 2rem;
-        }
-
-        /* Page Title */
-        .page-title {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .page-title img {
-            width: 40px;
-            height: 40px;
-        }
-
-        .page-title h2 {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .green {
-            color: var(--accent);
-        }
-
-        /* Hyperlink */
-        .hyperlink {
-            color: var(--accent);
-            font-weight: 700;
-            text-decoration: underline;
-            transition: all 0.5s ease;
-        }
-
-        .hyperlink:hover {
-            color: var(--accent-hover);
         }
 
         /* Back link */
@@ -211,84 +237,79 @@
             margin-bottom: 2rem;
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
         .back-link i {
             margin-right: 0.5rem;
             color: var(--accent);
+            transition: transform 0.3s;
         }
 
         .back-link:hover {
             color: var(--accent);
         }
 
-        /* Info Card */
-        .info-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+        .back-link:hover i {
+            transform: translateX(-5px);
         }
 
-        .card-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1rem;
-        }
-
-        /* Thesis header */
-        .thesis-header {
-            background-color: var(--bg-secondary);
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
+            border-radius: 16px;
+            padding: 2.5rem;
             margin-bottom: 2rem;
             text-align: center;
+            box-shadow: var(--shadow);
         }
 
-        .thesis-title {
-            font-size: 1.8rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .thesis-subtitle {
+        .page-subtitle {
             color: var(--text-secondary);
             font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* PDF links container */
+        /* PDF Links */
         .pdf-links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .pdf-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            background-color: var(--bg-secondary);
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
+            border-radius: 50px;
             color: var(--text-primary);
             text-decoration: none;
             transition: all 0.3s;
+            font-weight: 500;
         }
 
         .pdf-link:hover {
             border-color: var(--accent);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -10px var(--accent);
         }
 
         .pdf-link i {
@@ -296,7 +317,74 @@
             font-size: 1.2rem;
         }
 
-        /* Course list */
+        /* Language Tabs */
+        .lang-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .tab-btn {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .tab-btn:hover:not(.active) {
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Info Card */
+        .info-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--accent);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .card-title i {
+            font-size: 1.5rem;
+        }
+
+        /* Course List */
         .course-list {
             display: flex;
             flex-direction: column;
@@ -310,85 +398,126 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            padding: 0.8rem 1rem;
+            padding: 0.8rem 1.2rem;
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
+            border-radius: 8px;
             transition: all 0.3s;
         }
 
         .course-item:hover {
             border-color: var(--accent);
             transform: translateX(5px);
+            background-color: var(--bg-hover);
         }
 
         .course-num {
             min-width: 3rem;
             color: var(--accent);
             font-weight: 700;
+            font-family: 'Fira Code', monospace;
         }
 
         .course-name {
             flex: 1;
-            color: var(--text-primary);
+            font-weight: 500;
         }
 
         .course-grade {
-            background-color: var(--skill-bg);
-            color: var(--text-primary);
-            padding: 0.2rem 0.8rem;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+            color: var(--accent);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            border: 1px solid var(--accent);
             font-size: 0.9rem;
             font-weight: 600;
-        }
-
-        .course-ects {
-            background-color: var(--skill-bg);
-            color: var(--text-primary);
-            padding: 0.2rem 0.8rem;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-family: 'Fira Code', monospace;
             min-width: 3rem;
             text-align: center;
         }
 
-        /* Stats */
+        .course-ects {
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+            color: var(--success);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            border: 1px solid var(--success);
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'Fira Code', monospace;
+            min-width: 3rem;
+            text-align: center;
+        }
+
+        /* Stats Grid */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
         .stat-item {
-            background-color: var(--bg-secondary);
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1rem;
+            border-radius: 16px;
+            padding: 2rem 1rem;
             text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
         }
 
         .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
         .stat-label {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         /* Footer */
-        footer {
+        .footer {
             background-color: var(--bg-secondary);
             padding: 2rem;
             text-align: center;
-            border-top: 1px solid var(--border-color);
+            border-top: 2px solid var(--border-color);
             margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
         }
 
         .copyright {
@@ -401,28 +530,52 @@
             margin-right: 0.25rem;
         }
 
+        /* Scrollbar */
         .course-list::-webkit-scrollbar {
             width: 8px;
+        }
+        .course-list::-webkit-scrollbar-track {
             background: var(--bg-secondary);
+            border-radius: 4px;
         }
         .course-list::-webkit-scrollbar-thumb {
             background: var(--accent);
             border-radius: 4px;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-menu {
+            .header {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
                 gap: 1rem;
             }
-            .header {
-                padding: 1rem;
+            .header-left {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .header-controls {
+                width: 100%;
+                justify-content: center;
             }
             .course-item {
                 flex-wrap: wrap;
             }
             .pdf-links {
                 flex-direction: column;
-                gap: 1rem;
+            }
+            .page-title {
+                font-size: 2rem;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -430,23 +583,35 @@
 <body>
     <!-- Header -->
     <header class="header">
-       
-        <nav class="nav">
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="/#about">За мен</a></li>
-                <li class="nav-item"><a href="/#education">Образование</a></li>
-                <li class="nav-item"><a href="/#experience">Опит</a></li>
-                <li class="nav-item"><a href="/#projects">Проекти</a></li>
-                <li class="theme-switch-wrapper">
-                    <i class="fas fa-moon theme-icon"></i>
-                    <label class="theme-switch">
-                        <input type="checkbox" id="theme-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                    <i class="fas fa-sun theme-icon"></i>
-                </li>
-            </ul>
-        </nav>
+        <div class="header-left">
+            <a href="https://comnsense.github.io/" class="header-logo">@</a>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/#about" data-en="About" data-bg="За мен">За мен</a></li>
+                    <li class="nav-item"><a href="/#education" data-en="Education" data-bg="Образование">Образование</a></li>
+                    <li class="nav-item"><a href="/#experience" data-en="Experience" data-bg="Опит">Опит</a></li>
+                    <li class="nav-item"><a href="/#projects" data-en="Projects" data-bg="Проекти">Проекти</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="header-controls">
+            <!-- Language Switcher -->
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="bg">BG</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <div class="theme-switch-wrapper">
+                
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+                
+            </div>
+        </div>
     </header>
 
     <!-- Main Container -->
@@ -454,127 +619,592 @@
         
         <!-- Back link -->
         <a href="https://comnsense.github.io/" class="back-link">
-            <i class="fas fa-arrow-left"></i> Назад 
+            <i class="fas fa-arrow-left"></i>
+            <span data-en="Back to Portfolio" data-bg="Назад към портфолиото">Назад към портфолиото</span>
         </a>
 
-        <!-- Page Title -->
-        <div class="page-title">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23306788' stroke-width='2'%3E%3Cpath d='M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z'%3E%3C/path%3E%3Cpath d='M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z'%3E%3C/path%3E%3C/svg%3E" alt="">
-            <h2>Дипломно <span class="green">приложение</span></h2>
-        </div>
-
-        <!-- Thesis Header with PDF Links -->
-        <div class="thesis-header">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">
+                <span data-en="Thesis application" data-bg="Дипломно приложение">Дипломно приложение</span>
+            </h1>
+            <p class="page-subtitle" data-en="Bachelor of Science in Informatics and Computer Science" data-bg="Бакалавър по Информатика и Компютърни науки">Бакалавър по Информатика и Компютърни науки</p>
+            
+            <!-- PDF Links -->
             <div class="pdf-links">
                 <a href="/Диплома.pdf" class="pdf-link" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Диплома
+                    <i class="fas fa-file-pdf"></i>
+                    <span data-en="Diploma" data-bg="Диплома">Диплома</span>
                 </a>
                 <a href="/thesis.pdf" class="pdf-link" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Дипломна работа
+                    <i class="fas fa-file-pdf"></i>
+                    <span data-en="Thesis" data-bg="Дипломна работа">Дипломна работа</span>
                 </a>
                 <a href="/Qualification Profile.pdf" class="pdf-link" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Квалификационна характеристика
+                    <i class="fas fa-file-pdf"></i>
+                    <span data-en="Qualification Profile" data-bg="Квалификационна характеристика">Квалификационна характеристика</span>
                 </a>
             </div>
         </div>
 
-        <!-- Courses -->
-        <div class="info-card">
-            <h3 class="card-title">
-                <i class="fas fa-book"></i>
-                Завършени Курсове 
-            </h3>
-            <div class="course-list" id="courseList">
-                <!-- Filled by JS -->
+        <!-- Language Tabs -->
+        
+
+        <!-- Bulgarian Content -->
+        <div id="content-bg" class="content-section active">
+            <!-- Courses -->
+            <div class="info-card">
+                <h3 class="card-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Завършени курсове (43)
+                </h3>
+                <div class="course-list" id="courseListBg"><div class="course-item">
+                    <span class="course-num">1.</span>
+                    <span class="course-name">Въведение в предприемачеството</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">2.</span>
+                    <span class="course-name">Въведение в компютърните науки</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">3.</span>
+                    <span class="course-name">Компютърни архитектури</span>
+                    <span class="course-grade">3</span>
+                    <span class="course-ects">E</span>
+                </div><div class="course-item">
+                    <span class="course-num">4.</span>
+                    <span class="course-name">Линейна алгебра и аналитична геометрия</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">5.</span>
+                    <span class="course-name">Академично писане</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">6.</span>
+                    <span class="course-name">Програмиране</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">7.</span>
+                    <span class="course-name">Операционни системи</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">8.</span>
+                    <span class="course-name">Уеб технологии</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">9.</span>
+                    <span class="course-name">Математически анализ</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">10.</span>
+                    <span class="course-name">ИТ средства за анализ на данни</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">11.</span>
+                    <span class="course-name">Обектно-ориентирано програмиране</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">12.</span>
+                    <span class="course-name">Структури от данни и алгоритми</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">13.</span>
+                    <span class="course-name">Потребителски интерфейси и използваемост</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">14.</span>
+                    <span class="course-name">Компютърни мрежи и комуникации</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">15.</span>
+                    <span class="course-name">Математически основи на информатиката</span>
+                    <span class="course-grade">3</span>
+                    <span class="course-ects">E</span>
+                </div><div class="course-item">
+                    <span class="course-num">16.</span>
+                    <span class="course-name">Бази данни</span>
+                    <span class="course-grade">3</span>
+                    <span class="course-ects">E</span>
+                </div><div class="course-item">
+                    <span class="course-num">17.</span>
+                    <span class="course-name">Вероятности и статистика</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">18.</span>
+                    <span class="course-name">Програмиране с PHP</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">19.</span>
+                    <span class="course-name">Техники на програмиране</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">20.</span>
+                    <span class="course-name">3D моделиране и принтиране</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">21.</span>
+                    <span class="course-name">JavaScript технологии</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">22.</span>
+                    <span class="course-name">Въведение в микроконтролерите</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">23.</span>
+                    <span class="course-name">Компютърна графика</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">24.</span>
+                    <span class="course-name">Програмиране с Python</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">25.</span>
+                    <span class="course-name">Криптография</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">26.</span>
+                    <span class="course-name">Въведение в мениджмънта</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">27.</span>
+                    <span class="course-name">Софтуерно инженерство</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">28.</span>
+                    <span class="course-name">Разработка на мобилни приложения</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">29.</span>
+                    <span class="course-name">Психология на интелекта</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">30.</span>
+                    <span class="course-name">Киберсигурност</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">31.</span>
+                    <span class="course-name">Уеб услуги и облачни технологии</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">32.</span>
+                    <span class="course-name">Анимация в уеб</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">33.</span>
+                    <span class="course-name">Функционално програмиране</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">34.</span>
+                    <span class="course-name">Управление на бизнес процеси</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">35.</span>
+                    <span class="course-name">Софтуерни архитектури</span>
+                    <span class="course-grade">3</span>
+                    <span class="course-ects">E</span>
+                </div><div class="course-item">
+                    <span class="course-num">36.</span>
+                    <span class="course-name">Научноизследователски стаж</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">37.</span>
+                    <span class="course-name">Интелигентни системи</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">D</span>
+                </div><div class="course-item">
+                    <span class="course-num">38.</span>
+                    <span class="course-name">Електронен бизнес</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">D</span>
+                </div><div class="course-item">
+                    <span class="course-num">39.</span>
+                    <span class="course-name">Мултимедийни системи – практикум</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">40.</span>
+                    <span class="course-name">Уеб дизайн – практикум</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">41.</span>
+                    <span class="course-name">Операционни системи /практикум/</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">42.</span>
+                    <span class="course-name">Невронауки</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">43.</span>
+                    <span class="course-name">Преддипломна практика/стаж</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div></div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">43</div>
+                    <div class="stat-label">Завършени курсове</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">240</div>
+                    <div class="stat-label">ECTS кредити</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5.02</div>
+                    <div class="stat-label">Среден успех</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">19</div>
+                    <div class="stat-label">Отлични оценки (6)</div>
+                </div>
             </div>
         </div>
 
-        <!-- Stats -->
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-value">43</div>
-                <div class="stat-label">Всички Курсове </div>
+        <!-- English Content -->
+        <div id="content-en" class="content-section">
+            <!-- Courses -->
+            <div class="info-card">
+                <h3 class="card-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Completed Courses (43)
+                </h3>
+                <div class="course-list" id="courseListEn"><div class="course-item">
+                    <span class="course-num">1.</span>
+                    <span class="course-name">Introduction to Entrepreneurship</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">2.</span>
+                    <span class="course-name">Introduction to Computer Science</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">3.</span>
+                    <span class="course-name">Computer Architectures</span>
+                    <span class="course-grade">3</span>
+                    <span class="course-ects">E</span>
+                </div><div class="course-item">
+                    <span class="course-num">4.</span>
+                    <span class="course-name">Linear Algebra &amp; Analytic Geometry</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">5.</span>
+                    <span class="course-name">Academic Writing</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">6.</span>
+                    <span class="course-name">Programming</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">7.</span>
+                    <span class="course-name">Operating Systems</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">8.</span>
+                    <span class="course-name">Web Technologies</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">9.</span>
+                    <span class="course-name">Mathematical Analysis</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">10.</span>
+                    <span class="course-name">IT Tools for Data Analysis</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">11.</span>
+                    <span class="course-name">Object-Oriented Programming</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">12.</span>
+                    <span class="course-name">Data Structures &amp; Algorithms</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">13.</span>
+                    <span class="course-name">User Interfaces &amp; Usability</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">14.</span>
+                    <span class="course-name">Computer Networks &amp; Communications</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">15.</span>
+                    <span class="course-name">Mathematical Foundations of Informatics</span>
+                    <span class="course-grade">3</span>
+                    <span class="course-ects">E</span>
+                </div><div class="course-item">
+                    <span class="course-num">16.</span>
+                    <span class="course-name">Databases</span>
+                    <span class="course-grade">3</span>
+                    <span class="course-ects">E</span>
+                </div><div class="course-item">
+                    <span class="course-num">17.</span>
+                    <span class="course-name">Probability &amp; Statistics</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">18.</span>
+                    <span class="course-name">Programming with PHP</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">19.</span>
+                    <span class="course-name">Programming Techniques</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">20.</span>
+                    <span class="course-name">3D Modeling &amp; Printing</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">21.</span>
+                    <span class="course-name">JavaScript Technologies</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">22.</span>
+                    <span class="course-name">Introduction to Microcontrollers</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">23.</span>
+                    <span class="course-name">Computer Graphics</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">24.</span>
+                    <span class="course-name">Programming with Python</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">25.</span>
+                    <span class="course-name">Cryptography</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">26.</span>
+                    <span class="course-name">Introduction to Management</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">27.</span>
+                    <span class="course-name">Software Engineering</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">28.</span>
+                    <span class="course-name">Mobile App Development</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">29.</span>
+                    <span class="course-name">Psychology of Intelligence</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">30.</span>
+                    <span class="course-name">Cybersecurity</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">31.</span>
+                    <span class="course-name">Web Services &amp; Cloud Technologies</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">32.</span>
+                    <span class="course-name">Web Animation</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">33.</span>
+                    <span class="course-name">Functional Programming</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">34.</span>
+                    <span class="course-name">Business Process Management</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">35.</span>
+                    <span class="course-name">Software Architectures</span>
+                    <span class="course-grade">3</span>
+                    <span class="course-ects">E</span>
+                </div><div class="course-item">
+                    <span class="course-num">36.</span>
+                    <span class="course-name">Research Internship</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">37.</span>
+                    <span class="course-name">Intelligent Systems</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">D</span>
+                </div><div class="course-item">
+                    <span class="course-num">38.</span>
+                    <span class="course-name">E-business</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">D</span>
+                </div><div class="course-item">
+                    <span class="course-num">39.</span>
+                    <span class="course-name">Multimedia Systems – practicum</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">40.</span>
+                    <span class="course-name">Web Design – practicum</span>
+                    <span class="course-grade">5</span>
+                    <span class="course-ects">B</span>
+                </div><div class="course-item">
+                    <span class="course-num">41.</span>
+                    <span class="course-name">Operating Systems practicum</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div><div class="course-item">
+                    <span class="course-num">42.</span>
+                    <span class="course-name">Neurosciences</span>
+                    <span class="course-grade">6</span>
+                    <span class="course-ects">A</span>
+                </div><div class="course-item">
+                    <span class="course-num">43.</span>
+                    <span class="course-name">Pre-graduation internship</span>
+                    <span class="course-grade">4</span>
+                    <span class="course-ects">C</span>
+                </div></div>
             </div>
-            <div class="stat-item">
-                <div class="stat-value">240</div>
-                <div class="stat-label">ECTS кредити</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">5.02</div>
-                <div class="stat-label">Среден успех</div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">43</div>
+                    <div class="stat-label">Completed Courses</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">240</div>
+                    <div class="stat-label">ECTS Credits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5.02</div>
+                    <div class="stat-label">GPA (6.00 scale)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">19</div>
+                    <div class="stat-label">Excellent Grades (6)</div>
+                </div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer>
-        <span class="copyright">
-            <i class="fas fa-copyright"></i> Comnsense-2026
-        </span>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/comnsense" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/mirelsewhere" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/ahhwakk" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <span class="copyright">
+                <i class="fas fa-copyright"></i> comnsense 2026
+            </span>
+        </div>
     </footer>
 
     <script>
-        // Course data - само на български
-        const courses = [
-            "Въведение в предприемачеството",
-            "Въведение в компютърните науки",
-            "Компютърни архитектури",
-            "Линейна алгебра и аналитична геометрия",
-            "Академично писане",
-            "Програмиране",
-            "Операционни системи",
-            "Уеб технологии",
-            "Математически анализ",
-            "ИТ средства за анализ на данни",
-            "Обектно-ориентирано програмиране",
-            "Структури от данни и алгоритми",
-            "Потребителски интерфейси и използваемост",
-            "Компютърни мрежи и комуникации",
-            "Математически основи на информатиката",
-            "Бази данни",
-            "Вероятности и статистика",
-            "Програмиране с PHP",
-            "Техники на програмиране",
-            "3D моделиране и принтиране",
-            "JavaScript технологии",
-            "Въведение в микроконтролерите",
-            "Компютърна графика",
-            "Програмиране с Python",
-            "Криптография",
-            "Въведение в мениджмънта",
-            "Софтуерно инженерство",
-            "Разработка на мобилни приложения",
-            "Психология на интелекта",
-            "Киберсигурност",
-            "Уеб услуги и облачни технологии",
-            "Анимация в уеб",
-            "Функционално програмиране",
-            "Управление на бизнес процеси",
-            "Софтуерни архитектури",
-            "Научноизследователски стаж",
-            "Интелигентни системи",
-            "Електронен бизнес",
-            "Мултимедийни системи – практикум",
-            "Уеб дизайн – практикум",
-            "Операционни системи /практикум/",
-            "Невронауки",
-            "Преддипломна практика/стаж"
-        ];
-
-        const grades = [
-            "5", "6", "3", "4", "6", "6", "4", "6", "6", "5",
-            "6", "5", "6", "5", "3", "3", "4", "5", "5", "5",
-            "6", "6", "6", "6", "4", "4", "6", "6", "5", "5",
-            "6", "6", "4", "6", "3", "6", "4", "4", "6", "5",
-            "4", "6", "4"
-        ];
-
-        const ects = [
-            "B", "A", "E", "C", "A", "A", "C", "A", "A", "B",
-            "A", "B", "A", "B", "E", "E", "C", "B", "B", "B",
-            "A", "A", "A", "A", "C", "C", "A", "A", "B", "B",
-            "A", "A", "C", "A", "E", "A", "D", "D", "A", "B",
-            "C", "A", "C"
+        // Course data - Bulgarian and English
+        const coursesData = [
+            { bg: "Въведение в предприемачеството", en: "Introduction to Entrepreneurship", grade: "5", ects: "B" },
+            { bg: "Въведение в компютърните науки", en: "Introduction to Computer Science", grade: "6", ects: "A" },
+            { bg: "Компютърни архитектури", en: "Computer Architectures", grade: "3", ects: "E" },
+            { bg: "Линейна алгебра и аналитична геометрия", en: "Linear Algebra & Analytic Geometry", grade: "4", ects: "C" },
+            { bg: "Академично писане", en: "Academic Writing", grade: "6", ects: "A" },
+            { bg: "Програмиране", en: "Programming", grade: "6", ects: "A" },
+            { bg: "Операционни системи", en: "Operating Systems", grade: "4", ects: "C" },
+            { bg: "Уеб технологии", en: "Web Technologies", grade: "6", ects: "A" },
+            { bg: "Математически анализ", en: "Mathematical Analysis", grade: "6", ects: "A" },
+            { bg: "ИТ средства за анализ на данни", en: "IT Tools for Data Analysis", grade: "5", ects: "B" },
+            { bg: "Обектно-ориентирано програмиране", en: "Object-Oriented Programming", grade: "6", ects: "A" },
+            { bg: "Структури от данни и алгоритми", en: "Data Structures & Algorithms", grade: "5", ects: "B" },
+            { bg: "Потребителски интерфейси и използваемост", en: "User Interfaces & Usability", grade: "6", ects: "A" },
+            { bg: "Компютърни мрежи и комуникации", en: "Computer Networks & Communications", grade: "5", ects: "B" },
+            { bg: "Математически основи на информатиката", en: "Mathematical Foundations of Informatics", grade: "3", ects: "E" },
+            { bg: "Бази данни", en: "Databases", grade: "3", ects: "E" },
+            { bg: "Вероятности и статистика", en: "Probability & Statistics", grade: "4", ects: "C" },
+            { bg: "Програмиране с PHP", en: "Programming with PHP", grade: "5", ects: "B" },
+            { bg: "Техники на програмиране", en: "Programming Techniques", grade: "5", ects: "B" },
+            { bg: "3D моделиране и принтиране", en: "3D Modeling & Printing", grade: "5", ects: "B" },
+            { bg: "JavaScript технологии", en: "JavaScript Technologies", grade: "6", ects: "A" },
+            { bg: "Въведение в микроконтролерите", en: "Introduction to Microcontrollers", grade: "6", ects: "A" },
+            { bg: "Компютърна графика", en: "Computer Graphics", grade: "6", ects: "A" },
+            { bg: "Програмиране с Python", en: "Programming with Python", grade: "6", ects: "A" },
+            { bg: "Криптография", en: "Cryptography", grade: "4", ects: "C" },
+            { bg: "Въведение в мениджмънта", en: "Introduction to Management", grade: "4", ects: "C" },
+            { bg: "Софтуерно инженерство", en: "Software Engineering", grade: "6", ects: "A" },
+            { bg: "Разработка на мобилни приложения", en: "Mobile App Development", grade: "6", ects: "A" },
+            { bg: "Психология на интелекта", en: "Psychology of Intelligence", grade: "5", ects: "B" },
+            { bg: "Киберсигурност", en: "Cybersecurity", grade: "5", ects: "B" },
+            { bg: "Уеб услуги и облачни технологии", en: "Web Services & Cloud Technologies", grade: "6", ects: "A" },
+            { bg: "Анимация в уеб", en: "Web Animation", grade: "6", ects: "A" },
+            { bg: "Функционално програмиране", en: "Functional Programming", grade: "4", ects: "C" },
+            { bg: "Управление на бизнес процеси", en: "Business Process Management", grade: "6", ects: "A" },
+            { bg: "Софтуерни архитектури", en: "Software Architectures", grade: "3", ects: "E" },
+            { bg: "Научноизследователски стаж", en: "Research Internship", grade: "6", ects: "A" },
+            { bg: "Интелигентни системи", en: "Intelligent Systems", grade: "4", ects: "D" },
+            { bg: "Електронен бизнес", en: "E-business", grade: "4", ects: "D" },
+            { bg: "Мултимедийни системи – практикум", en: "Multimedia Systems – practicum", grade: "6", ects: "A" },
+            { bg: "Уеб дизайн – практикум", en: "Web Design – practicum", grade: "5", ects: "B" },
+            { bg: "Операционни системи /практикум/", en: "Operating Systems practicum", grade: "4", ects: "C" },
+            { bg: "Невронауки", en: "Neurosciences", grade: "6", ects: "A" },
+            { bg: "Преддипломна практика/стаж", en: "Pre-graduation internship", grade: "4", ects: "C" }
         ];
 
         // Theme toggle
@@ -596,29 +1226,91 @@
             }
         });
 
-        function renderCourses() {
-            const courseList = document.getElementById('courseList');
-            courseList.innerHTML = '';
+        // Language switching
+        let currentLang = 'bg';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
             
-            courses.forEach((course, index) => {
-                const item = document.createElement('div');
-                item.className = 'course-item';
-                item.innerHTML = `
+            // Update active class on language switcher buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-bg][data-en]').forEach(el => {
+                el.textContent = el.dataset[lang];
+            });
+
+            // Switch content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(`content-${lang}`).classList.add('active');
+
+            // Update active tab
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.dataset.tab === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Language switcher buttons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                updateLanguage(btn.dataset.lang);
+            });
+        });
+
+        // Tab buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                updateLanguage(btn.dataset.tab);
+            });
+        });
+
+        // Render courses
+        function renderCourses() {
+            const listBg = document.getElementById('courseListBg');
+            const listEn = document.getElementById('courseListEn');
+            
+            listBg.innerHTML = '';
+            listEn.innerHTML = '';
+            
+            coursesData.forEach((course, index) => {
+                // Bulgarian item
+                const bgItem = document.createElement('div');
+                bgItem.className = 'course-item';
+                bgItem.innerHTML = `
                     <span class="course-num">${index + 1}.</span>
-                    <span class="course-name">${course}</span>
-                    <span class="course-grade">${grades[index]}</span>
-                    <span class="course-ects">${ects[index]}</span>
+                    <span class="course-name">${course.bg}</span>
+                    <span class="course-grade">${course.grade}</span>
+                    <span class="course-ects">${course.ects}</span>
                 `;
-                courseList.appendChild(item);
+                listBg.appendChild(bgItem);
+
+                // English item
+                const enItem = document.createElement('div');
+                enItem.className = 'course-item';
+                enItem.innerHTML = `
+                    <span class="course-num">${index + 1}.</span>
+                    <span class="course-name">${course.en}</span>
+                    <span class="course-grade">${course.grade}</span>
+                    <span class="course-ects">${course.ects}</span>
+                `;
+                listEn.appendChild(enItem);
             });
         }
 
         // Initial render
         renderCourses();
     </script>
-</body>
 
-</html>
-
-
-
+</body></html>
