@@ -552,7 +552,7 @@
             font-size: 1.2rem;
         }
 
-        /* Tech Stack Container */
+        /* Tech Stack Container - НОВ СТИЛ, вдъхновен от втория пример */
         .tech-stack-integrated {
             margin-top: 2rem;
             padding-top: 1.5rem;
@@ -599,51 +599,52 @@
             max-height: 0;
         }
 
-        .tech-stack-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-            gap: 1rem;
+        /* НОВ стил за skill badges - като във втория пример */
+        .tech-stack-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1.2rem;
+            border-radius: 12px;
+            padding: 1.5rem;
         }
-
-        .skill-item {
+        
+        .skill-badge {
+            border-radius: 12px;
+            margin: 3px;
+            border: 2px solid var(--accent);
+            padding: 8px 15px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 0.4rem;
-            padding: 0.7rem;
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            transition: all 0.3s;
+            background: var(--bg-secondary);
+            transition: all 0.3s ease;
+            gap: 8px;
         }
-
-        .skill-item:hover {
+        
+        .skill-badge:hover {
             transform: translateY(-3px);
-            border-color: var(--accent);
-            box-shadow: var(--shadow);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-hover);
         }
-
-        .skill-item img {
-            width: 32px;
-            height: 32px;
-            object-fit: contain;
-        }
-
-        .skill-item span {
+        
+        .skill-badge span {
             color: var(--text-primary);
-            font-weight: 500;
-            font-size: 0.8rem;
-            text-align: center;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .skill-badge img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0.95);
         }
 
-        .skill-item .material-icons {
+        .skill-badge .material-icons {
+            font-size: 22px;
             color: var(--accent);
-            font-size: 32px;
-            margin-bottom: 0.3rem;
         }
 
         /* Skills Grid */
@@ -801,10 +802,22 @@
                 grid-template-columns: 1fr;
             }
             
-            .tech-stack-grid {
-                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-                gap: 0.8rem;
+            .tech-stack-badges {
+                gap: 8px;
                 padding: 1rem;
+            }
+            
+            .skill-badge {
+                padding: 6px 10px;
+            }
+            
+            .skill-badge img {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .skill-badge span {
+                font-size: 0.85em;
             }
             
             .view-all-projects a {
@@ -844,7 +857,7 @@
                 align-items: flex-start;
             }
             
-            .tech-stack-grid {
+            .tech-stack-badges {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -939,7 +952,7 @@
                         <p>Сфера на обучение: информатика и компютърни науки</p>
                         <p>Последна придобита степен: много добър (5.02) | ниво по ЕКР: ниво 6</p>
                         <p>Вид учебни кредити: ECTS кредити | брой кредити: 240</p>
-                        <p>Дипломна работа: <a href="thesis.pdf" class="hyperlink">"Разработка на приложение за подкрепа на психичното здраве"</a></p>
+                        <p>Дипломна работа: <a href="thesis.pdf" class="hyperlink">Разработка на виртуален асистент с изкуствен интелект</a></p>
            
                         <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
                             <a href="Диплома.pdf" class="hyperlink" target="_blank">
@@ -971,14 +984,13 @@
                     </div>
                     <div class="item-details">
                         <p>Близо 3 години опит в обслужване на търговски дружества със стопанска и нестопанска дейност, включително ДДС регистрирани лица.</p>
-                        <p>Опит в работа с компании от различни сектори:</p>
+                        <p>Компании от различни сектори:</p>
                         <ul>
-                            <li>търговия на дребно</li>
-                            <li>инвестиционна дейност в строителството (покупко-продажба на имоти, проектни разходи)</li>
-                            <li>консултантски услуги</li>
-                            <li>оптики</li>
-                            <li>преводаческа дейност</li>
-                            <li>производство</li>
+                            <li>Търговия на дребно</li>
+                            <li>Строителството</li>
+                            <li>Консултантски услуги</li>
+                            <li>Преводаческа дейност</li>
+                            <li>Производство</li>
                         </ul>
                         <p>Практика с нестопански организации, включително с делегирани държавни дейности и социални услуги с бюджетно финансиране, при стриктно прилагане на нормативната рамка и счетоводните стандарти.</p>
                        <br>
@@ -1150,7 +1162,7 @@
                     Умения
                 </h2>
 
-                <!-- Tech Stack интегриран в Projects -->
+                <!-- Tech Stack интегриран в Projects - НОВ ВИД -->
                 <div class="tech-stack-integrated">
                     <div class="tech-stack-header" id="techStackHeader">
                         <h3>
@@ -1160,53 +1172,59 @@
                         <span class="toggle-icon" id="toggleIcon">▼</span>
                     </div>
                     <div class="tech-stack-content" id="techStackContent">
-                        <div class="tech-stack-grid">
+                        <!-- НОВ стил на badges -->
+                        <div class="tech-stack-badges">
                             <!-- Frontend -->
-                            <div class="skill-item">
+                            <div class="skill-badge">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>code</span>'">
                                 <span>HTML5</span>
                             </div>
                             
-                            <div class="skill-item">
+                            <div class="skill-badge">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>palette</span>'">
                                 <span>CSS3</span>
                             </div>   
 
-                            <div class="skill-item">
+                            <div class="skill-badge">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>javascript</span>'">
                                 <span>JavaScript</span>
                             </div>  
 
-                            <div class="skill-item">
+                          
+
+                            <!-- Backend -->
+                            <div class="skill-badge">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>settings</span>'">
+                                <span>Node.js</span>
+                            </div>
+                            <div class="skill-badge">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>bolt</span>'">
+                                <span>Express</span>
+                            </div> 
+                             <div class="skill-badge">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>code</span>'">
                                 <span>React</span>
                             </div>
 
-                            <!-- Backend -->
-                            <div class="skill-item">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>settings</span>'">
-                                <span>Node.js</span>
-                            </div>
-                            <div class="skill-item">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>bolt</span>'">
-                                <span>Express</span>
-                            </div>
-
                             <!-- Tools -->
-                            <div class="skill-item">
+                            <div class="skill-badge">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>share</span>'">
                                 <span>Git</span>
                             </div>
 
-                            <div class="skill-item">
+                            <div class="skill-badge">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" onerror="this.onerror=null; this.innerHTML='<span class=\'material-icons\'>terminal</span>'">
                                 <span>Bash</span>
                             </div>
+
+                       
+
+                           
                         </div>
                     </div>
                 </div>
 
-                <!-- Skills Grid -->
+                <!-- Skills Grid (категориите остават, но вече са под технологичните badges) -->
                 <div class="skills-grid">
                     <!-- CMS и дизайн -->
                     <div class="skill-category">
@@ -1350,7 +1368,7 @@
     <!-- Footer -->
     <footer>
         <span class="copyright">
-            <i class="fas fa-copyright"></i> Comnsense-2026
+            <i class="fas fa-copyright"></i> Мирела Йосифова -2026
         </span>
     </footer>
 
@@ -1386,6 +1404,37 @@
         techStackHeader.addEventListener('click', function() {
             techStackContent.classList.toggle('collapsed');
             toggleIcon.textContent = techStackContent.classList.contains('collapsed') ? '▶' : '▼';
+        });
+
+        // Image error handling for skill badges
+        document.querySelectorAll('.skill-badge img').forEach(img => {
+            img.addEventListener('error', function() {
+                const parent = this.parentElement;
+                const techName = this.alt;
+                
+                const iconMap = {
+                    'HTML5': 'code',
+                    'CSS3': 'palette',
+                    'JavaScript': 'javascript',
+                    'React': 'code',
+                    'Node.js': 'settings',
+                    'Express': 'bolt',
+                    'Git': 'share',
+                    'Bash': 'terminal',
+                    'WordPress': 'web',
+                    'Canva': 'brush',
+                    'Photoshop': 'brush',
+                    'Google Cloud': 'cloud',
+                    'Salesforce': 'cloud',
+                    'Windows': 'window',
+                    'Unix/Linux': 'terminal'
+                };
+                
+                parent.innerHTML = `
+                    <span class="material-icons">${iconMap[techName] || 'code'}</span>
+                    <span>${techName}</span>
+                `;
+            });
         });
     </script>
 </body>
