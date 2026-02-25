@@ -1,4 +1,5 @@
-<html lang="bg" data-theme="light"><head>
+<html lang="bg" data-theme="light">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Счетоводен профил | Мирела Йосифова</title>
@@ -11,456 +12,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-card: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --accent: #10b981;
-            --accent-soft: #10b98120;
-            --border: #475569;
-            --shadow: 0 20px 25px -5px rgba(0,0,0,0.5);
-            --gradient: linear-gradient(135deg, #10b981, #3b82f6);
-            --border-color: #475569;
-        }
-
-        [data-theme="light"] {
-            --bg-primary: #f9fafb;
-            --bg-secondary: #ffffff;
-            --bg-card: #f1f5f9;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --accent: #059669;
-            --accent-soft: #05966915;
-            --border: #e2e8f0;
-            --shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-            --border-color: #e2e8f0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Header */
-        .header {
-            background-color: var(--bg-secondary);
-            padding: 1rem 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            background-color: var(--bg-secondary);
-        }
-
-        .logo {
-           font-size: 1.5em;
-           font-weight: 700;
-           letter-spacing: 0.1em;
-           color: var(--accent);
-           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-           transition: transform 0.3s ease;
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: var(--accent);
-        }
-
-        /* Theme Toggle */
-        .theme-switch {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 52px;
-            height: 26px;
-        }
-
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: var(--bg-primary);
-            border: 1px solid var(--border);
-            transition: 0.3s;
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 18px;
-            width: 18px;
-            left: 4px;
-            bottom: 3px;
-            background-color: var(--accent);
-            transition: 0.3s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-
-        .theme-icon {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            flex: 1;
-        }
-
-        /* Back Link */
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            transition: color 0.3s;
-        }
-
-        .back-link:hover {
-            color: var(--accent);
-        }
-
-        .back-link i {
-            font-size: 0.8rem;
-        }
-
-        /* Profile Section */
-        .profile {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .profile-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-        }
-
-        .profile-title h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .profile-title p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        .highlight {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        /* Stats Cards */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Section */
-        .section {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .section-title i {
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-
-        /* Companies Table */
-        .table-wrapper {
-            overflow-x: auto;
-            border-radius: 16px;
-            background-color: var(--bg-primary);
-        }
-
-        .companies-table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 700px;
-        }
-
-        .companies-table th {
-            text-align: left;
-            padding: 1rem;
-            background-color: var(--accent-soft);
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .companies-table td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-secondary);
-        }
-
-        .companies-table tr:hover td {
-            background-color: var(--accent-soft);
-        }
-
-        .company-name {
-            font-weight: 600;
-            color: var(--text-primary);
-            text-transform: uppercase;
-        }
-
-        .company-notes {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            max-width: 250px;
-        }
-
-        /* Responsibilities Grid */
-        .responsibilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 0.8rem;
-        }
-
-        .resp-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 0.8rem 1rem;
-            background-color: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            transition: all 0.3s;
-        }
-
-        .resp-item:hover {
-            border-color: var(--accent);
-            transform: translateX(5px);
-        }
-
-        .resp-item i {
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-
-        .resp-item span {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-        }
-
-        /* Badges */
-        .badge {
-            display: inline-block;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-right: 0.5rem;
-        }
-
-        .badge-eu {
-            background: #10b98120;
-            color: #10b981;
-            border: 1px solid #10b981;
-        }
-
-        .badge-delegated {
-            background: #8b5cf620;
-            color: #8b5cf6;
-            border: 1px solid #8b5cf6;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            padding: 2rem;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 3rem;
-        }
-
-        .footer i {
-            color: var(--accent);
-            margin: 0 0.2rem;
-        }
-
-        .footer-column {
-            width: 100%;
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0 1rem 0;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-
-        .social-link a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background-color: var(--bg-primary);
-            border: 2px solid var(--border-color);
-            border-radius: 50%;
-            color: var(--text-primary);
-            font-size: 1.3rem;
-            transition: all 0.3s;
-        }
-
-        .social-link a:hover {
-            background-color: var(--accent);
-            color: white;
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .header {
-                padding: 1rem;
-            }
-            
-            .nav-menu {
-                gap: 1rem;
-            }
-            
-            .logo {
-                font-size: 1.2rem;
-            }
-            
-            .container {
-                padding: 1rem;
-            }
-            
-            .profile-title h1 {
-                font-size: 1.8rem;
-            }
-            
-            .section {
-                padding: 1.5rem;
-            }
-            
-            .responsibilities-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style/schety.css">
 </head>
 <body>
     <header class="header">
@@ -480,7 +33,7 @@
     <main class="container">
         
         <a href="https://comnsense.github.io/" class="back-link">
-            <i class="fas fa-arrow-left"></i> Назад  
+            <i class="fas fa-arrow-left"></i> Виж CV  
         </a>
 
         <div class="profile">
@@ -504,71 +57,7 @@
                             <th>Бележки</th>
                         </tr>
                     </thead>
-                    <tbody id="companyBody"><tr>
-                    <td class="company-name">ДИ ТИ ЕС ГРУП ООД</td>
-                    <td>Търговия на дребно</td>
-                    <td class="company-notes">12 обекта</td>
-                </tr><tr>
-                    <td class="company-name">НОВА ГРУП 2023 ЕООД</td>
-                    <td>Търговия на дребно</td>
-                    <td class="company-notes">4 обекта, строителни проекти</td>
-                </tr><tr>
-                    <td class="company-name">АРС ВИВЕНДИ МК ЕООД</td>
-                    <td>Преводаческа дейност</td>
-                    <td class="company-notes">Македонски език</td>
-                </tr><tr>
-                    <td class="company-name">ВЕРИНА ЕМ ЕООД</td>
-                    <td>Ремонт и поддръжка на мебели</td>
-                    <td class="company-notes"></td>
-                </tr><tr>
-                    <td class="company-name">ЕРФУРИ И ЕТИ ООД</td>
-                    <td>Търговия на дребно</td>
-                    <td class="company-notes">Оптика - 2 обекта</td>
-                </tr><tr>
-                    <td class="company-name">ДЕЙС-ОПТИК – ДАНИЕЛА ПАНЕКОВА ЕТ</td>
-                    <td>Търговия на дребно</td>
-                    <td class="company-notes">Оптика</td>
-                </tr><tr>
-                    <td class="company-name">НАТ – СТРОЙ 92 ЕООД</td>
-                    <td>Търговия на дребно</td>
-                    <td class="company-notes">Железария + Домашни потреби</td>
-                </tr><tr>
-                    <td class="company-name">ЗЕЛЕНОТО КУЧЕ ЕООД</td>
-                    <td>Търговия на дребно</td>
-                    <td class="company-notes">Сувенири</td>
-                </tr><tr>
-                    <td class="company-name">ПРОПЪРТИ ВЕНЧЪРС ЕООД</td>
-                    <td>Консултантски услуги</td>
-                    <td class="company-notes">Проекти с европейско финансиране</td>
-                </tr><tr>
-                    <td class="company-name">ЕВРООДИТ И ПАРТНЬОРИ</td>
-                    <td>Консултантски услуги</td>
-                    <td class="company-notes">-</td>
-                </tr><tr>
-                    <td class="company-name">БЪЛГАРО-КИТАЙСКА КАМАРА</td>
-                    <td>Организация на форуми и срещи</td>
-                    <td class="company-notes">Членски внос</td>
-                </tr><tr>
-                    <td class="company-name">ХЪНТИНГТЪН АСОЦИАЦИЯ</td>
-                    <td>Делегирана държавна дейност</td>
-                    <td class="company-notes">Проектно счетоводство (ПРЧР, Erasmus+)</td>
-                </tr><tr>
-                    <td class="company-name">СДРУЖЕНИЕ ЕВРОИНТЕГРА</td>
-                    <td>Консултантски услуги</td>
-                    <td class="company-notes">Проекти с европейско финансиране</td>
-                </tr><tr>
-                    <td class="company-name">ФОНДАЦИЯ ЕВРОКОМПАС</td>
-                    <td>Консултантски услуги</td>
-                    <td class="company-notes">Дарения/Спонсорства</td>
-                </tr><tr>
-                    <td class="company-name">МИТОВ МАКС ЕООД</td>
-                    <td>Инвестиции в строителството</td>
-                    <td class="company-notes">Разработване на проекти, покупко-продажба на имоти</td>
-                </tr><tr>
-                    <td class="company-name">ЕДНОКРАТНА УПОТРЕБА</td>
-                    <td>Производство</td>
-                    <td class="company-notes">Месечно обслужване - продажби и банкови транзакции отдел София</td>
-                </tr></tbody>
+                    <tbody id="companyBody"></tbody>
                 </table>
             </div>
         </div>
@@ -579,38 +68,19 @@
                 <i class="fas fa-tasks"></i>
                 <h2>Основни задължения</h2>
             </div>
-            <div class="responsibilities-grid" id="responsibilitiesGrid"><div class="resp-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Изготвяне и осчетоводяване на първични и вторични документи</span>
-                </div><div class="resp-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Осчетоводяване на ведомости за заплати</span>
-                </div><div class="resp-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Осчетоводяване на банкови и касови операции</span>
-                </div><div class="resp-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Водене на складови наличности</span>
-                </div><div class="resp-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Анализ и контрол на разчети</span>
-                </div><div class="resp-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Поддържане на кореспонденция с клиенти и доставчици</span>
-                </div><div class="resp-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Отчитане на строителни инвестиционни проекти и проектно финансиране</span>
-                </div><div class="resp-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Изготвяне на ДДС декларации</span>
-                </div><div class="resp-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Участие в изготвяне на ГФО и ГДД</span>
-                </div><div class="resp-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Работа със счетоводен софтуер и вътрешни системи</span>
-                </div></div>
+            <div class="responsibilities-grid" id="responsibilitiesGrid"></div>
         </div>
+
+<!-- Technical Skills Section - преди stats -->
+<div class="section technical-section">
+    <div class="section-title">
+        <i class="fas fa-laptop-code"></i>
+        <h2>Технически умения</h2>
+    </div>
+    <div class="technical-skills-grid" id="technicalSkillsGrid"></div>
+</div>
+
+
 
         <div class="stats">
             <div class="stat-card">
@@ -619,20 +89,27 @@
             </div>
 
             <div class="stat-card">
-                <div class="stat-number">2022-2026</div>
-                <div class="stat-label">Период</div>
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Стаж </div>
             </div>
         </div>
     </main>
+
+ 
+
+
+
 
     <footer class="footer">
         <p>
             <i class="fas fa-copyright"></i> 2026 · Счетоводен опит
         </p> 
+        
+
         <div class="footer-column">        
-            <!-- Social Links - премахнат GitHub, добавен имейл -->
+            <!-- Social Links -->
             <ul class="social-links">
-                                 <li class="social-link">
+                <li class="social-link">
                     <a href="mailto:comnsense17@gmail.com" aria-label="Email" target="_blank" rel="noopener">
                         <i class="fas fa-envelope"></i>
                     </a>
@@ -651,94 +128,7 @@
         </div>
     </footer>
  
-    <script>
-        // Companies data - с главни букви
-        const companies = [
-            { name: "ДИ ТИ ЕС ГРУП ООД", activity: "Търговия на дребно", notes: "12 обекта" },
-            { name: "НОВА ГРУП 2023 ЕООД", activity: "Търговия на дребно", notes: "4 обекта, строителни проекти" },
-            { name: "АРС ВИВЕНДИ МК ЕООД", activity: "Преводаческа дейност", notes: "Македонски език" },  
-            { name: "ВЕРИНА ЕМ ЕООД", activity: "Ремонт и поддръжка на мебели", notes: "" },
-            { name: "ЕРФУРИ И ЕТИ ООД", activity: "Търговия на дребно", notes: "Оптика - 2 обекта" },
-            { name: "ДЕЙС-ОПТИК – ДАНИЕЛА ПАНЕКОВА ЕТ", activity: "Търговия на дребно", notes: "Оптика" },
-            { name: "НАТ – СТРОЙ 92 ЕООД", activity: "Търговия на дребно", notes: "Железария + Домашни потреби" },
-            { name: "ЗЕЛЕНОТО КУЧЕ ЕООД", activity: "Търговия на дребно", notes: "Сувенири" }, 
-            { name: "ПРОПЪРТИ ВЕНЧЪРС ЕООД", activity: "Консултантски услуги", notes: "Проекти с европейско финансиране" },
-            { name: "ЕВРООДИТ И ПАРТНЬОРИ", activity: "Консултантски услуги", notes: "-" },
-            { name: "БЪЛГАРО-КИТАЙСКА КАМАРА", activity: "Организация на форуми и срещи", notes: "Членски внос" },
-            { name: "ХЪНТИНГТЪН АСОЦИАЦИЯ", activity: "Делегирана държавна дейност", notes: "Проектно счетоводство (ПРЧР, Erasmus+)" },
-            { name: "СДРУЖЕНИЕ ЕВРОИНТЕГРА", activity: "Консултантски услуги", notes: "Проекти с европейско финансиране" },
-            { name: "ФОНДАЦИЯ ЕВРОКОМПАС", activity: "Консултантски услуги", notes: "Дарения/Спонсорства" },   
-            { name: "МИТОВ МАКС ЕООД", activity: "Инвестиции в строителството", notes: "Разработване на проекти, покупко-продажба на имоти" },
-            { name: "ЕДНОКРАТНА УПОТРЕБА", activity: "Производство", notes: "Месечно обслужване - продажби и банкови транзакции отдел София" }
-        ];
-
-        // Responsibilities data
-        const responsibilities = [
-            "Изготвяне и осчетоводяване на първични и вторични документи",
-            "Осчетоводяване на ведомости за заплати",
-            "Осчетоводяване на банкови и касови операции",  
-            "Водене на складови наличности",    
-            "Анализ и контрол на разчети",  
-            "Поддържане на кореспонденция с клиенти и доставчици",     
-            "Отчитане на строителни инвестиционни проекти и проектно финансиране", 
-            "Изготвяне на ДДС декларации",
-            "Участие в изготвяне на ГФО и ГДД",
-            "Работа със счетоводен софтуер и вътрешни системи",
-        ];
-
-        // Theme toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const savedTheme = localStorage.getItem('theme');
-
-        if (savedTheme === 'light') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            themeToggle.checked = true;
-        }
-
-        themeToggle.addEventListener('change', function() {
-            if (this.checked) {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-
-        // Render companies
-        function renderCompanies() {
-            const tbody = document.getElementById('companyBody');
-            tbody.innerHTML = '';
-            
-            companies.forEach(company => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td class="company-name">${company.name}</td>
-                    <td>${company.activity}</td>
-                    <td class="company-notes">${company.notes}</td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-
-        // Render responsibilities
-        function renderResponsibilities() {
-            const grid = document.getElementById('responsibilitiesGrid');
-            grid.innerHTML = '';
-            
-            responsibilities.forEach(resp => {
-                const item = document.createElement('div');
-                item.className = 'resp-item';
-                item.innerHTML = `
-                    <i class="fas fa-check-circle"></i>
-                    <span>${resp}</span>
-                `;
-                grid.appendChild(item);
-            });
-        }
-
-        renderCompanies();
-        renderResponsibilities();
-    </script>
-
-</body></html>
+    <!-- JavaScript -->
+    <script src="script/schety.js"></script>
+</body>
+</html>
