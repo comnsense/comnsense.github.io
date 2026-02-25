@@ -25,7 +25,7 @@ const companies = [
         name: "ПРОПЪРТИ ВЕНЧЪРС ЕООД", 
         activity: "Консултантски услуги", 
         vat: "Регистрация по ЗДДС",
-        period: "2023 - 2025",
+        period: "2023 - 09.2025",
         link: "https://portal.registryagency.bg/CR/en/Reports/ActiveConditionTabResult?uic=175353191"
     },
     { 
@@ -40,7 +40,7 @@ const companies = [
         activity: "Ремонт и поддръжка на мебели", 
         notes: "",
         vat: "",
-        period: "2020 - 2025",
+        period: "2020 - 2026",
         link: "https://portal.registryagency.bg/CR/en/Reports/ActiveConditionTabResult?uic=203172516"
     },
     { 
@@ -96,7 +96,7 @@ const companies = [
         name: "БЪЛГАРО-КИТАЙСКА ТЪРГОВСКО-ПРОМИШЛЕНА КАМАРА", 
         activity: "Търговско-промишлена камара", 
         vat: "",
-        period: "2023 - 2025",
+        period: "2023 - 09.2025",
         link: "https://portal.registryagency.bg/CR/Reports/ActiveConditionTabResult?uic=208107860"
     },
     { 
