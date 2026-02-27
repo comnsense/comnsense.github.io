@@ -147,26 +147,7 @@ function renderOfficeSkills() {
         `;
     }).join('');
     
-    // Добавяне на click event за картите без линк
-    document.querySelectorAll('.office-skill-card[data-has-link="false"]').forEach(card => {
-        card.addEventListener('click', function(e) {
-            // Проверка дали кликът не е върху линка
-            if (!e.target.closest('.office-skill-link')) {
-                const index = this.dataset.index;
-                const skill = officeSkills[index];
-                
-                // Визуална индикация
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 200);
-                
-                // Показване на съобщение в конзолата
-                console.log(`${skill.name}: ${skill.description}`);
-            }
-        });
-    });
-    
+     
     // Добавяне на hover ефект за линковете
     document.querySelectorAll('.office-skill-link[href="#"]').forEach(link => {
         link.addEventListener('click', (e) => {
