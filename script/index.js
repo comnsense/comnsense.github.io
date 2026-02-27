@@ -104,12 +104,21 @@ const officeSkills = [
         icon: "fa-google",
         link: "#"
     },
+      { 
+        name: "Google Analytics", 
+        description: "Анализ на уеб трафик, проследяване на посетители, поведенчески анализи, GA4 конфигурация",
+        icon: "fa-chart-line",
+        link: "https://analytics.google.com/"
+    },
     { 
         name: "Zendesk", 
         description: "Клиентска поддръжка и тикет система",
         icon: "fa-headset",
         link: "#"
     }
+
+
+    
 ];
 
 // Render Office Skills
@@ -470,3 +479,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 100);
 });
+
