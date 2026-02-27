@@ -89,7 +89,7 @@ const officeSkills = [
     
     { 
         name: "MS Office", 
-        description: "Excel, Word, Outlook, PowerPoint - напреднало ниво",
+        description: "Excel, Word, Outlook, PowerPoint",
         icon: "fa-file-excel",
         link: "#"
     },
@@ -454,3 +454,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 100);
 });
+
