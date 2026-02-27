@@ -86,12 +86,7 @@ const officeSkills = [
         icon: "fa-database",
         link: "#"
     },
-    { 
-        name: "CRM Системи", 
-        description: "Управление на клиентски взаимоотношения и продажби",
-        icon: "fa-handshake",
-        link: "#"
-    },
+    
     { 
         name: "MS Office", 
         description: "Excel, Word, Outlook, PowerPoint - напреднало ниво",
@@ -108,16 +103,15 @@ const officeSkills = [
         name: "Google Analytics", 
         description: "Анализ на уеб трафик, проследяване на посетители, поведенчески анализи, GA4 конфигурация",
         icon: "fa-chart-line",
-        link: "https://analytics.google.com/"
+     
     },
     { 
-        name: "Zendesk", 
-        description: "Клиентска поддръжка и тикет система",
-        icon: "fa-headset",
+        name: "CRM Системи", 
+        description: "Управление на клиентски взаимоотношения и продажби",
+        icon: "fa-handshake",
         link: "#"
     }
-
-
+    
     
 ];
 
@@ -136,7 +130,7 @@ function renderOfficeSkills() {
                 <i class="fas fa-arrow-right"></i>
                </a>`
             : `<span class="office-skill-link" style="opacity: 0.7; cursor: default;">
-                <i class="fas fa-info-circle"></i> Детайли
+                
                </span>`;
         
         return `
@@ -412,7 +406,7 @@ style.textContent = `
     .office-skill-card:nth-child(3) { animation-delay: 0.3s; }
     .office-skill-card:nth-child(4) { animation-delay: 0.4s; }
     .office-skill-card:nth-child(5) { animation-delay: 0.5s; }
-    .office-skill-card:nth-child(6) { animation-delay: 0.6s; }
+ 
 
     [data-theme="dark"] .office-skill-card {
         background: linear-gradient(145deg, #1a2533, #1e2a3a);
@@ -479,4 +473,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 100);
 });
-
