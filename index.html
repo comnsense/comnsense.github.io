@@ -728,8 +728,38 @@
         ]
     }
     </script>
+    <script>
+ 
+  function logVisitor() {
+    // Вземане на IP адреса чрез безплатен API
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        const ip = data.ip;
+        const userAgent = navigator.userAgent;
+        const page = window.location.pathname;
+        
+ 
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwlWPB-UnmtKU5TTjNQC4sZZxaTXTtlD-qjszycYj3ivVvt82nFKGw0nCSemBQnVfln/exec';
+        
+ 
+        fetch(scriptURL + '?ip=' + encodeURIComponent(ip) + 
+                       '&userAgent=' + encodeURIComponent(userAgent) + 
+                       '&page=' + encodeURIComponent(page), {
+          method: 'GET',
+          mode: 'no-cors'  // Важно за да работи без CORS проблеми
+        })
+        .catch(error => console.log('Информацията е пратена (но няма отговор от сървъра)'));
+      })
+      .catch(error => console.log('Неуспешно вземане на IP:', error));
+  }
+
+  // Изпълнява се при зареждане на страницата
+  window.addEventListener('load', logVisitor);
+</script>
 
     <!-- External JavaScript -->
     <script src="script/index.js"></script>
 </body>
 </html>
+
