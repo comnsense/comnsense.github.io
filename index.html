@@ -728,33 +728,29 @@
         ]
     }
     </script>
-    <script>
- 
+ <script>
   function logVisitor() {
-    // Вземане на IP адреса чрез безплатен API
+    console.log('Започва логване...');
+    
     fetch('https://api.ipify.org?format=json')
       .then(response => response.json())
       .then(data => {
-        const ip = data.ip;
-        const userAgent = navigator.userAgent;
-        const page = window.location.pathname;
+        console.log('IP получен:', data.ip);
         
- 
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwlWPB-UnmtKU5TTjNQC4sZZxaTXTtlD-qjszycYj3ivVvt82nFKGw0nCSemBQnVfln/exec';
         
- 
-        fetch(scriptURL + '?ip=' + encodeURIComponent(ip) + 
-                       '&userAgent=' + encodeURIComponent(userAgent) + 
-                       '&page=' + encodeURIComponent(page), {
+        fetch(scriptURL + '?ip=' + encodeURIComponent(data.ip) + 
+                       '&userAgent=' + encodeURIComponent(navigator.userAgent) + 
+                       '&page=' + encodeURIComponent(window.location.pathname), {
           method: 'GET',
-          mode: 'no-cors'  // Важно за да работи без CORS проблеми
+          mode: 'no-cors'
         })
-        .catch(error => console.log('Информацията е пратена (но няма отговор от сървъра)'));
+        .then(() => console.log('Заявката е пратена'))
+        .catch(error => console.error('Грешка при пращане:', error));
       })
-      .catch(error => console.log('Неуспешно вземане на IP:', error));
+      .catch(error => console.error('Грешка при вземане на IP:', error));
   }
 
-  // Изпълнява се при зареждане на страницата
   window.addEventListener('load', logVisitor);
 </script>
 
@@ -762,4 +758,5 @@
     <script src="script/index.js"></script>
 </body>
 </html>
+
 
