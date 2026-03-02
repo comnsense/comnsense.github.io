@@ -1,0 +1,179 @@
+<html lang="bg" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дипломно приложение | Мирела Йосифова</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Fira+Code:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon за Thesis application.html - дипломна шапка -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23306788'/%3E%3Ctext x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-family='Font Awesome 5 Free, FontAwesome'%3E%F0%9F%8E%93%3C/text%3E%3C/svg%3E">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="annex.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <a href="https://comnsense.github.io/" class="header-logo">@</a>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/#about" data-en="About" data-bg="За мен">За мен</a></li>
+                    <li class="nav-item"><a href="/#education" data-en="Education" data-bg="Образование">Образование</a></li>
+                    <li class="nav-item"><a href="/#experience" data-en="Experience" data-bg="Опит">Опит</a></li>
+                    <li class="nav-item"><a href="/#projects" data-en="Projects" data-bg="Проекти">Проекти</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="header-controls">
+            <!-- Language Switcher -->
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="bg">BG</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        
+        <!-- Back link -->
+        <a href="https://comnsense.github.io/" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            <span data-en="Back to Portfolio" data-bg="Назад към портфолиото">Назад към портфолиото</span>
+        </a>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">
+                <span data-en="Thesis application" data-bg="Дипломно приложение">Дипломно приложение</span>
+            </h1>
+            <p class="page-subtitle" data-en="Bachelor of Science in Informatics and Computer Science" data-bg="Бакалавър по Информатика и Компютърни науки">Бакалавър по Информатика и Компютърни науки</p>
+            
+            <!-- PDF Links -->
+            <div class="pdf-links">
+                <a href="/Диплома.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i>
+                    <span data-en="Diploma" data-bg="Диплома">Диплома</span>
+                </a>
+                <a href="/thesis.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i>
+                    <span data-en="Thesis" data-bg="Дипломна работа">Дипломна работа</span>
+                </a>
+                <a href="/Qualification Profile.pdf" class="pdf-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i>
+                    <span data-en="Qualification Profile" data-bg="Квалификационна характеристика">Квалификационна характеристика</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Bulgarian Content -->
+        <div id="content-bg" class="content-section active">
+            <!-- Courses -->
+            <div class="info-card">
+                <h3 class="card-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Завършени курсове (43)
+                </h3>
+                <div class="course-list" id="courseListBg"></div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">43</div>
+                    <div class="stat-label">Завършени курсове</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">240</div>
+                    <div class="stat-label">ECTS кредити</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5.02</div>
+                    <div class="stat-label">Среден успех</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Content -->
+        <div id="content-en" class="content-section">
+            <!-- Courses -->
+            <div class="info-card">
+                <h3 class="card-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Completed Courses (43)
+                </h3>
+                <div class="course-list" id="courseListEn"></div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">43</div>
+                    <div class="stat-label">Completed Courses</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">240</div>
+                    <div class="stat-label">ECTS Credits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5.02</div>
+                    <div class="stat-label">GPA (6.00 scale)</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+     <footer class="footer">
+        <p>
+            <i class="fas fa-copyright"></i> 2026 · Счетоводен опит · Мирела Йосифова
+        </p> 
+        
+        <div class="footer-column">        
+            <!-- Social Links -->
+            <ul class="social-links">
+                <li class="social-link">
+                    <a href="mailto:comnsense17@gmail.com" aria-label="Email" target="_blank" rel="noopener">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </li>
+                <li class="social-link">
+                    <a href="https://t.me/comnsense88" aria-label="Telegram" target="_blank" rel="noopener">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                </li>
+                <li class="social-link">
+                    <a href="https://comnsense.github.io/" aria-label="Website" target="_blank" rel="noopener">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </li>
+                <li class="social-link">
+                    <a href="https://www.linkedin.com/in/comnsense" aria-label="LinkedIn" target="_blank" rel="noopener">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="annex.js"></script>
+</body>
+</html>
