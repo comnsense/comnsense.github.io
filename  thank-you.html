@@ -3,61 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Благодаря - Мирела Йосифова</title>
+    <title>Благодаря за съобщението | Мирела Йосифова</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CRPYRSMED"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2CRPYRSMED');
+        
+        // Проследяване на успешно изпращане на форма
+        gtag('event', 'form_submission', {
+            'event_category': 'Contact',
+            'event_label': 'schety_page_form'
+        });
+    </script>
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             margin: 0;
-            text-align: center;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .success-container {
+        
+        .thank-you-container {
             background: white;
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
             max-width: 500px;
+            margin: 20px;
         }
+        
         .success-icon {
-            color: #28a745;
-            font-size: 64px;
+            font-size: 80px;
+            color: #4CAF50;
             margin-bottom: 20px;
         }
+        
         h1 {
             color: #333;
             margin-bottom: 20px;
         }
+        
         p {
             color: #666;
-            margin-bottom: 30px;
             line-height: 1.6;
+            margin-bottom: 30px;
         }
+        
         .btn {
             display: inline-block;
-            padding: 12px 30px;
-            background-color: #306788;
+            background: #667eea;
             color: white;
+            padding: 12px 30px;
             text-decoration: none;
-            border-radius: 6px;
-            transition: background-color 0.3s;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
         }
+        
         .btn:hover {
-            background-color: #24526b;
+            background: #764ba2;
+        }
+        
+        .btn i {
+            margin-right: 8px;
         }
     </style>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="success-container">
+    <div class="thank-you-container">
         <div class="success-icon">
             <i class="fas fa-check-circle"></i>
         </div>
         <h1>Благодаря за съобщението!</h1>
-        <p>Получих вашето запитване и ще се свържа с вас възможно най-скоро.</p>
-        <a href="/" class="btn">Върнете се към профила</a>
+        <p>Вашето съобщение беше изпратено успешно. Ще се свържа с вас възможно най-скоро.</p>
+        <a href="/schety.html" class="btn">
+            <i class="fas fa-arrow-left"></i> Обратно към профила
+        </a>
     </div>
 </body>
 </html>

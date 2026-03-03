@@ -132,7 +132,7 @@ const responsibilities = [
     "Работа със счетоводен софтуер и вътрешни системи"
 ];
 
-// Technical skills data
+// Technical skills data - без нива
 const technicalSkills = [
     { 
         name: "BulMar Office", 
@@ -157,34 +157,65 @@ const technicalSkills = [
     }
 ];
 
-// Theme toggle
-function initThemeToggle() {
-    const themeToggle = document.getElementById('themeToggle');
-    if (!themeToggle) return;
+// Render technical skills
+function renderTechnicalSkills() {
+    const container = document.getElementById('technicalSkillsGrid');
+    if (!container) return;
     
-    const savedTheme = localStorage.getItem('theme');
+    container.innerHTML = '';
     
-    if (savedTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-        themeToggle.checked = true;
-    }
-
-    themeToggle.addEventListener('change', function() {
-        if (this.checked) {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
+    technicalSkills.forEach(skill => {
+        const item = document.createElement('div');
+        item.className = 'skill-item';
+        
+        // За BulMar Office - специален формат с линк
+        if (skill.name === "BulMar Office") {
+            item.innerHTML = `
+                <div class="skill-icon">
+                    <i class="fas ${skill.icon}"></i>
+                </div>
+                <div class="skill-info">
+                    <h4><a href="${skill.link}" target="_blank" rel="noopener" class="skill-title-link">${skill.name} <i class="fas fa-external-link-alt"></i></a></h4>
+                    <div class="skill-description">${skill.description}</div>
+                </div>
+            `;
         } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
+            item.innerHTML = `
+                <div class="skill-icon">
+                    <i class="fas ${skill.icon}"></i>
+                </div>
+                <div class="skill-info">
+                    <h4>${skill.name}</h4>
+                    <div class="skill-description">${skill.description}</div>
+                </div>
+            `;
         }
+        container.appendChild(item);
     });
 }
+
+// Theme toggle
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    themeToggle.checked = true;
+}
+
+themeToggle.addEventListener('change', function() {
+    if (this.checked) {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+});
 
 // Render companies
 function renderCompanies() {
     const tbody = document.getElementById('companyBody');
-    if (!tbody) return;
-    
     tbody.innerHTML = '';
     
     companies.forEach(company => {
@@ -221,8 +252,6 @@ function renderCompanies() {
 // Render responsibilities
 function renderResponsibilities() {
     const grid = document.getElementById('responsibilitiesGrid');
-    if (!grid) return;
-    
     grid.innerHTML = '';
     
     responsibilities.forEach(resp => {
@@ -247,33 +276,20 @@ function renderTechnicalSkills() {
         const item = document.createElement('div');
         item.className = 'skill-item';
         
-        // За BulMar Office - специален формат с линк в заглавието
-        if (skill.name === "BulMar Office" && skill.link) {
-            item.innerHTML = `
-                <div class="skill-icon">
-                    <i class="fas ${skill.icon}"></i>
-                </div>
-                <div class="skill-info">
-                    <h4><a href="${skill.link}" target="_blank" rel="noopener" class="skill-title-link">${skill.name} <i class="fas fa-external-link-alt"></i></a></h4>
-                    <div class="skill-description">${skill.description}</div>
-                </div>
-            `;
-        } else {
-            // За другите умения - линк в описанието ако има
-            const descriptionContent = skill.link 
-                ? `<a href="${skill.link}" target="_blank" rel="noopener" class="skill-link">${skill.description} <i class="fas fa-external-link-alt"></i></a>`
-                : skill.description;
-            
-            item.innerHTML = `
-                <div class="skill-icon">
-                    <i class="fas ${skill.icon}"></i>
-                </div>
-                <div class="skill-info">
-                    <h4>${skill.name}</h4>
-                    <div class="skill-description">${descriptionContent}</div>
-                </div>
-            `;
-        }
+        const linkContent = skill.link 
+            ? `<a href="${skill.link}" target="_blank" rel="noopener" class="skill-link">${skill.description} <i class="fas fa-external-link-alt"></i></a>`
+            : skill.description;
+        
+        item.innerHTML = `
+            <div class="skill-icon">
+                <i class="fas ${skill.icon}"></i>
+            </div>
+            <div class="skill-info">
+                <h4>${skill.name}</h4>
+                <div class="skill-description">${linkContent}</div>
+       
+            </div>
+        `;
         container.appendChild(item);
     });
 }
@@ -293,45 +309,8 @@ function updateStats() {
     }
 }
 
- 
-    // HTML5 validation стилове
-    const inputs = form.querySelectorAll('input, select, textarea');
-    inputs.forEach(input => {
-        input.addEventListener('invalid', function(e) {
-            e.preventDefault();
-            this.classList.add('error');
-        });
-        
-        input.addEventListener('input', function() {
-            this.classList.remove('error');
-        });
-    });
-}
-
-// Track form submission with Google Analytics
-function trackFormSubmission() {
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'form_submission', {
-            'event_category': 'Contact',
-            'event_label': 'contact_form',
-            'value': 1
-        });
-    }
-}
-
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    initThemeToggle();
-    renderCompanies();
-    renderResponsibilities();
-    renderTechnicalSkills();
-    updateStats();
-    initContactForm();
-    
-    // Track form submission
-    document.addEventListener('submit', function(e) {
-        if (e.target.classList.contains('contact-form')) {
-            trackFormSubmission();
-        }
-    });
-});
+// Initialize rendering
+renderCompanies();
+renderResponsibilities();
+renderTechnicalSkills();
+updateStats();
