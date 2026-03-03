@@ -293,20 +293,7 @@ function updateStats() {
     }
 }
 
-// Contact Form Handling
-function initContactForm() {
-    const form = document.querySelector('.contact-form');
-    const successMsg = document.querySelector('.form-success');
-    
-    if (!form) return;
-    
-    // Проверка дали сме в Netlify среда (има успешно изпращане)
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true') {
-        form.style.display = 'none';
-        if (successMsg) successMsg.style.display = 'block';
-    }
-    
+ 
     // HTML5 validation стилове
     const inputs = form.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
