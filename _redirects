@@ -1,0 +1,12 @@
+# Пренасочвания за основния сайт
+/                https://cv-mirela.netlify.app/                301
+/schety          /schety/Schety.html                            301
+/schety.html     /schety/Schety.html                            301
+/annex/application /annex/application.html                      301
+
+# Пренасочване на всички Projects към другия сайт
+/Projects/*      https://cs-projects.netlify.app/:splat         301
+
+# Пренасочване на стари PDF файлове
+/thesis.pdf      /annex/thesis.pdf                              301
+/Диплома.pdf     /annex/Диплома.pdf                             301
