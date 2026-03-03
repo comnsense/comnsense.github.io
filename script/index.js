@@ -93,11 +93,11 @@ const officeSkills = [
         icon: "fa-file-excel",
         link: "#"
     },
-    { 
+      { 
         name: "Google Workspace", 
-        description: "Docs, Sheets, Gmail, Calendar, Meet",
-        icon: "fa-google",
-        link: "#"
+        description: "Gmail, Drive, Docs, Sheets, Calendar, Meet",
+        icon: "fa-clouds", 
+      
     },
       { 
         name: "Google Analytics", 
