@@ -1236,4 +1236,5 @@ footer:hover .copyright i {
 [data-theme="dark"] .thesis-button:hover i,
 [data-theme="dark"] .accounting-button:hover i {
     color: #ffffff;
-    filter: drop-shadow(0 2px 4px
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
