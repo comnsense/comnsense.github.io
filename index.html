@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-     <meta http-equiv="refresh" content="0; url=https://cv-mirela.netlify.app/">
-    <link rel="canonical" href="https://cv-mirela.netlify.app/">
+
     <!-- Основни SEO мета тагове -->
     <title>Мирела Йосифова | Професионален CV | Счетоводство и Компютърни науки</title>
     <meta name="description" content="Мирела Йосифова - Бакалавър по компютърни науки с опит в счетоводството, CRM системи и софтуерна поддръжка. Вижте моето CV, проекти и професионален опит в София.">
@@ -17,7 +16,7 @@
     
     <!-- Каноничен URL -->
     <link rel="canonical" href="https://comnsense.github.io/">
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <!-- Google tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CRPYRSMED"></script>
     <script>
@@ -690,6 +689,103 @@
                 </li>
             </ul>
         </section>
+ <!-- Contact Form Section - ИЗПРАВЕНА ФОРМА -->
+        <section class="contact-section-modern">
+            <div class="contact-header">
+                <h2 class="contact-title">
+                    <i class="fas fa-paper-plane"></i>
+                    Връзка с мен
+                </h2>
+ 
+            </div>
+            
+            <form action="https://formspree.io/f/mlgwyybn" method="POST" class="contact-form-modern">
+                <div class="form-row-modern">
+                    <div class="form-group-modern">
+                        <label for="name">
+                            <i class="fas fa-user"></i>
+                            <span>Име *</span>
+                        </label>
+                        <input type="text" id="name" name="name" placeholder="Вашето име" required>
+                    </div>
+                    
+                    <div class="form-group-modern">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i>
+                            <span>Имейл *</span>
+                        </label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group-modern">
+                    <label for="company">
+                        <i class="fas fa-building"></i>
+                        <span>Дружество/Фирма</span>
+                    </label>
+                    <input type="text" id="company" name="company" placeholder=" ">
+                </div>
+                
+                <div class="form-group-modern">
+                    <label for="message">
+                        <i class="fas fa-comment"></i>
+                        <span>Съобщение *</span>
+                    </label>
+                    <textarea id="message" name="message" rows="4" placeholder="Вашето съобщение..." required></textarea>
+                </div>
+                
+                <!-- Honeypot поле за спам защита -->
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <!-- Пренасочване след изпращане -->
+                <input type="hidden" name="_next" value="https://comnsense.github.io/thank-you.html">
+                
+                <!-- Тема на имейла -->
+                <input type="hidden" name="_subject" value="Ново съобщение от CV сайта">
+                
+                <!-- Задаване на reply-to полето -->
+                <input type="hidden" name="_replyto" value="email">
+                
+                <button type="submit" class="submit-btn-modern">
+                    <span>Изпрати съобщение</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </section>
+ 
+
+
+
+ <script>
+     
+ 
+        // Visitor logging
+        function logVisitor() {
+            console.log('Започва логване...');
+            
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('IP получен:', data.ip);
+                    
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbwlWPB-UnmtKU5TTjNQC4sZZxaTXTtlD-qjszycYj3ivVvt82nFKGw0nCSemBQnVfln/exec';
+                    
+                    fetch(scriptURL + '?ip=' + encodeURIComponent(data.ip) + 
+                                   '&userAgent=' + encodeURIComponent(navigator.userAgent) + 
+                                   '&page=' + encodeURIComponent(window.location.pathname), {
+                        method: 'GET',
+                        mode: 'no-cors'
+                    })
+                    .then(() => console.log('Заявката е пратена'))
+                    .catch(error => console.error('Грешка при пращане:', error));
+                })
+                .catch(error => console.error('Грешка при вземане на IP:', error));
+        }
+
+        window.addEventListener('load', logVisitor);
+    </script>\
+
+
     </main>
 
     <!-- Footer -->
@@ -759,6 +855,7 @@
     <script src="script/index.js"></script>
 </body>
 </html>
+
 
 
 

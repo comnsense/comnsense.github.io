@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-        <meta http-equiv="refresh" content="0; url=https://cv-mirela.netlify.app/schety">
-    <link rel="canonical" href="https://cv-mirela.netlify.app/schety">
+    
     <!-- Основни SEO мета тагове -->
     <title>Счетоводен профил | Мирела Йосифова | Практически опит в счетоводството</title>
     <meta name="description" content="Детайлен счетоводен опит на Мирела Йосифова - 16 дружества, BulMar Office, Кредо 2000, ДДС декларации, ТРЗ и годишни отчети. Практически опит в различни бизнес сектори.">
-    <meta name="keywords" content="счетоводен профил, Мирела Йосифова, счетоводител, счетоводен опит, BulMar Office, Кредо 2000, ДДС декларации, ТРЗ, годишни отчети, София, България">
+    <meta name="keywords" content="счетоводен профил, Мирела Йосифова, счетоводител, счетоводен опит, ДДС декларации, ТРЗ, годишни отчети, София, България">
     <meta name="author" content="Мирела Йосифова">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Bulgarian">
@@ -63,7 +62,7 @@
         "@context": "https://schema.org",
         "@type": "ProfilePage",
         "name": "Счетоводен профил на Мирела Йосифова",
-        "description": "Детайлен опит в счетоводството с 16 дружества",
+        "description": "Практика в счетоводството. ",
         "dateCreated": "2026-02-27",
         "dateModified": "2026-02-27",
         "mainEntity": {
@@ -145,7 +144,7 @@
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "url": "https://comnsense.github.io/",
+        "url": "https://cv-mirela.netlify.app/",
         "name": "Мирела Йосифова - Професионален профил",
         "potentialAction": {
             "@type": "SearchAction",
@@ -154,8 +153,7 @@
         }
     }
     </script>
-    
-    <!-- Хлебни трохи (BreadcrumbList) -->
+   
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -165,7 +163,7 @@
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Начало",
-                "item": "https://comnsense.github.io/"
+                "item": "https://cv-mirela.netlify.app/"
             },
             {
                 "@type": "ListItem",
@@ -177,9 +175,7 @@
     }
     </script>
     
-    <!-- Verification за Google Search Console (ако имате) -->
-    <meta name="google-site-verification" content="your-verification-code">
-    
+ 
     <!-- Sitemap връзка -->
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     
@@ -197,6 +193,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23306788'/%3E%3Ctext x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-family='Font Awesome 5 Free, FontAwesome'%3E%F0%9F%93%9F%3C/text%3E%3C/svg%3E">
+
     <!-- CSS -->
     <link rel="stylesheet" href="style/schety.css">
 </head>
@@ -217,7 +215,7 @@
 
     <main class="container">
         
-        <a href="https://comnsense.github.io/" class="back-link">
+        <a href="https://cv-mirela.netlify.app/" class="back-link">
             <i class="fas fa-arrow-left"></i> Виж CV  
         </a>
 
@@ -280,8 +278,73 @@
             
           
         </div>
+ 
+       
+<!-- Contact Form Section -->
+<div class="section contact-section">
+    <div class="section-title">
+        <i class="fas fa-envelope"></i>
+        <h2>Връзка с мен</h2>
+    </div>
+    
+    <!-- Форма с Formspree - ИЗПРАВЕН ФОРМСПРИЙ ENDPOINT -->
+    <form action="https://formspree.io/f/mpqjgeve" method="POST" class="contact-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="name">
+                    <i class="fas fa-user"></i>
+                    <span>Име *</span>
+                </label>
+                <input type="text" id="name" name="name" placeholder="Вашето име" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">
+                    <i class="fas fa-envelope"></i>
+                    <span>Имейл *</span>
+                </label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+        </div>
         
+        <div class="form-group">
+            <label for="company">
+                <i class="fas fa-building"></i>
+                <span>Дружество/Фирма</span>
+            </label>
+            <input type="text" id="company" name="company" placeholder="Име на фирма (по желание)">
+        </div>
+        
+        <div class="form-group">
+            <label for="message">
+                <i class="fas fa-comment"></i>
+                <span>Съобщение *</span>
+            </label>
+            <textarea id="message" name="message" rows="4" placeholder="Вашето съобщение..." required></textarea>
+        </div>
+        
+        <!-- Honeypot поле за спам защита - скрито само за ботове -->
+        <input type="text" name="_gotcha" style="display:none">
+        
+        <!-- Пренасочване след изпращане - създайте този HTML файл -->
+        <input type="hidden" name="_next" value="https://comnsense.github.io/experiment626/thank-you.html">
+        
+        <!-- Тема на имейла -->
+        <input type="hidden" name="_subject" value="Ново съобщение от счетоводния профил">
+        
+        <!-- Задаване на reply-to полето -->
+        <input type="hidden" name="_replyto" value="email">
+        
+        <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i>
+            <span>Изпрати съобщение</span>
+        </button>
+    </form>
+</div>
+
         <!-- SEO скрипт за проследяване на събития -->
+       
+
         <script>
             // Проследяване на превъртане
             let scrolled = false;
@@ -300,7 +363,7 @@
             // Проследяване на време на страницата
             setTimeout(function() {
                 gtag('event', 'time_on_page', {
-                    'event_category': 'Engagement',
+            z        'event_category': 'Engagement',
                     'event_label': '30_seconds',
                     'value': 30
                 });
@@ -337,7 +400,7 @@
                     </a>
                 </li>
                 <li class="social-link">
-                    <a href="https://comnsense.github.io/" aria-label="Website" target="_blank" rel="noopener">
+                    <a href="https://cv-mirela.netlify.app/" aria-label="Website" target="_blank" rel="noopener">
                         <i class="fas fa-globe"></i>
                     </a>
                 </li>
