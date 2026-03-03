@@ -96,7 +96,7 @@ const officeSkills = [
       { 
         name: "Google Workspace", 
         description: "Gmail, Drive, Docs, Sheets, Calendar, Meet",
-        icon: "fa-clouds", 
+        icon: "fa-clouds",  
       
     },
       { 
@@ -454,4 +454,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 100);
 });
-
