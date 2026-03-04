@@ -96,7 +96,7 @@ const officeSkills = [
       { 
         name: "Google Workspace", 
         description: "Gmail, Drive, Docs, Sheets, Calendar, Meet",
-        icon: "fa-clouds",  
+        icon: "fas fa-cloud",  
       
     },
       { 
