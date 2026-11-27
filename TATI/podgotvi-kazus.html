@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Подготовка на kazus.html</title>
+</head>
+<body>
+  <h1>Подготовка на kazus.html</h1>
+  <label for="source">Избери kazus_svilen.html</label>
+  <input id="source" type="file" accept=".html,text/html">
+  <button id="save" type="button">Изтегли kazus.html</button>
+  <p id="status" role="status"></p>
+
+  <script>
+    const source = document.getElementById('source');
+    const status = document.getElementById('status');
+
+    const replacements = [
+      ['<a href="#turkey">Турция</a>', '<a href="./turcia.html">Турция</a>'],
+      [
+        'https://chatgpt.com/library?file_id=libfile_15a7b6026cb481919a4fd82b5396fc37&account_id=personal',
+        './hronologia.pdf'
+      ]
+    ];
+
+    document.getElementById('save').addEventListener('click', async () => {
+      const file = source.files[0];
+      if (!file) {
+        status.textContent = 'Първо избери файла на казуса.';
+        return;
+      }
+
+      try {
+        let html = await file.text();
+        for (const [original, replacement] of replacements) {
+          if (!html.includes(original)) {
+            throw new Error('Очакваната връзка липсва. Избери актуалния kazus_svilen.html.');
+          }
+          html = html.replace(original, replacement);
+        }
+
+        const url = URL.createObjectURL(new Blob([html], {
+          type: 'text/html;charset=utf-8'
+        }));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'kazus.html';
+        document.body.append(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        status.textContent = 'Готово. Изтегли се kazus.html.';
+      } catch (error) {
+        status.textContent = error.message;
+      }
+    });
+  </script>
+</body>
+</html>
