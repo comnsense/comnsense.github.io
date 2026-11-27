@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лечението в Турция | Свилен Събев</title>
+  <style>
+    * { box-sizing: border-box }
+    body { margin: 0; background: #f1f5f0; color: #172d38; font: 16px/1.6 system-ui, sans-serif }
+    header { background: #123c39; color: white; padding: 3rem max(1rem, calc((100vw - 960px)/2)) }
+    h1 { font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.1; margin: .4rem 0 }
+    main { max-width: 992px; margin: auto; padding: 1rem }
+    nav { display: flex; flex-wrap: wrap; gap: .5rem 1.1rem; margin: 0 0 1rem }
+    a { color: #08695f }
+    section { background: white; border: 1px solid #cfddd9; border-radius: 16px; padding: clamp(1rem, 4vw, 2rem); margin-bottom: 1rem }
+    h2, h3 { line-height: 1.25 }
+    h2 { margin-top: 0 }
+    blockquote { margin: .7rem 0; padding: .6rem 1rem; border-left: 4px solid #08695f; background: #eef6f2 }
+    .note { padding: .75rem 1rem; border-left: 4px solid #ac803d; background: #faf5e9 }
+    details { border: 1px solid #cfddd9; border-radius: 8px; padding: .65rem 1rem; margin: .6rem 0 }
+    summary { cursor: pointer; font-weight: 700 }
+    li + li { margin-top: .5rem }
+  </style>
+</head>
+<body>
+<header>
+  <p>Koç University Hospital · Истанбул</p>
+  <h1>Лечението в Турция</h1>
+  <p>Свилен Събев · Ангиосарком на левия бял дроб</p>
+</header>
+<main>
+  <nav aria-label="Съдържание">
+    <a href="kazus.html">Към основния казус</a>
+    <a href="#treatment">Лечение</a>
+    <a href="#imaging">ЯМР и КТ</a>
+    <a href="#invasion">Инвазия</a>
+    <a href="hronologia.pdf">Хронология (PDF)</a>
+  </nav>
+
+  <section id="treatment">
+    <h2>Какво лечение е проведено</h2>
+    <p>Основното онкологично лечение и проследяването са в Koç University Hospital. Хронологията е по наличното обобщение на лечението.</p>
+    <ol>
+      <li><strong>Април–май 2026 г.</strong> Един курс VAC. Следва IMA, с последно приложение на 08.05.</li>
+      <li><strong>От 03.06.</strong> Започва таргетно лечение с larotrectinib. Молекулярното изследване (NGS) установява фузия SQSTM1:NTRK3.</li>
+      <li><strong>Юли 2026 г.</strong> Операция на мозъчна метастаза в лявата горна париетална област. След операцията е проведена радиохирургия с Gamma Knife, общо 30 Gy в 5 фракции.</li>
+      <li><strong>След съобщена прогресия.</strong> Пет курса с ifosfamide, etoposide и mesna. В обобщението на PET/CT е описано стациониране с лека редукция.</li>
+      <li><strong>Консилиум.</strong> Според наличното обобщение първичният тумор е преценен като неподходящ за операция. Препоръчана е оценка от лъчетерапевт.</li>
+    </ol>
+  </section>
+
+  <section id="imaging">
+    <h2>Образни находки през септември</h2>
+    <p>Турските цитати са от архивираните преписи на образните доклади.</p>
+
+    <h3>ЯМР на гръдния кош · 21.09.2026 г.</h3>
+    <blockquote lang="tr">Kitle uzun aksı maksimum yerinde 13 cm ölçülmüş olup Temmuz 2026 tarihli BT'sine göre uzun aksının küçüldüğü anlaşılmaktadır(temmuz 2026da uzun aksı 18cm). Kitlenin en geniş yerinde transvers çapı 10 cm ölçülmüş olup bu boyutunda da azalma izlenmektedir.</blockquote>
+    <p>Дългата ос на масата е 13 cm спрямо 18 cm на КТ от юли. Максималният напречен размер е 10 cm и също е намалял.</p>
+
+    <blockquote lang="tr">Solda az miktarda plevral effüzyon izlendi. Bir önceki tetkikine göre belirgin azalmıştır.</blockquote>
+    <p>Вляво се установява малък плеврален излив, значително намалял спрямо предходното изследване.</p>
+
+    <h3>КТ на гръдния кош · доклад от 23.09.2026 г.</h3>
+    <blockquote lang="tr">Plevra: Effüzyon veya kalınlaşma yoktur.</blockquote>
+    <p>„Плевра: Няма излив или удебеляване.“ В локалното описание същият доклад посочва <span lang="tr">„Plevra bu düzeyde kalındır.“</span> — „На това ниво плеврата е удебелена.“</p>
+
+    <blockquote lang="tr">Kitle içerisinde yoğun nekroz ve kalsifikasyonlar izlenmektedir.</blockquote>
+    <p>В масата се виждат изразена некроза и калцификати. Размерите 13 × 10 cm по ЯМР се отнасят до цялата измерена маса, включително описаните некротични участъци. Преписите не посочват отделен размер или процент на некрозата. Намалението от 18 на 13 cm е 27,8% по дългата ос. От него не може да се изчисли колко жизнеспособна туморна тъкан остава.</p>
+
+    <blockquote lang="tr">Güncel incelemede kraniokaudal aksı yaklaşık olarak 12 mm ölçülmüştür.</blockquote>
+    <p class="note">В архивирания КТ препис краниокаудалният размер е записан като 12 mm. В обобщенията се среща и прочит „12 cm“. Мерната единица остава за сверяване с оригиналния доклад и изображенията.</p>
+
+    <h3>Защо ЯМР и КТ се разминават за излива?</h3>
+    <p>ЯМР документира малко количество течност, а в КТ доклада излив не е описан. Възможно е количеството да се е променило между изследванията или малкият излив да не е бил видим или отразен на КТ. Съпоставката на оригиналните изображения може да уточни какво се вижда на всяко изследване.</p>
+  </section>
+
+  <section id="invasion">
+    <h2>Къде се подозира инвазия и защо остава несигурна</h2>
+    <p>Инвазия означава, че туморът навлиза в тъканта на съседна структура. На образите масата може да прилежи към органа, да го притиска или да показва признаци на навлизане. Формулировката в доклада показва колко категорична е преценката.</p>
+
+    <details open>
+      <summary>Аортна дъга и низходяща аорта</summary>
+      <blockquote lang="tr">Arkus aortanın invaze olduğu düşünülmüştür.</blockquote>
+      <p>Предполага се засягане на аортната дъга.</p>
+      <blockquote lang="tr">Bu düzeyde invazyon şüphelidir.</blockquote>
+      <p>На описаното ниво на низходящата аорта има съмнение за инвазия. В текста на КТ се споменава различим мастен слой. За прецизна оценка трябва да се сверят едно и също анатомично ниво и границата между масата и аортната стена.</p>
+    </details>
+
+    <details open>
+      <summary>Лява белодробна артерия</summary>
+      <blockquote lang="tr">Sol pulmoner arterin özellikle inferior kesitlerden kitle tarafından infiltre olduğu düşünülmektedir.</blockquote>
+      <p>Предполага се инфилтрация на лявата белодробна артерия, особено в долните срезове. При преглед на образите се оценява дали има притискане, промяна на стената или туморна тъкан в лумена.</p>
+    </details>
+
+    <details open>
+      <summary>Хранопровод</summary>
+      <blockquote lang="tr">Kitlenin özellikle alt kesitlerde özofagus lümenine doğru infiltre olduğu izlenmiştir.</blockquote>
+      <p>Описано е инфилтриране по посока на лумена на хранопровода, особено в долните срезове. В КТ обобщението не е описано удебеляване на стената. Остава да се уточни дали двете описания се отнасят до един и същ участък и дали на образите се вижда засягане на самата стена.</p>
+    </details>
+
+    <details open>
+      <summary>Плевра</summary>
+      <blockquote lang="tr">Plevra bu düzeyde kalın ve hafif kontrastlanmakta olup plevral invazyon düşünülmüştür.</blockquote>
+      <p>На това ниво плеврата е удебелена и леко се усилва след контраст. Докладът изразява подозрение за плеврална инвазия. Локалното удебеляване и наличието на плеврална течност са отделни находки.</p>
+    </details>
+
+    <p class="note"><strong>Какво би уточнило находката?</strong> Съпоставителният преглед на оригиналните КТ и ЯМР изображения може да уточни степента на образна сигурност. Хистологично потвърждение за конкретна структура има, когато в тъкан от самата нея се открият туморни клетки. В наличните материали липсва описано хистологично потвърждение за изброените структури.</p>
+    <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4419420/">Образна оценка на гръдната инвазия</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12081562/">Образна оценка при саркоми</a></p>
+  </section>
+</main>
+</body>
+</html>
