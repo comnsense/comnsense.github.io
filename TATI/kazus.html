@@ -357,4 +357,69 @@ window.addEventListener('beforeprint', () => {
 window.addEventListener('afterprint', () => {
   printState.forEach(([details, open, hidden]) => { details.open = open; details.hidden = hidden; });
 });
-</script></body></html>
+</script>
+
+<script>
+/* ✅ ЗАЩИТА СРЕЩУ КОПИРАНЕ */
+(function() {
+  // Блокиране на Ctrl+C, Ctrl+X, Ctrl+A
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && ['c','x','a','C','X','A'].includes(e.key)) {
+      e.preventDefault();
+      return false;
+    }
+    // Блокиране на Ctrl+U (преглед на изходен код)
+    if ((e.ctrlKey || e.metaKey) && ['u','U'].includes(e.key)) {
+      e.preventDefault();
+      return false;
+    }
+    // Блокиране на F12 (DevTools)
+    if (e.key === 'F12') {
+      e.preventDefault();
+      return false;
+    }
+    // Блокиране на Ctrl+Shift+I / J / C (DevTools)
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','I','j','J','c','C'].includes(e.key)) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Блокиране на контекстното меню (десен бутон)
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+  });
+
+  // Блокиране на copy, cut, paste
+  ['copy','cut','paste'].forEach(function(evt) {
+    document.addEventListener(evt, function(e) {
+      e.preventDefault();
+      return false;
+    });
+  });
+
+  // Блокиране на drag (влачене на текст/изображения)
+  document.addEventListener('dragstart', function(e) {
+    e.preventDefault();
+    return false;
+  });
+
+  // Блокиране на селекция чрез двойно кликване
+  document.addEventListener('selectstart', function(e) {
+    // Разрешаваме само в input/textarea
+    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Допълнителна защита: при опит за селекция на текст извън полета
+  document.addEventListener('mousedown', function(e) {
+    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+      // Не блокираме клика, само предотвратяваме drag-селекция
+    }
+  });
+})();
+</script>
+</body></html>
