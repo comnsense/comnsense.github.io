@@ -16,13 +16,7 @@
     const source = document.getElementById('source');
     const status = document.getElementById('status');
 
-    const replacements = [
-      ['<a href="#turkey">Турция</a>', '<a href="./turcia.html">Турция</a>'],
-      [
-        'https://chatgpt.com/library?file_id=libfile_15a7b6026cb481919a4fd82b5396fc37&account_id=personal',
-        './hronologia.pdf'
-      ]
-    ];
+
 
     document.getElementById('save').addEventListener('click', async () => {
       const file = source.files[0];
@@ -32,14 +26,18 @@
       }
 
       try {
-        let html = await file.text();
-        for (const [original, replacement] of replacements) {
-          if (!html.includes(original)) {
-            throw new Error('Очакваната връзка липсва. Избери актуалния kazus_svilen.html.');
+        const doc = new DOMParser().parseFromString(await file.text(), 'text/html');
+        for (const a of doc.querySelectorAll('a[href]')) {
+          const href = a.getAttribute('href');
+          if (href === '#turkey') a.setAttribute('href', './turcia.html');
+          if (/^https?:/i.test(href) && new URL(href).searchParams.has('file_id')) {
+            const label = a.textContent.trim();
+            if (/PDF.*хронология/i.test(label)) a.setAttribute('href', './hronologia.pdf');
+            else if (/хронология/i.test(label)) a.setAttribute('href', './klinichna_hronologia.html');
+            else a.replaceWith(doc.createTextNode(label));
           }
-          html = html.replace(original, replacement);
         }
-
+        const html = '<!doctype html>' + doc.documentElement.outerHTML;
         const url = URL.createObjectURL(new Blob([html], {
           type: 'text/html;charset=utf-8'
         }));
