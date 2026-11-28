@@ -1,1 +1,627 @@
-<!doctype html><html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=kazus.html"><title>Клиничен случай</title></head><body><a href="kazus.html">Клиничен случай</a></body></html>
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Свилен Събев · Клинично досие</title>
+<style>
+:root {
+  color-scheme: light;
+  --ink: #1b2b3e;
+  --muted: #4c6175;
+  --accent: #08685e;
+  --line: #d8e3e8;
+  --surface: #f5f8fa;
+  --paper: #eef3f6;
+  font: 16px/1.62 system-ui, sans-serif;
+}
+* { box-sizing: border-box }
+body { margin: 0; background: var(--paper); color: var(--ink) }
+a { color: var(--accent); text-underline-offset: .2em }
+a, p, td { overflow-wrap: anywhere }
+:focus-visible { outline: 3px solid #a45e18; outline-offset: 3px }
+[hidden] { display: none !important }
+.skip { position: absolute; z-index: 4; top: 12px; left: 12px; padding: 8px 12px; background: white; transform: translateY(-150%) }
+.skip:focus { transform: none }
+.hero { background: linear-gradient(120deg, #102740, #13444f 76%, #155d5c); color: white; border-bottom: 4px solid #68b8a5 }
+.hero-inner { max-width: 1280px; margin: auto; padding: clamp(32px, 6vw, 78px) clamp(18px, 4vw, 52px) }
+.eyebrow { color: #b6e9dc; font-size: .82rem; letter-spacing: .12em; font-weight: 700 }
+.hero p { max-width: 65ch; margin: 12px 0 0; color: #e1edf2; font-size: clamp(1rem, 2vw, 1.2rem) }
+h1, h2, h3 { line-height: 1.2; text-wrap: pretty }
+h1 { margin: 8px 0 0; font-size: clamp(2.35rem, 6.2vw, 4.65rem); letter-spacing: -.045em }
+h2 { font-size: clamp(1.45rem, 2.6vw, 2.15rem); margin: 0 0 18px; letter-spacing: -.025em }
+h3 { font-size: 1.1rem; margin: 0 0 8px }
+p { margin: 0 0 14px }
+p:last-child { margin-bottom: 0 }
+.layout { max-width: 1280px; padding: 24px clamp(12px, 3vw, 36px) 48px; margin: auto; display: grid; grid-template-columns: 214px minmax(0, 1fr); gap: 24px; align-items: start }
+main, .grid > *, .scroll { min-width: 0 }
+nav { position: sticky; top: 20px; align-self: start; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 13px; box-shadow: 0 4px 16px #16344a08 }
+nav strong { display: block; padding: 4px 10px 8px; font-size: .83rem; color: var(--muted) }
+nav a { display: block; padding: 7px 10px; border-radius: 7px; color: var(--ink); font-size: .91rem; text-decoration: none }
+nav a:hover, nav a[aria-current="location"] { background: #e6f3ef; color: #075a51 }
+section { scroll-margin-top: 20px; padding: clamp(17px, 3vw, 32px); margin-bottom: 18px; background: white; border: 1px solid var(--line); border-radius: 15px; box-shadow: 0 4px 18px #16344a08 }
+section:last-child { margin-bottom: 0 }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px }
+.vitals { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 8px 0 14px }
+.vitals .card { padding: 9px; overflow-wrap: anywhere }
+.vitals strong { display: block; color: var(--accent); font-variant-numeric: tabular-nums }
+.card { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); padding: 15px }
+small, .muted, .citation { color: var(--muted) }
+.citation { font-size: .9rem }
+.note, blockquote { border-left: 3px solid #a6752c; background: #fbf5e9; padding: 10px 14px; margin: 12px 0 }
+.note:last-child, blockquote:last-child { margin-bottom: 0 }
+ol, ul { padding-inline-start: 1.55em }
+li + li { margin-top: .5em }
+details { margin: 8px 0; border: 1px solid var(--line); border-radius: 9px; padding: 10px 13px }
+summary { font-weight: 680; cursor: pointer }
+details[open] summary { color: var(--accent); margin-bottom: 10px }
+.controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 12px 0 }
+.controls label { font-size: .9rem; font-weight: 650 }
+button, select, input[type="date"] { background: white; color: var(--ink); border: 1px solid #a9bfcb; border-radius: 7px; padding: 6px 10px; min-height: 38px; max-width: 100%; font: inherit }
+button { cursor: pointer }
+button:hover { border-color: var(--accent); background: #edf7f4 }
+output { display: block; color: var(--muted); font-size: .9rem; margin: 8px 0 12px }
+.lab-cards { margin-bottom: 16px }
+.lab-card { text-align: start; padding: 12px 14px; background: var(--surface); border-color: var(--line) }
+.lab-card[aria-pressed="true"] { box-shadow: inset 0 0 0 1px var(--accent); border-color: var(--accent); background: #eff8f5 }
+.metric { display: block; color: var(--accent); font-size: clamp(1.45rem, 3vw, 1.9rem); font-weight: 750; font-variant-numeric: tabular-nums }
+.chart-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px clamp(6px, 2vw, 16px) 0 }
+.graph { display: block; width: 100%; height: auto }
+.graph text { fill: var(--muted); font: 12px system-ui, sans-serif }
+.graph circle { cursor: pointer }
+.graph circle:focus-visible { stroke: #9c5915; stroke-width: 4; outline: none }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 9px; margin: 12px 0 }
+table { border-collapse: collapse; width: 100%; font-size: .93rem }
+caption { text-align: left; padding: 10px 12px; font-weight: 650 }
+th, td { padding: 9px 11px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line) }
+thead th { background: #e9f1f4 }
+tbody tr:nth-child(even) { background: #f6f9fb }
+tbody tr:last-child > * { border-bottom: 0 }
+.size { background: #dcece7; border-radius: 6px; overflow: hidden; margin: 5px 0 12px }
+.size b { display: block; background: #0d6c62; color: white; padding: 5px 10px }
+.layout nav button{margin:9px 0 0 4px}
+.tools{display:flex;flex-wrap:wrap;align-items:end;gap:8px;margin:12px 0}
+.tools label{display:grid;gap:3px;font-weight:650;font-size:.9rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.cards article{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:15px;min-width:0;overflow-wrap:anywhere}
+.overview-chart,.chart svg{display:block;width:100%;height:auto}
+.overview-card strong{color:var(--accent);font-size:1.3rem;font-variant-numeric:tabular-nums}
+.overview-card p{margin-bottom:6px}
+.overview-card button{margin-top:8px;font-size:.9rem}
+.chart{position:relative;min-width:555px}
+.chart button{position:absolute;transform:translate(-50%,-50%);width:24px;height:24px;min-height:0;padding:0;background:transparent;border:0;border-radius:50%}
+.chart button:hover,.chart button:focus-visible{border:2px solid #a45e18}
+.reading{min-height:3em;padding:10px 12px;background:#e6f3ef;border-radius:7px}
+.timeline{border-left:2px solid #c6dfd9;margin-left:6px;padding-left:18px}
+.entry{position:relative;margin:0 0 12px;padding:12px 14px;border:1px solid var(--line);border-radius:9px}
+.entry::before{content:"";position:absolute;left:-25px;top:20px;width:10px;height:10px;border:2px solid white;border-radius:50%;background:var(--accent)}
+.entry.crisis::before{background:#986019}
+.entry time{color:var(--accent);font-weight:750}.entry.crisis time{color:#855016}
+.entry h3{margin:5px 0}.entry p{margin:0 0 5px}.tag{color:var(--muted);font-size:.83rem;margin-left:.6em}
+.bar{height:10px;background:#dcece7;border-radius:6px;margin:8px 0;overflow:hidden}.bar span{display:block;background:#0d6c62;height:100%}
+footer{margin-top:18px}
+@media(max-width:760px){.layout{display:block;padding-top:12px}nav{position:static;margin-bottom:14px;padding:8px;display:flex;flex-wrap:wrap;align-items:center;gap:2px 4px}nav strong{width:100%}nav a{padding:5px 7px;font-size:.84rem}.layout nav button{margin:0;font-size:.84rem}section{scroll-margin-top:12px}}
+@media print{body,.hero{background:white;color:var(--ink)}.hero p,.eyebrow{color:var(--ink)}.hero-inner,.layout{padding:0}.layout{display:block}nav,.tools,button,.skip{display:none!important}section{padding:10px;box-shadow:none;border:0}.entry,.cards article,tr{break-inside:avoid}.scroll{overflow:visible}.chart{min-width:0}}
+nav .chart-link,.metric-tabs button[aria-pressed="true"]{background:#075f57;color:white}
+.metric-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0}
+.metric-tabs button{border-radius:22px;padding:.42rem .92rem}
+#chartDetail{background:#f7fbfa;padding:clamp(10px,2vw,22px);border:1px solid #bad8d2}
+#chart{background:white;border-radius:8px}
+.chart button.selected{border:2px solid #a45e18}
+#chartDetail .reading{font-weight:650;border-left:4px solid #148977}
+#overviewCharts{grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))}
+</style>
+</head>
+<body><a class="skip" href="#content">Към съдържанието</a>
+<header class="hero"><div class="hero-inner">
+<div class="eyebrow">Април – ноември 2026 г. · Свилен Йосифов Събев, 51 г.</div>
+<h1>Клинично досие</h1>
+<p>Свилен е с ангиосарком на левия бял дроб и лекувана мозъчна метастаза. Основното онкологично лечение се провежда в Koç University Hospital, а в София започва лъчетерапия на белодробния тумор на 21.10. На 22.10 постъпва в Токуда с тежка бъбречна недостатъчност и впоследствие провежда хемодиализа. След дихателната криза на 21.11 и рентгенографията на 23.11 с изразен ляв плеврален излив постъпва в Сити Клиник на 25.11. След дренирането е съобщено разгъване на левия бял дроб и нужда от кислород. На 26.11 близките съобщават за ново влошаване на дишането.</p>
+</div></header>
+<div class="layout"><nav aria-label="Раздели"><strong>Съдържание</strong><a href="#timeline">Хронология</a><a class="chart-link" href="#labs">Графики на показателите</a><a href="#imaging">Образни находки</a><a href="#journal">Добавяне и архив</a></nav>
+<main id="content">
+<noscript><p>За хронологията и графиките е необходим JavaScript.</p></noscript>
+<section id="timeline"><h2>Хронология на лечението и симптомите</h2><details><summary>Разгледай лечението и кризите по дати</summary><h3>Турция · Koç University Hospital, Истанбул</h3><p>Основното онкологично лечение и проследяване са в Koç. В София д-р Ангелов отговаря за лъчетерапията на първичния тумор. Хемодиализата се провежда в „Токуда“.</p><details><summary>Април–септември · системно лечение, мозъчна операция и консилиум</summary><p>Основното онкологично лечение и проследяване на Свилен се провеждат в Koç University Hospital.</p><p>Април–май. Един курс VAC през април, последван от IMA. Последното посочено приложение на IMA е на 08.05.2026 г.</p><p>От 03.06. Започва таргетна терапия с larotrectinib след установяване на фузия SQSTM1:NTRK3 чрез NGS.</p><p>След съобщена прогресия. Проведени са пет курса ifosfamide и etoposide с mesna. В обобщението на PET/CT е описано стациониране с лека редукция.</p><p>Мозъчна метастаза. През юли е оперирана метастаза в лявата горна париетална област. След операцията е проведена радиохирургия с Gamma Knife, общо 30 Gy в пет фракции.</p><p>По наличното обобщение на консилиума първичният тумор е преценен като неподходящ за операция и е препоръчана оценка за лъчетерапия. Оригиналният протокол е нужен, за да се видят пълните мотиви.</p><p>Източник: обобщение на лечението в Koç. За петте курса след прогресия и за консилиума липсват точни дати.</p></details><h3>София · лъчетерапия, диализа и дихателни кризи</h3><details><summary>21.10 · Първа фракция · 2,5 Gy</summary><p>Епикризата за лъчелечение посочва прием 21.10 и изписване 22.10, с означение „по бюджет“. Около първата фракция са отчетени креатинин 656 µmol/L, Hb 67 g/L и урея 23,7 mmol/L. Данните показват тежко бъбречно увреждане и анемия около началото на курса. По сведения на семейството лабораторията е взета след първата фракция. Часовете на пробата, резултата и фракцията трябва да се сверят. След първата фракция курсът е прекъснат.</p><p><small>Източник: клинична хронология за София, епикризи и сведения на близките, посочени в записа.</small></p></details><details><summary>22–28.10 · Токуда · Начало на хемодиализа</summary><p>При прием креатинин 723,5 µmol/L. На 27.10 е документирано поставяне на временен диализен катетър. По време на престоя е проведена хемодиализа. В епикризата е записан анамнестичен креатинин 130 µmol/L за септември. На 23.10 Hb достига 53 g/L и е проведено кръвопреливане. В хронологията са посочени CRP 218,85 mg/L, уринна култура със Streptococcus agalactiae и антибиотично лечение. При изписване са записани креатинин 462,7 µmol/L, CRP 45,81 mg/L и Hb 81 g/L. В последващия режим диализата е три пъти седмично в Токуда. Лъчелечението в Младост е пет пъти седмично, по сведения на близките обичайно след сутрешната диализа в общите дни.</p><p><small>Източник: клинична хронология за София, епикризи и сведения на близките, посочени в записа.</small></p></details><details><summary>04–13.11 · Лабораторни промени, кървене и температура</summary><p>На 04.11 са отчетени Hb 83 g/L, креатинин 333 µmol/L, урея 8,6 mmol/L и албумин 34 g/L. На 11.11 Hb 74, креатинин 402, CRP 183,6, албумин 31. На 12.11 има кървене от катетъра, нефрологична консултация и намеса. На 13.11 — температура и силно втрисане, еднократен парацетамол. Няма съобщена повторна температура. Източникът на възпалението остава неизяснен в наличните материали. В клиничната хронология се споменава контакт със 112 и на 13.11.</p><p><small>Източник: клинична хронология за София, епикризи и сведения на близките, посочени в записа.</small></p></details><details><summary>17–19.11.2026 г. · Тежка анемия и първи прояви на дихателни нарушения</summary><p>По информация на близките последната предходна хемодиализна процедура преди прекъснатата процедура на 24.11 е била около 17–18.11.2026 г. Точната дата и продължителността подлежат на документална проверка.</p><p>На 18.11.2026 г. е установен хемоглобин 69 g/L (тежка анемия). На същата дата CRP е 155,9 mg/L, креатининът е 452 µmol/L, eGFR е 12 mL/min, а албуминът е 31 g/L.</p><p>На 19.11.2026 г. се обсъжда необходимостта от кръвопреливане, като задухът е свързван с ниския хемоглобин.</p><p>Периодично оригване.</p><p>Епизоди на затруднено дишане.</p><p>Храчки по време на пристъпите.</p><p>Липса на видимо подуване на тялото.</p><p>Запазена чревна дейност.</p><p>До 19.11.2026 г., според информацията от лекуващия лъчетерапевт, плевралният излив е бил видим при образното позициониране за лъчетерапия. Оставал е относително непроменен и не е оценяван като притеснителен.</p><p>Не е съобщено за отделно диагностично образно изследване за количествена оценка на излива през този период.</p><p><small>Източник: клинична хронология за София, епикризи и сведения на близките, посочени в записа.</small></p></details><details><summary>21–22.11 · Първа криза и временно облекчение</summary><p>На 21.11 — продължителен задух, храчки и оригване. При изхождането има прилошаване и изпотяване според PDF хронологията, след което настъпва рязко облекчение и храчките и оригването спират по разказа на близките. Няма съобщена болка в гърдите, гърба или корема. Потърсена е спешна помощ. Според семейството д-р Ангелов е обсъждал излива и възможността промяна в анатомията да наложи прекъсване или преоценка на лъчелечението. На 22.11 близките съобщават временно подобрение. За този ден са записани следните показатели, без уточнение за кислород при измерването.</p><p>През нощта срещу 23.11 отново има тежък задух.</p><p><small>Източник: клинична хронология за София, епикризи и сведения на близките, посочени в записа.</small></p></details><details><summary>23–25.11 · Реанимация, трансфузия и плеврална процедура</summary><p>По PDF хронологията на 23.11 при тежък задух планираната диализа не е проведена. Свилен е транспортиран с кислородна маска и приет в реанимацията на City Clinic Младост. Установен е увеличен ляв плеврален излив. Вечерта е проведено кръвопреливане, а на 24.11 са евакуирани 1500 ml плеврална течност. По другата хронология реанимацията и прекъсната диализа са на 24.11, трансфузията е през нощта, а пункцията — на 25.11. След опит да се спре кислородът сатурацията спада и подаването се възобновява. Близките съобщават, че Свилен остава под наблюдение на кислород през носа. Обсъждани са концентратор, транспорт до Токуда и оценка на разгъването на белия дроб. От материалите остава да се изясни как е оценен течностният баланс около кръвопреливането и дали е изследвана плевралната течност.</p><p>След дренажа. Семейството съобщава, че контролна рентгенография не е направена. В наличните материали липсва документирано контролно образно изследване за оценка на разгъването на белия дроб.</p><p><small>Източник: клинична хронология за София, епикризи и сведения на близките, посочени в записа.</small></p></details><details><summary>25–26.11 · Прибиране вкъщи и повторен спешен прием</summary><p>PDF хронологията поставя прибирането вкъщи на 25.11, а другата хронология отбелязва изписване на 26.11. Семейството осигурява кислородна бутилка. По допълнителната хронология контролното образно изследване е предвидено за следващата седмица и Свилен е изразил притеснение как ще диша през нощта. Показателите непосредствено преди напускането остават за документална проверка. Според PDF планирана диализа е отменена и следваща е насрочена за 26.11 в 07:00 в Токуда. Около 21:37 на 25.11 семейството съобщава за спешно повикване и затруднение с транспорта до Токуда. Нощем задухът се усилва с нужда от кислород, бледност, потене и принудително седнало, приведено положение. Съобщени са газове и изхождане, без трайно облекчение. Около 03:07 на 26.11 семейството съобщава за повторен прием в Младост и впоследствие за реанимация. Има семейно сведение за диализа след повторния прием. Наличните материали не дават протокол, час или резултат от нея.</p><p>За изясняване след повторния прием. Състояние на левия бял дроб, повторно натрупване на плеврална течност, наличие на белодробен оток, резултати от новите кръвни изследвания, проведена диализа и окончателна причина за кризата.</p><p><small>Източник: клинична хронология за София, епикризи и сведения на близките, посочени в записа.</small></p></details><details><summary>21 и 25–26 ноември · обажданията на 112</summary><p>По разказа на семейството д-р Ангелов насочва близките към 112 при двете кризи. При втората криза семейството, а след него и д-р Ангелов, получават по телефона отговор, че няма места. След разговора на спешния екип с реанимацията е последвал прием. Точните часове и предадената клинична информация остават за сверяване с фиша на ЦСМП и болничния регистър.</p></details><details><summary>След приема · кислород, разгъване на белия дроб и бъбречнозаместителна терапия</summary><p><strong>25.11.2026 г. · Постъпване.</strong> След постъпването в Сити Клиник е съобщено, че левият бял дроб се е разгънал след дренирането. Според последната устна информация Свилен продължава да получава кислород. Кислородният дебит и количеството остатъчна течност вляво остават неизвестни.</p><p><strong>След постъпването · Продължителна бъбречнозаместителна терапия (CRRT).</strong> Описаният режим е съвместим с CRRT (Continuous Renal Replacement Therapy). Тя позволява постепенно отнемане на течности и корекция на електролитите в продължение на много часове. Точният режим може да се потвърди от екипа.</p><p><strong>Съобщено вливане на калий.</strong> Продължителната диализа отстранява калий от кръвта. Ако е спаднал, екипът може да го добави венозно или чрез разтворите на апарата. На 23.11 калият е бил повишен (5,86 mmol/L). За конкретното вливане е важна стойността непосредствено преди назначението.</p><p><strong>Възможно преминаване към периодична диализа.</strong> Ако състоянието му позволява, първата стъпка може да е връщане към периодични процедури. За спиране на диализата нефрологът преценява дали бъбреците сами поддържат баланса на течностите, калия и киселинно-алкалното равновесие. Важни са урината за 24 часа и промените в показателите между процедурите или при контролирана пауза. Креатининът от 23–24.11 сам по себе си не определя дали диализата ще е постоянна.</p><p>По устни сведения левият бял дроб се е разгънал след дренажа. Няма предоставен контролен образен доклад. Описаният режим е съвместим с продължителна бъбречнозаместителна терапия (CRRT). Точният режим и началният час остават за потвърждение.</p></details><details open><summary>20–24 ноември 2026 г.</summary><p>За 20.11 в използваните материали липсва датиран резултат. На 21.11 е съобщена дихателната криза, а на 22.11 — временно подобрение. На 23.11 рентгенографията описва изразен ляв излив и двустранен интерстициален застой.</p><p>На 23.11 креатининът е 456 и 462 µmol/L в отделни панели, Hb 70 g/L, CRP 224,1 mg/L и калий 5,86 mmol/L. На 24.11 креатининът е 530 µmol/L, Hb 81 g/L, CRP 228,4 mg/L и прокалцитонин 4,86 ng/mL. В наличния панел от 24.11 липсва стойност за калий.</p><button type="button" id="november">Графики за 20–24.11</button></details><div id="events" class="timeline"></div></details></section>
+<section id="labs"><h2>Графики на лабораторните и клиничните показатели</h2>
+<details id="chartDetail" open><summary>Динамика по дати</summary><div class="metric-tabs" id="quickMetrics" aria-label="Основни показатели"></div>
+<div class="tools"><label>Показател<select id="metric"></select></label><label>От<input type="date" id="from"></label><label>До<input type="date" id="to"></label><button id="reset">Всички дати</button></div>
+<p class="muted">Изберете точка за точната стойност и източника. Позицията по хоризонтала следва датата. Линиите свързват измерванията, а между тях няма отчетени стойности. Измерванията от една и съща дата са леко раздалечени, за да могат да се избират поотделно.</p>
+<div class="scroll" tabindex="0" aria-label="Графика с хоризонтално превъртане"><div class="chart" id="chart"></div></div>
+<p class="reading" id="reading" aria-live="polite"></p>
+<details><summary>Стойности за избрания показател</summary><div class="scroll"><table id="values"></table></div></details>
+</details>
+<h3>Основни показатели</h3><div class="cards" id="overviewCharts"></div><details><summary>Още графики</summary><div class="cards" id="otherCharts"></div></details><details><summary>Всички показатели по дати</summary><div class="scroll"><table id="overview"></table></div></details>
+<p class="muted">Датите 23 и 24.11 са дати на пробите. 26.11 фигурира в заглавката на разпечатките. Моментът на пробовземане спрямо диализата в част от записите остава неизвестен.</p></section>
+<section id="review"><h2>Медицински решения за документална проверка</h2><details><summary>Оценка на задуха и организация на грижата</summary><ul><li>Как са проследени Hb 69 g/L на 18.11, повишеният CRP и известният излив при появата на задух? Какво е записано при повикванията на 13 и 21 ноември?</li><li>Кога е завършила последната пълна хемодиализа и как е оценен течностният баланс преди кръвопреливането?</li><li>Изследвана ли е плевралната течност за кръв, инфекция и туморни клетки? Как е проверено разгъването на белия дроб след дренирането? По сведения на семейството непосредствена контролна рентгенография не е направена.</li><li>Защо кислородът е спрян и върнат? Каква сатурация е измерена със и без кислород преди напускането?</li><li>Кой е документирал решението за напускане, на какво основание и как са осигурени кислородът при транспорта и кислородът за дома?</li><li>Кога 112 е приел и предал сигналите? Каква информация е получила реанимацията преди повторния прием?</li><li>Кой е координирал грижата при прекъсната лъчетерапия и обсъждания отворен епизод до петък? Какъв срок обозначава „стават 30“? Съответстват ли отчетените приеми, фракции и диализи на реално проведените?</li><li>Установява ли се забавяне на необходима грижа и какво е медицинското му значение за последвалото влошаване?</li></ul></details></section>
+<section id="journal"><h2>Добавяне на запис</h2><form id="newRecord"><div class="tools">
+<label>Дата<input type="date" name="date" required></label><label>Вид<select name="type"><option>Симптом</option><option>Прием / изписване</option><option>Процедура</option><option>Измерване</option></select></label>
+<label>Събитие или показател<input name="title" list="names" required maxlength="160"></label><datalist id="names"></datalist>
+<label id="valLabel" hidden>Стойност<input name="value" inputmode="decimal"></label><label id="unitLabel" hidden>Единица<input name="unit" maxlength="40"></label>
+<label>Източник<input name="source" required maxlength="250"></label><label>Бележка<textarea name="note" maxlength="4000"></textarea></label></div><button>Добави запис</button></form>
+<h3>Архив на добавените записи</h3><p>Записите се пазят в този браузър, когато локалното съхранение е разрешено. JSON архивът пренася личните добавки на друго устройство.</p><button id="exportRecords">Изтегли JSON</button> <label>Възстанови от JSON <input type="file" accept=".json,application/json" id="importRecords"></label><p id="journalStatus" role="status"></p></section>
+<section id="imaging"><h2>Образни находки</h2>
+<div class="tools"><label>Покажи<select id="imageFilter"><option value="all">Всички находки</option><option value="tumor">Тумор</option><option value="effusion">Плеврален излив</option><option value="abdomen">Корем и бъбреци</option></select></label></div><div class="cards" id="images" style="margin-top:14px"></div>
+<p class="muted">Лентите показват описана дължина по скала до 20 cm. Юлската стойност е референтна според септемврийския ЯМР. За септемврийската КТ мерната единица е предадена различно в наличните обобщения. Записът в оригиналния доклад остава за сверяване.</p><h3>Образни изследвания в Koç</h3><details><summary>Септември · ЯМР и КТ с превод на находките</summary><p>Турските цитати са от архивираните преписи на докладите.</p>
+
+      <h3>Размери и некроза</h3>
+      <blockquote lang="tr">Kitle uzun aksı maksimum yerinde 13 cm ölçülmüş olup Temmuz 2026 tarihli BT'sine göre uzun aksının küçüldüğü anlaşılmaktadır(temmuz 2026da uzun aksı 18cm). Kitlenin en geniş yerinde transvers çapı 10 cm ölçülmüş olup bu boyutunda da azalma izlenmektedir.</blockquote>
+      <p>На ЯМР от 21.09 масата е 13 cm по дългата ос спрямо 18 cm на КТ от юли. Напречно е 10 cm. Намалението от 27,8% се отнася до дългата ос. Измерената маса включва описаните некротични участъци.</p>
+
+      <blockquote lang="tr">Kitle içerisinde yoğun nekroz ve kalsifikasyonlar izlenmektedir.</blockquote>
+      <p>В КТ са описани изразена некроза и калцификати. Няма отделен размер или процент на некротичната част. От размерите на масата не може да се изчисли колко жизнеспособна туморна тъкан остава.</p>
+
+      <blockquote lang="tr">Güncel incelemede kraniokaudal aksı yaklaşık olarak 12 mm ölçülmüştür.</blockquote>
+      <p>В архивирания КТ препис краниокаудалният размер е записан като приблизително <strong>12 mm</strong>. В обобщението се среща и <strong>12 cm</strong>. Стойността остава несигурна до сверка с оригиналния доклад и измерването върху изображенията.</p>
+
+      <h3>Плеврален излив</h3>
+      <blockquote lang="tr">Solda az miktarda plevral effüzyon izlendi. Bir önceki tetkikine göre belirgin azalmıştır.</blockquote>
+      <p><strong>ЯМР от 21.09.</strong> Вляво се вижда малък плеврален излив, значително намалял спрямо предходното изследване.</p>
+
+      <blockquote lang="tr">Plevra: Effüzyon veya kalınlaşma yoktur.</blockquote>
+      <p><strong>КТ доклад от 23.09.</strong> „Плевра: Няма излив или удебеляване.“ В локалното описание на същия доклад е записано <q lang="tr">Plevra bu düzeyde kalındır.</q> — „На това ниво плеврата е удебелена.“</p>
+      <p class="note">
+        Малкият излив може да се е резорбирал между изследванията или да е
+        останал неотразен в КТ доклада. Противоречието за удебеляването
+        е отделен въпрос и се изяснява чрез преглед на оригиналните образи.
+      </p>
+    </details><details><summary>Септември · Съседни структури и степен на сигурност</summary><p>
+        Инвазия означава, че туморът навлиза в тъканта на съседна структура.
+        Турските цитати по-долу са от архивираните преписи на докладите.
+      </p>
+
+      <h3>Какво е описано при Свилен</h3>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Структура</th>
+              <th scope="col">Цитат на турски</th>
+              <th scope="col">Превод и степен на сигурност</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Аортна дъга</th>
+              <td lang="tr">Arkus aortanın invaze olduğu düşünülmüştür.</td>
+              <td>Предполага се инвазия на аортната дъга.</td>
+            </tr>
+            <tr>
+              <th scope="row">Низходяща аорта</th>
+              <td lang="tr">Bu düzeyde invazyon şüphelidir.</td>
+              <td>На това ниво има съмнение за инвазия. В КТ преписа се споменава различим мастен слой. При сравнение трябва да се провери дали описанията се отнасят до едно и също анатомично ниво.</td>
+            </tr>
+            <tr>
+              <th scope="row">Лява белодробна артерия</th>
+              <td lang="tr">Sol pulmoner arterin özellikle inferior kesitlerden kitle tarafından infiltre olduğu düşünülmektedir.</td>
+              <td>Предполага се, че масата инфилтрира лявата белодробна артерия, особено в долните срезове.</td>
+            </tr>
+            <tr>
+              <th scope="row">Хранопровод</th>
+              <td lang="tr">Kitlenin özellikle alt kesitlerde özofagus lümenine doğru infiltre olduğu izlenmiştir.</td>
+              <td>Описано е инфилтриране по посока на лумена на хранопровода, особено в долните срезове. „По посока на лумена“ не уточнява дали туморът достига вътрешната му повърхност.</td>
+            </tr>
+            <tr>
+              <th scope="row">Плевра</th>
+              <td lang="tr">Plevra bu düzeyde kalın ve hafif kontrastlanmakta olup plevral invazyon düşünülmüştür.</td>
+              <td>На това ниво плеврата е удебелена и леко се усилва след контраст. Предполага се плеврална инвазия.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Защо остава несигурност?</h3>
+      <p>
+        Когато масата е плътно прилепнала към аортата, белодробната артерия
+        или хранопровода, границата между тях може да се вижда трудно.
+        Дългият контакт, притискането и липсата на видим мастен слой
+        са косвени белези. По тях самостоятелно не може да се установи
+        дали туморът е проникнал в стената.
+      </p>
+      <p>
+        Думи като <q lang="tr">düşünülmüştür</q> („предполага се“)
+        и <q lang="tr">şüphelidir</q> („има съмнение“) показват,
+        че преценката в доклада е вероятностна. При плеврата изливът
+        и локалното удебеляване са различни находки. Липсата на описан
+        излив в КТ не изключва локално засягане на плеврата.
+      </p>
+
+      <h3>Как се потвърждава?</h3>
+      <ol>
+        <li>
+          <strong>Съпоставка на оригиналните ЯМР и КТ образи.</strong>
+          Радиологът сравнява едни и същи анатомични нива и търси
+          пряко продължение на масата в стената на съответния орган
+          или туморна тъкан в лумена, когато това може да се оцени.
+        </li>
+        <li>
+          <strong>Хистологично потвърждение за конкретната структура.</strong>
+          Ако има безопасно получена тъкан от подозирания участък,
+          патологът може да установи дали в нея има туморни клетки.
+          Хистологията на първичната маса установява вида на тумора.
+          За потвърждение на инвазия в определен орган е нужна
+          информация за самия засегнат участък.
+        </li>
+      </ol>
+
+      <p class="note">
+        В наличните материали няма описано хистологично потвърждение
+        за изброените съседни структури. При оценка на оперативността
+        екипът може да вземе предвид образното съмнение. Оригиналният
+        протокол на консилиума би показал кои находки са повлияли
+        на решението в този конкретен случай.
+      </p>
+
+      <p>
+        
+          Източник за образните белези на инвазия в гръдния кош
+        
+      </p>
+    </details></section><footer><details><summary>Източници на началните записи</summary>
+<p>Данните са преписани от наличните обобщения, архивирани цитати от образни доклади и сведения на близките. Датите, количествата и процедурите със спорни или непълни подробности са означени при съответния запис.</p><ul>
+<li>Състояние, дишане и диализа</li>
+<li>Клинична хронология</li>
+<li>Медицинска динамика</li>
+<li>Съпоставка на плевралния излив по ЯМР и КТ</li>
+<li>Епикриза от Токуда · лабораторни резултати</li>
+<li>Априлски КТ доклади и съпоставка</li>
+</ul></details></footer>
+</main></div>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const date = x => x.split('-').reverse().join('.');
+const fmt = x => x.toLocaleString('bg-BG',{maximumFractionDigits:6});
+const escapeHtml = x => String(x).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const admission='Прием / изписване', crisis='Криза / симптом', treatment='Лечение / процедура', laboratory='Лаборатория', imaging='Образно изследване';
+const family = 'Сведения на близките';
+const chronology = 'Клинична хронология';
+const dynamics = 'Медицинска динамика';
+const breathing = 'Състояние, дишане и диализа';
+const hospital = 'Епикриза от Токуда';
+const e = (day, category, title, note, source) => ({kind:'event',date:'2026-'+day,category,title,note,source});
+const initialEvents = [
+ e('05-08',treatment,'Koç · последно посочено приложение на IMA','През април е проведен един курс VAC, след който е започната схемата IMA.','Обобщение на лечението в Турция'),
+ e('06-03',treatment,'Koç · начало на larotrectinib','При NGS е установена фузия SQSTM1:NTRK3. След съобщена прогресия са проведени пет курса ifosfamide и etoposide с mesna.','Обобщение на лечението в Турция'),
+ e('04-14',imaging,'КТ на гръдния кош в Koç','Туморна маса вляво, 17,6 cm краниокаудално, с кистично-некротични участъци и калцификати. Масивен левостранен плеврален излив с неизяснен характер. Докладът е подписан на 15.04.','Априлски КТ доклади и съпоставка'),
+ e('04-17',imaging,'КТ на корема в Koç','Запазени размери и образна структура на бъбреците. Лява киста Bosniak II, 3,2 cm. Без хидронефроза. Малко количество тазов асцит.','Априлски КТ доклади и съпоставка'),
+ e('09-21',imaging,'ЯМР на гръдния кош в Koç','Дължина 13 cm спрямо референтни 18 cm през юли. Описани са некрози и малък левостранен плеврален излив, значително намалял спрямо предходното изследване.',chronology),
+ e('09-22',imaging,'КТ на гръдния кош и корема в Koç','Гръдният доклад от 23.09 не описва плеврален излив. Отбелязано е локално удебеляване на плеврата при хилуса. Коремната КТ описва стабилна киста Bosniak II и стабилна полипоидна находка в пикочния мехур.',chronology+' и обобщение на КТ'),
+ e('10-21',treatment,'Прием за лъчетерапия и първа фракция','Започва лъчетерапия на първичния тумор в Сити Клиник. Курсът е прекъснат след първата фракция при последвалия прием в Токуда.',dynamics),
+ e('10-22',admission,'Прием в Токуда','При постъпването е отчетен креатинин 723,5 µmol/L.',hospital),
+ e('10-27',treatment,'Съдов достъп за хемодиализа','Креатининът вече е бил спаднал до около 589,1 µmol/L на 26.10 по предоставената серия.',hospital),
+ e('10-28',admission,'Изписване от Токуда','Креатинин 462,7 µmol/L. Впоследствие е съобщена хемодиализа три пъти седмично и лъчетерапия пет пъти седмично.',hospital+' и '+dynamics),
+ e('11-12',crisis,'Кървене от диализния катетър','Съобщени са нефрологична консултация, корекция и CRP около 183 mg/L.',dynamics+' и '+family.toLowerCase()),
+ e('11-13',crisis,'Температура вечерта','Съобщен е еднократен прием на парацетамол и липса на повторение на температурата след този епизод.',family),
+ e('11-19',treatment,'Планирано кръвопреливане','Планирана трансфузия след Hb 69 g/L на 18.11. По сведения на близките до 19.11 изливът е бил видим и оценяван като непроменен.',chronology+' и '+family.toLowerCase()),
+ e('11-21',crisis,'Пристъп на силен задух','Близките описват внезапно задушаване, храчки и оригване. Пристъпът е отзвучал след изхождане. Съобщена е спешна оценка. Точни стойности на сатурацията по време на епизода липсват.',family),
+ e('11-23',imaging,'Рентгенография след кризата','Изразен левостранен плеврален излив и двустранен интерстициален застой.',breathing),
+ e('11-25',admission,'Постъпване в Сити Клиник','Обновената хронология посочва прием на 25.11. По-ранните разкази поставят първия прием на 23–24.11 и потвърждението за повторен прием около 03:07 на 26.11.',breathing+' и '+family.toLowerCase()),
+ e('11-25',treatment,'Дрениране на левия плеврален излив · 24 или 25.11','Източниците се разминават за датата. По сведения на близките са евакуирани около 1 500 mL и е съобщено разгъване на левия бял дроб. Остатъчният обем и кислородният дебит са неизвестни.',family),
+ e('11-26',crisis,'Съобщено повторно дихателно влошаване','Описани са задух, бледност, изпотяване, приведено напред положение и намеса на 112. Точните час и последователност на транспорта и приема остават за сверяване.',dynamics+' и '+family.toLowerCase()),
+ e('11-26',treatment,'Съобщена бъбречнозаместителна терапия след постъпването','Описан е продължителен режим, съвместим с CRRT. Точният режим и началният час остават за потвърждение от екипа.',breathing)
+];
+const initialLabs = [];
+function series(title, unit, points) {
+  for (const [day,value,source,note=''] of points)
+    initialLabs.push({kind:'lab',title,unit,date:'2026-'+day,value,source,note});
+}
+series('Креатинин','µmol/L',[
+ ['10-22',723.5,hospital,'При прием'],['10-23',691,hospital],['10-24',649.1,hospital],['10-25',615.1,hospital],['10-26',589.1,hospital],['10-28',462.7,hospital,'При изписване'],
+ ['11-04',333,dynamics],['11-18',452,dynamics],['11-23',456,breathing,'Панел 1'],['11-23',462,breathing,'Панел 2'],['11-24',530,breathing]]);
+const octoberDays=['10-22','10-23','10-24','10-25','10-26','10-28'];
+for (const [name,unit,values] of [
+ ['Хемоглобин','g/L',[70,53,65,77,90,81]],
+ ['CRP','mg/L',[218.85,205.04,null,61.46,65.09,45.81]],
+ ['Калий','mmol/L',[4.6,5.4,4.5,4.4,4.5,3.5]],
+ ['Натрий','mmol/L',[134,135,138,140,139,142]],
+ ['Урея','mmol/L',[24.1,26.2,30.2,28.6,26.3,18.8]],
+ ['eGFR','mL/min',[7,7,8,8,9,12]],
+ ['Тромбоцити','G/L',[null,550,559,544,607,459]],
+ ['Левкоцити','G/L',[null,8.85,18.86,null,null,14.97]],
+ ['Еритроцити','T/L',[2.47,1.89,2.23,2.66,3.07,2.79]],
+ ['Хематокрит','L/L',[null,0.165,0.192,null,null,null]]
+]) series(name,unit,values.flatMap((value,i)=>value===null?[]:[[octoberDays[i],value,hospital]]));
+series('Хемоглобин','g/L',[['11-04',83,dynamics],['11-18',69,dynamics],['11-23',70,breathing],['11-24',81,breathing]]);
+series('CRP','mg/L',[['11-18',155.9,dynamics],['11-23',224.1,breathing],['11-24',228.4,breathing]]);
+series('Калий','mmol/L',[['11-23',5.86,breathing]]);
+series('Прокалцитонин','ng/mL',[['11-24',4.86,breathing]]);
+for (const [name,unit,a,b] of [['eGFR','mL/min',17,12],['Урея','mmol/L',8.6,9.7],['Левкоцити','G/L',9.96,4.14],['Лимфоцити','G/L',0.98,0.43],['Тромбоцити','G/L',273,261]])
+  series(name,unit,[['11-04',a,dynamics],['11-18',b,dynamics]]);
+const verified = [["Хемоглобин", "g/L", "10-21", 67.0, "Клинична хронология · лабораторна таблица"], ["Хемоглобин", "g/L", "10-22", 70.0, "Епикриза от Токуда, стр. 2–3"], ["Хемоглобин", "g/L", "10-23", 53.0, "Епикриза от Токуда, стр. 2–3"], ["Хемоглобин", "g/L", "10-24", 65.0, "Епикриза от Токуда, стр. 2–3"], ["Хемоглобин", "g/L", "10-25", 77.0, "Епикриза от Токуда, стр. 2–3"], ["Хемоглобин", "g/L", "10-26", 90.0, "Епикриза от Токуда, стр. 2–3"], ["Хемоглобин", "g/L", "10-28", 81.0, "Епикриза от Токуда, стр. 2–3"], ["Хемоглобин", "g/L", "11-04", 83.0, "Клинична хронология · лабораторна таблица"], ["Хемоглобин", "g/L", "11-11", 74.0, "Сити Клиник · лабораторен лист от 11.11, 15:12 ч."], ["Хемоглобин", "g/L", "11-18", 69.0, "Клинична хронология · лабораторна таблица"], ["Креатинин", "µmol/L", "10-21", 656.0, "Клинична хронология · лабораторна таблица"], ["Креатинин", "µmol/L", "10-22", 723.5, "Епикриза от Токуда, стр. 2–3"], ["Креатинин", "µmol/L", "10-23", 691.0, "Епикриза от Токуда, стр. 2–3"], ["Креатинин", "µmol/L", "10-24", 649.1, "Епикриза от Токуда, стр. 2–3"], ["Креатинин", "µmol/L", "10-25", 615.1, "Епикриза от Токуда, стр. 2–3"], ["Креатинин", "µmol/L", "10-26", 589.1, "Епикриза от Токуда, стр. 2–3"], ["Креатинин", "µmol/L", "10-28", 462.7, "Епикриза от Токуда, стр. 2–3"], ["Креатинин", "µmol/L", "11-04", 333.0, "Клинична хронология · лабораторна таблица"], ["Креатинин", "µmol/L", "11-11", 402.0, "Сити Клиник · лабораторен лист от 11.11, 15:12 ч."], ["Креатинин", "µmol/L", "11-18", 452.0, "Клинична хронология · лабораторна таблица"], ["CRP", "mg/L", "10-22", 218.85, "Епикриза от Токуда, стр. 2–3"], ["CRP", "mg/L", "10-23", 205.04, "Епикриза от Токуда, стр. 2–3"], ["CRP", "mg/L", "10-25", 61.46, "Епикриза от Токуда, стр. 2–3"], ["CRP", "mg/L", "10-26", 65.09, "Епикриза от Токуда, стр. 2–3"], ["CRP", "mg/L", "10-28", 45.81, "Епикриза от Токуда, стр. 2–3"], ["CRP", "mg/L", "11-11", 183.6, "Сити Клиник · лабораторен лист от 11.11, 15:12 ч."], ["CRP", "mg/L", "11-18", 155.9, "Клинична хронология · лабораторна таблица"], ["Урея", "mmol/L", "10-21", 23.7, "Клинична хронология · лабораторна таблица"], ["Урея", "mmol/L", "10-22", 24.1, "Епикриза от Токуда, стр. 2–3"], ["Урея", "mmol/L", "10-23", 26.2, "Епикриза от Токуда, стр. 2–3"], ["Урея", "mmol/L", "10-24", 30.2, "Епикриза от Токуда, стр. 2–3"], ["Урея", "mmol/L", "10-25", 28.6, "Епикриза от Токуда, стр. 2–3"], ["Урея", "mmol/L", "10-26", 26.3, "Епикриза от Токуда, стр. 2–3"], ["Урея", "mmol/L", "10-28", 18.8, "Епикриза от Токуда, стр. 2–3"], ["Урея", "mmol/L", "11-04", 8.6, "Клинична хронология · лабораторна таблица"], ["Урея", "mmol/L", "11-11", 10.8, "Сити Клиник · лабораторен лист от 11.11, 15:12 ч."], ["Урея", "mmol/L", "11-18", 9.7, "Клинична хронология · лабораторна таблица"], ["Албумин", "g/L", "10-22", 33.8, "Епикриза от Токуда, стр. 2–3"], ["Албумин", "g/L", "11-04", 34.0, "Клинична хронология · лабораторна таблица"], ["Албумин", "g/L", "11-11", 31.0, "Сити Клиник · лабораторен лист от 11.11, 15:12 ч."], ["Албумин", "g/L", "11-18", 31.0, "Клинична хронология · лабораторна таблица"], ["eGFR", "mL/min", "10-22", 7.0, "Епикриза от Токуда, стр. 2–3"], ["eGFR", "mL/min", "10-23", 7.0, "Епикриза от Токуда, стр. 2–3"], ["eGFR", "mL/min", "10-24", 8.0, "Епикриза от Токуда, стр. 2–3"], ["eGFR", "mL/min", "10-25", 8.0, "Епикриза от Токуда, стр. 2–3"], ["eGFR", "mL/min", "10-26", 9.0, "Епикриза от Токуда, стр. 2–3"], ["eGFR", "mL/min", "10-28", 12.0, "Епикриза от Токуда, стр. 2–3"], ["eGFR", "mL/min", "11-04", 17.0, "Клинична хронология · лабораторна таблица"], ["eGFR", "mL/min", "11-11", 14.0, "Сити Клиник · лабораторен лист от 11.11, 15:12 ч."], ["eGFR", "mL/min", "11-18", 12.0, "Клинична хронология · лабораторна таблица"], ["Левкоцити", "G/L", "10-22", 12.1, "Епикриза от Токуда, стр. 2–3"], ["Левкоцити", "G/L", "10-23", 8.85, "Епикриза от Токуда, стр. 2–3"], ["Левкоцити", "G/L", "10-24", 18.86, "Епикриза от Токуда, стр. 2–3"], ["Левкоцити", "G/L", "10-25", 16.96, "Епикриза от Токуда, стр. 2–3"], ["Левкоцити", "G/L", "10-26", 17.23, "Епикриза от Токуда, стр. 2–3"], ["Левкоцити", "G/L", "10-28", 14.97, "Епикриза от Токуда, стр. 2–3"], ["Левкоцити", "G/L", "11-04", 9.96, "Клинична хронология · лабораторна таблица"], ["Левкоцити", "G/L", "11-11", 5.74, "Сити Клиник · лабораторен лист от 11.11, 15:12 ч."], ["Левкоцити", "G/L", "11-18", 4.14, "Клинична хронология · лабораторна таблица"], ["Лимфоцити", "G/L", "10-22", 1.25, "Епикриза от Токуда, стр. 2–3"], ["Лимфоцити", "G/L", "10-23", 0.57, "Епикриза от Токуда, стр. 2–3"], ["Лимфоцити", "G/L", "10-24", 1.58, "Епикриза от Токуда, стр. 2–3"], ["Лимфоцити", "G/L", "10-25", 1.81, "Епикриза от Токуда, стр. 2–3"], ["Лимфоцити", "G/L", "10-26", 1.55, "Епикриза от Токуда, стр. 2–3"], ["Лимфоцити", "G/L", "10-28", 1.76, "Епикриза от Токуда, стр. 2–3"], ["Лимфоцити", "G/L", "11-04", 0.98, "Клинична хронология · лабораторна таблица"], ["Лимфоцити", "G/L", "11-11", 0.5, "Сити Клиник · лабораторен лист от 11.11, 15:12 ч."], ["Лимфоцити", "G/L", "11-18", 0.43, "Клинична хронология · лабораторна таблица"], ["Тромбоцити", "G/L", "10-22", 592.0, "Епикриза от Токуда, стр. 2–3"], ["Тромбоцити", "G/L", "10-23", 550.0, "Епикриза от Токуда, стр. 2–3"], ["Тромбоцити", "G/L", "10-24", 559.0, "Епикриза от Токуда, стр. 2–3"], ["Тромбоцити", "G/L", "10-25", 544.0, "Епикриза от Токуда, стр. 2–3"], ["Тромбоцити", "G/L", "10-26", 607.0, "Епикриза от Токуда, стр. 2–3"], ["Тромбоцити", "G/L", "10-28", 459.0, "Епикриза от Токуда, стр. 2–3"], ["Тромбоцити", "G/L", "11-04", 273.0, "Клинична хронология · лабораторна таблица"], ["Тромбоцити", "G/L", "11-11", 220.0, "Сити Клиник · лабораторен лист от 11.11, 15:12 ч."], ["Тромбоцити", "G/L", "11-18", 261.0, "Клинична хронология · лабораторна таблица"]];
+for (const [title,unit,day,value,source] of verified) {
+  const existing = initialLabs.find(r=>r.title===title && r.unit===unit && r.date==='2026-'+day);
+  if (existing) Object.assign(existing,{value,source});
+  else series(title,unit,[[day,value,source]]);
+}
+series('Калий','mmol/L',[['11-11',4.32,'Сити Клиник · лабораторен лист, стр. 2']]);
+series('Натрий','mmol/L',[['11-11',138,'Сити Клиник · лабораторен лист, стр. 2']]);
+series('Хлориди','mmol/L',[['11-11',106,'Сити Клиник · лабораторен лист, стр. 2']]);
+series('Магнезий','mmol/L',[['11-11',1.2,'Сити Клиник · лабораторен лист, стр. 2']]);
+series('Общ калций','mmol/L',[['11-11',2.21,'Сити Клиник · лабораторен лист, стр. 2']]);
+const urineFile='Биохимия и урина · файл от 23.11, разпечатан на 26.11';
+for(const [name,unit,value] of [['Урея','mmol/L',10.5],['Общ белтък','g/L',63],['Албумин','g/L',32]])
+  series(name,unit,[['11-23',value,urineFile,'Дата по името на файла']]);
+initialEvents.push(e('11-22',crisis,'Временно подобрение','По сведения на близките SpO₂ 98%, кръвно налягане 108/68 и пулс 98. Кислородният дебит при измерването е неизвестен.',chronology));
+for(const [name,unit,value] of [['Сатурация','%',98],['Систолно налягане','mmHg',108],['Диастолно налягане','mmHg',68],['Пулс','уд./мин',98]])
+  series(name,unit,[['11-22',value,chronology,'Съобщено от семейството']]);
+const julyPanel = [
+  [
+    "Левкоцити",
+    39.6,
+    null,
+    "3,5–10,5"
+  ],
+  [
+    "Неутрофили (абс.)",
+    36.13,
+    null,
+    "2,2–4,8"
+  ],
+  [
+    "Неутрофили",
+    91.2,
+    "%",
+    "43–65"
+  ],
+  [
+    "Моноцити (абс.)",
+    1.91,
+    null,
+    "0,3–0,8"
+  ],
+  [
+    "CRP",
+    11.95,
+    null,
+    "до 6,00"
+  ],
+  [
+    "Хемоглобин",
+    116,
+    "g/L",
+    "140–180"
+  ],
+  [
+    "MCH",
+    24,
+    "pg",
+    "27–33"
+  ],
+  [
+    "MCV",
+    75,
+    "fL",
+    "82–98"
+  ],
+  [
+    "RDW",
+    25.1,
+    "%",
+    "11,5–15,5"
+  ],
+  [
+    "MPV",
+    7.2,
+    "fL",
+    "8–15"
+  ],
+  [
+    "Лимфоцити",
+    4,
+    "%",
+    "20,5–45,5"
+  ],
+  [
+    "Еозинофили",
+    0,
+    "%",
+    "0,9–2,9"
+  ],
+  [
+    "Базофили",
+    0.1,
+    "%",
+    "0,2–1,0"
+  ]
+];
+const julySource = 'Предоставен препис от 17.07.2026 г.';
+for (const [title,value,unit,reference] of julyPanel) {
+  series(title,unit || 'неуточнена единица',[['07-17',value,julySource,'Референтни стойности по преписа: '+reference]]);
+}
+initialEvents.push(e('07-17',laboratory,'Кръвна картина и CRP през юли','Изразена левкоцитоза с преобладаващи неутрофили (91,2%). Hb 116 g/L, MCV 75 fL. Причината за отклоненията остава неизяснена по предоставения препис. За абсолютните левкоцитни броеве и CRP липсва мерна единица.',julySource));
+const images = [
+ ['04.2026','tumor effusion','КТ на гръдния кош','Некроза, калцификати и масивен левостранен излив.',17.6],
+ ['17.04.2026','abdomen','КТ на корема','Лява киста Bosniak II (3,2 cm), без хидронефроза. Малко количество тазов асцит.'],
+ ['07.2026','tumor','Референтен размер','Юлски размер, цитиран в септемврийското ЯМР описание.',18],
+ ['21.09.2026','tumor effusion','ЯМР на гръдния кош','Описани некрози и малък ляв излив, намалял спрямо предходното изследване.',13],
+ ['22–23.09.2026','tumor effusion abdomen','КТ в Koç','Намаляване на туморната маса. В общия раздел на гръдния доклад излив не е отчетен. Отделно е описано локално плеврално удебеляване. Стабилна лява бъбречна киста.'],
+ ['23.10.2026','tumor','Рентгенография в Токуда','Маса вляво с проекционни размери до 176 × 81 mm, базални ателектази и сянка на торакален дрен. Проекционният размер е посочен отделно от измерванията по КТ и ЯМР.'],
+ ['27.10.2026','tumor','Контролна рентгенография в Токуда','Описана е сянка на порт-кат вдясно. Останалата находка е без динамика според доклада.'],
+ ['23.11.2026','effusion','Рентгенография','Изразен левостранен излив и двустранен интерстициален застой.']
+];
+const key = r => JSON.stringify([r.title,r.unit]);
+const byDate = (a,b) => a.date.localeCompare(b.date);
+const storageKey='svilen-dossier-records-v1';
+let custom=[];
+const labs = () => initialLabs.concat(custom.filter(r=>r.kind==='lab')).sort(byDate);
+function renderTimeline(){
+  const groups = labs().reduce((group,r)=>{ (group[r.date] ??= []).push(r); return group; },{});
+  const measurements = Object.entries(groups).map(([day,rows])=>({date:day,category:laboratory,title:'Измерени показатели',note:rows.map(r=>r.title+' '+fmt(r.value)+' '+r.unit+(r.note?' ('+r.note+')':'')).join(' · '),source:[...new Set(rows.map(r=>r.source))].join(' / ')}));
+  const rows = initialEvents.concat(custom.filter(r=>r.kind==="event"),measurements).sort(byDate);
+  $('events').innerHTML = rows.map(r=>'<article class="entry '+(r.category===crisis?'crisis':'')+'"><time datetime="'+r.date+'">'+date(r.date)+'</time><span class="tag">'+escapeHtml(r.category)+'</span><h3>'+escapeHtml(r.title)+'</h3><p>'+escapeHtml(r.note)+'</p><small>'+escapeHtml(r.source)+'</small></article>').join('');
+}
+function renderChart(selected){
+  for(const button of $('quickMetrics').children){
+    button.setAttribute('aria-pressed',String(button.dataset.metric===$('metric').value));
+  }
+  const start = $('from').value || '0001-01-01';
+  const end = $('to').value || '9999-12-31';
+  const allRows = labs().filter(r=>r.date>=start&&r.date<=end);
+  const rows = allRows.filter(r=>key(r)===$('metric').value);
+  const table = samples=>'<thead><tr><th>Дата</th><th>Показател</th><th>Стойност</th><th>Източник и бележка</th></tr></thead><tbody>'+samples.map(r=>'<tr><td>'+date(r.date)+'</td><td>'+escapeHtml(r.title)+'</td><td>'+fmt(r.value)+' '+escapeHtml(r.unit)+'</td><td>'+escapeHtml([r.source,r.note].filter(Boolean).join(' · '))+'</td></tr>').join('')+'</tbody>';
+  $('values').innerHTML = rows.length ? table(rows) : '';
+  $('overview').innerHTML = allRows.length ? table(allRows) : '';
+  $('chart').replaceChildren();
+  if (!rows.length) { $('reading').textContent=start>end?'Началната дата трябва да предхожда крайната.':'Няма измервания за този показател в избрания период.'; return; }
+  const days = [...new Set(rows.map(r=>r.date))];
+  const dayValue = d=>Date.parse(d)/86400000;
+  const first = dayValue(days[0]), span = dayValue(days.at(-1))-first;
+  const x = d=>span ? 82+(dayValue(d)-first)/span*615 : 390;
+  const max = Math.max(...rows.map(r=>r.value));
+  const step = max ? 10**Math.floor(Math.log10(max))/2 : 1;
+  const ceiling = max ? Math.ceil(max/step)*step : 1;
+  const y = v=>227-v/ceiling*188;
+  const rowsByDay = new Map(days.map(day=>[day,rows.filter(r=>r.date===day)]));
+  const points = rows.map(r=>{const sameDay=rowsByDay.get(r.date);return [x(r.date)+(sameDay.indexOf(r)-(sameDay.length-1)/2)*32,y(r.value)];});
+  const plotDots = points.map(([px,py])=>'<circle cx="'+px+'" cy="'+py+'" r="5" fill="#075f57" stroke="white" stroke-width="1.5"/>').join('');
+  const grid = Array.from({length:5},(_,i)=>{const v=ceiling*i/4;return '<line x1="76" x2="711" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#d3e2df"/><text x="68" y="'+(y(v)+4)+'" text-anchor="end">'+fmt(v)+'</text>';}).join('');
+  const ticks = days.length===1 ? days : Array.from({length:Math.min(6,span+1)},(_,i)=>i);
+  const axisDays = days.length===1?days:ticks.map(i=>new Date((first+Math.round(i*span/(ticks.length-1)))*86400000).toISOString().slice(0,10));
+  const labels = axisDays.map(d=>'<text x="'+x(d)+'" y="252" text-anchor="middle">'+date(d).slice(0,5)+'</text>').join('');
+  const singleDays = rows.filter(r=>rowsByDay.get(r.date).length===1);
+  const line = singleDays.length>1 ? '<polyline points="'+singleDays.map(r=>x(r.date)+','+y(r.value)).join(' ')+'" stroke="#348c80" stroke-width="2" stroke-dasharray="5 4" fill="none"/>' : '';
+  $('chart').innerHTML = '<svg viewBox="0 0 760 270" role="img" aria-label="'+escapeHtml(rows[0].title+' · '+rows[0].unit)+'"><g font-size="13" fill="#465d69"><text x="76" y="22">'+escapeHtml(rows[0].unit)+'</text>'+grid+labels+'</g>'+line+plotDots+'</svg>';
+  function show(r){
+    Array.from($('chart').querySelectorAll('button')).forEach((button,index)=>button.classList.toggle('selected',rows[index]===r)); $('reading').textContent=date(r.date)+' · '+r.title+' '+fmt(r.value)+' '+r.unit+' · '+[r.source,r.note].filter(Boolean).join(' · '); }
+  points.forEach(([px,py],i)=>{
+    const r=rows[i], button=document.createElement('button');
+    button.type='button'; button.style.left=px/760*100+'%'; button.style.top=py/270*100+'%';
+    button.setAttribute('aria-label',date(r.date)+' '+fmt(r.value)+' '+r.unit+' '+r.note);
+    button.addEventListener('click',()=>show(r));
+    button.addEventListener('focus',()=>show(r));
+    button.addEventListener('pointerenter',()=>show(r));
+    $('chart').append(button);
+  });
+  show(rows.includes(selected)?selected:rows.at(-1));
+}
+function renderImages(){
+  const filter=$('imageFilter').value;
+  const archive=images.filter(r=>filter==='all'||r[1].split(' ').includes(filter));
+  $('images').innerHTML=archive.map(([day,_,name,note,size])=>'<article><small>'+day+'</small><h3>'+name+'</h3>'+(size?'<strong>'+fmt(size)+' cm</strong><div class="bar"><span style="width:'+size*5+'%"></span></div>':'')+'<p>'+note+'</p></article>').join('');
+}
+let options;
+let overviewOptions;
+function refreshMetrics(){
+const previous=$('metric').value;
+const all=labs();
+const regular=all.filter(row=>row.source!==julySource);
+overviewOptions=[...new Map(regular.map(row=>[key(row),row])).values()];
+options=[...new Map([...regular,...all.filter(row=>row.source===julySource)].map(row=>[key(row),row])).values()];
+$('metric').replaceChildren(...options.map(r=>new Option(r.title+' · '+r.unit,key(r))));
+if(options.some(r=>key(r)===previous)) $('metric').value=previous;
+const shortcuts=['Креатинин','Хемоглобин','CRP','Калий','Урея','eGFR'];
+$('quickMetrics').replaceChildren(...shortcuts.flatMap(title=>{
+  const metric=options.find(row=>row.title===title);
+  if(!metric)return [];
+  const button=document.createElement('button');
+  button.type='button';button.textContent=title;button.dataset.metric=key(metric);
+  button.onclick=()=>{$('metric').value=key(metric);renderChart();};
+  return [button];
+}));
+$('names').replaceChildren(...options.map(r=>new Option(r.title,r.title)));
+}
+
+function renderOverview(){
+  const priority=['Креатинин','Хемоглобин','CRP','Калий','Прокалцитонин','Урея','eGFR'];
+  const order=r=>priority.includes(r.title)?priority.indexOf(r.title):priority.length;
+  const cards=overviewOptions.slice().sort((a,b)=>order(a)-order(b)).map(metric=>{
+    const rows=labs().filter(row=>key(row)===key(metric));
+    const first=rows[0], last=rows.at(-1);
+    const start=Date.parse(first.date), span=Date.parse(last.date)-start;
+    const max=Math.max(...rows.map(r=>r.value))||1;
+    const counts=new Map();
+    for(const r of rows) counts.set(r.date,(counts.get(r.date)||0)+1);
+    const points=rows.map(r=>[span?13+(Date.parse(r.date)-start)/span*194:110,66-r.value/max*53]);
+    const line=points.filter((_,i)=>counts.get(rows[i].date)===1);
+    const card=document.createElement('article');
+    card.className='overview-card';
+    card.innerHTML='<h3>'+escapeHtml(metric.title)+'</h3><p><strong>'+fmt(last.value)+' '+escapeHtml(last.unit)+'</strong> · '+date(last.date).slice(0,5)+(counts.get(last.date)>1?' · последен показан панел':'')+'</p>'+
+      '<svg class="overview-chart" viewBox="0 0 220 87" role="img" aria-label="'+escapeHtml(metric.title+' · '+rows.length+' измервания')+'"><path d="M13 66H207 M13 39H207 M13 13H207" stroke="#c0d8d3"/>'+
+      (line.length>1?'<polyline points="'+line.map(p=>p.join(',')).join(' ')+'" stroke="#075f57" fill="none" stroke-width="2" stroke-dasharray="4 3"/>':'')+
+      points.map(([x,y])=>'<circle cx="'+x+'" cy="'+y+'" r="3.2" fill="#075f57"/>').join('')+
+      '<g font-size="10" fill="#465d69"><text x="13" y="82">'+date(first.date).slice(0,5)+'</text>'+
+      (span?'<text x="207" y="82" text-anchor="end">'+date(last.date).slice(0,5)+'</text>':'')+'</g></svg>';
+    const button=document.createElement('button');
+    button.textContent='Подробна графика';
+    button.setAttribute('aria-label','Подробна графика · '+metric.title);
+    button.addEventListener('click',()=>{
+      $('metric').value=key(metric);
+      $('from').value=$('to').value='';
+      $('chartDetail').open=true;
+      renderChart(last);
+      $('chartDetail').scrollIntoView();
+      $('metric').focus({preventScroll:true});
+    });
+    card.append(button);
+    return card;
+  });
+  $('overviewCharts').replaceChildren(...cards.slice(0,3));
+  $('otherCharts').replaceChildren(...cards.slice(3));
+}
+for(const id of ['metric','from','to']) $(id).addEventListener('change',renderChart);
+$('reset').addEventListener('click',()=>{ $('from').value=$('to').value=''; renderChart(); });
+$('imageFilter').addEventListener('change',renderImages);
+
+const form=$('newRecord'), fields=form.elements;
+function validate(r){
+ const text=(k,max,optional=false)=>typeof r[k]==='string' && r[k].length<=max && (optional||r[k].trim().length>0);
+ if(!r || typeof r!=='object' || !text('id',100) || !text('source',250) || !text('title',160) || !text('note',4000,true)) return false;
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date)) return false;
+ const day=new Date(r.date+'T00:00:00Z');
+ if(!Number.isFinite(day.getTime())||day.toISOString().slice(0,10)!==r.date)return false;
+ return r.kind==='lab' ? Number.isFinite(r.value)&&r.value>=0&&text('unit',40) :
+ r.kind==='event' && ['Симптом','Процедура','Прием / изписване'].includes(r.category);
+}
+function refresh(){refreshMetrics(); renderTimeline();renderOverview();renderChart();renderImages();}
+function save(message){
+ try{localStorage.setItem(storageKey,JSON.stringify(custom));}
+ catch{message+=' Локалното записване е недостъпно. Изтеглете JSON преди затваряне.';}
+ $('journalStatus').textContent=message;
+ refresh();
+}
+function updateForm(){
+ const lab=fields.type.value==='Измерване';
+ for(const [label,name] of [['valLabel','value'],['unitLabel','unit']]){
+   $(label).hidden=!lab;fields[name].required=lab;
+ }
+}
+fields.type.addEventListener('change',updateForm);
+fields.title.addEventListener('change',()=>{const match=options.find(r=>r.title===fields.title.value);if(match) fields.unit.value=match.unit;});
+form.addEventListener('submit',event=>{
+ event.preventDefault();
+ const entry=Object.fromEntries(new FormData(form));
+ const lab=entry.type==='Измерване';
+ const record={id:crypto.randomUUID?.() || Date.now()+'-'+Math.random(),kind:lab?'lab':'event',date:entry.date,title:entry.title.trim(),source:entry.source.trim(),note:entry.note.trim()};
+ if(lab){const raw=entry.value.trim().replace(',','.');record.value=raw?Number(raw):NaN;record.unit=entry.unit.trim();}
+ else record.category=entry.type;
+ if(!validate(record)){ $('journalStatus').textContent='Проверете датата, стойността, единицата и източника.';return;}
+ custom.push(record); form.reset(); updateForm(); save('Записът е добавен в досието.');
+});
+$('exportRecords').onclick=()=>{
+ const a=document.createElement('a');
+ const url=URL.createObjectURL(new Blob([JSON.stringify({version:1,records:custom},null,2)],{type:'application/json'}));
+ a.href=url;a.download='svilen-zapisi.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+};
+$('importRecords').onchange=async event=>{
+ const input=event.target,file=input.files[0];if(!file)return;
+ try{
+   const data=JSON.parse(await file.text());
+   if(data.version!==1||!Array.isArray(data.records)||!data.records.every(validate))throw Error();
+   const ids=new Map(custom.map(r=>[r.id,r]));
+   for(const row of data.records){
+     const previous=ids.get(row.id);
+     if(previous && Object.keys(row).some(k=>row[k]!==previous[k]))throw Error();
+     ids.set(row.id,row);
+   }
+   const added=ids.size-custom.length; custom=[...ids.values()];save('Добавени записи от архива: '+added+'.');
+ }catch{$('journalStatus').textContent='Архивът е невалиден или съдържа конфликтни записи.';}
+ input.value='';
+};
+try{const raw=localStorage.getItem(storageKey);if(raw){const saved=JSON.parse(raw);if(!Array.isArray(saved)||!saved.every(validate))throw Error();custom=saved;}}
+catch{$('journalStatus').textContent='Локалният архив не може да бъде прочетен. За прехвърляне използвайте JSON.';}
+$('november').onclick=()=>{$('from').value='2026-11-20';$('to').value='2026-11-24';$('metric').value=key(initialLabs[0]);$('chartDetail').open=true;renderChart();$('chartDetail').scrollIntoView();};
+updateForm();refresh();
+
+</script>
+</body>
+</html>
